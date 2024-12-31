@@ -1,5 +1,5 @@
 #!/bin/bash
-1
+
 source /home/soders/.env
 
 # Change workflow
