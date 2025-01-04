@@ -3,8 +3,8 @@
 SET hour=%time:~0,2%
 
 SET purple=True
-IF %hour% leq 8 SET purple=False
-IF %hour% geq 14 SET purple=False
+IF %hour% leq 9 SET purple=False
+IF %hour% geq 15 SET purple=False
 
 IF "%purple%"=="True" (
 XCOPY /E /y "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\profile\patches\foo_ui_columns_purple.dll.cfg*" "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\profile\configuration\foo_ui_columns.dll.cfg*"

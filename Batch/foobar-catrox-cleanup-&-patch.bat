@@ -1,5 +1,7 @@
 @echo off
 
+XCOPY /y /s /e "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\" "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition) - Backup\"
+
 XCOPY /y /q /s "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\profile\playlists-v2.0\" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 CaTRoX (QWR Edition)\profile\playlists-v2.0\"
 XCOPY /y /q /s "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\profile\library-v2.0\" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 CaTRoX (QWR Edition)\profile\library-v2.0\"
 XCOPY /y /q "C:\Users\Soders\Programs\Foobar2000 CaTRoX (QWR Edition)\profile\radio.sqlite*" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 CaTRoX (QWR Edition)\profile\radio.sqlite*"
