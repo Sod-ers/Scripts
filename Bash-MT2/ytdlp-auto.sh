@@ -27,6 +27,7 @@ source "/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt"
 # /home/soders/.local/bin/ytdlp-playlist-1080p $watch_later_playlist
 sleep 1
 /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-2days
+/home/soders/Scripts/delete-empty-media-directories-mt2.sh
 /home/soders/Scripts/completion-chime.sh
 sleep 1
 else

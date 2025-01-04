@@ -39,7 +39,7 @@ echo "⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀�
 echo -e "${NC} "
 printf "\033]0;%s\a" "SPOTDL@MT1"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("First Listen" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Combine URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete Listened Music" "Quit")
+options=("First Listen" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Merge URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete Listened Music" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -103,9 +103,9 @@ done
             ;;
         "spotDL Playlist")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             pip install --upgrade spotdl
             cd /home/soders/Music/Playlists/
+            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download $link --m3u "{list} - Windows"
             cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download $link --m3u "{list} - Linux"
@@ -116,9 +116,9 @@ done
             break
             ;;
         "spotDL Favorite Playlists")
-            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             pip install --upgrade spotdl
             cd /home/soders/Music/Playlists/
+            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download $spotify_playlists --m3u "{list} - Windows"
             cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download $spotify_playlists --m3u "{list} - Linux"
@@ -145,9 +145,9 @@ done
             break
             ;;
         "spotDL User Playlists")
-            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             pip install --upgrade spotdl
             cd /home/soders/Music/Playlists/
+            cp /home/soders/Configs/spotDL/Windows-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download all-user-playlists --user-auth --m3u "{list} - Windows"
             cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
             /home/soders/.local/bin/spotdl-app download all-user-playlists --user-auth --m3u "{list} - Linux"
@@ -157,7 +157,7 @@ done
             sleep 1
             break
             ;;
-        "spotDL Combine URLs")
+        "spotDL Merge URLs")
             export PS3=$'\033[0;32mSelect an option: \e[0m'
             options=("Song" "Album" "Go Back")
             select opt in "${options[@]}"

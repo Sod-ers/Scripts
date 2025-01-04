@@ -77,6 +77,7 @@ do
             /home/soders/.local/bin/ytdlp-videos-1080p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-videos-1080p $link
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -85,6 +86,7 @@ do
             /home/soders/.local/bin/ytdlp-videos-480p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-videos-480p $link
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -113,13 +115,15 @@ done
             "Watch Later")
             /home/soders/.local/bin/ytdlp-playlist-1080p -U
             /home/soders/.local/bin/ytdlp-playlist-1080p $primary_playlist --playlist-random --max-downloads 10
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
             ;;
-            "Secondary Playlist")
+            "Binge Playlist")
             /home/soders/.local/bin/ytdlp-playlist-1080p -U
             /home/soders/.local/bin/ytdlp-playlist-1080p $secondary_playlist --playlist-random --max-downloads 10
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -142,13 +146,15 @@ done
             "Watch Later")
             /home/soders/.local/bin/ytdlp-playlist-480p -U
             /home/soders/.local/bin/ytdlp-playlist-480p $primary_playlist --playlist-random --max-downloads 10
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
             ;;
-            "Secondary Playlist")
+            "Binge Playlist")
             /home/soders/.local/bin/ytdlp-playlist-480p -U
             /home/soders/.local/bin/ytdlp-playlist-480p $secondary_playlist --playlist-random --max-downloads 10
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -186,6 +192,7 @@ done
             "Primary Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-1080p -U
             /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -193,6 +200,7 @@ done
             "Secondary Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-1080p -U
             /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -200,6 +208,7 @@ done
             "Music Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-1080p -U
             /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -222,6 +231,7 @@ done
             "Primary Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-480p -U
             /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -229,6 +239,7 @@ done
             "Secondary Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-480p -U
             /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -236,6 +247,7 @@ done
             "Music Subscriptions")
             /home/soders/.local/bin/ytdlp-videos-480p -U
             /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -268,6 +280,7 @@ done
             /home/soders/.local/bin/ytdlp-twitch-videos-1080p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-twitch-videos-1080p --match-filter "!is_live" $link
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -276,6 +289,7 @@ done
             /home/soders/.local/bin/ytdlp-twitch-videos-480p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-twitch-videos-480p --match-filter "!is_live" $link
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -298,6 +312,7 @@ done
             "1080p")
             /home/soders/.local/bin/ytdlp-twitch-following-1080p -U
             /home/soders/.local/bin/ytdlp-twitch-following-1080p --match-filter "!is_live" $twitch_following --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -305,6 +320,7 @@ done
             "480p")
             /home/soders/.local/bin/ytdlp-twitch-following-480p -U
             /home/soders/.local/bin/ytdlp-twitch-following-480p --match-filter "!is_live" $twitch_following --playlist-end 1 --lazy-playlist --dateafter now-3days
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -327,6 +343,7 @@ done
             "1080p")
             /home/soders/.local/bin/ytdlp-twitch-following-1080p -U
             /home/soders/.local/bin/ytdlp-twitch-following-1080p --match-filter "!is_live" $twitch_bedtime --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break
@@ -334,6 +351,7 @@ done
             "480p")
             /home/soders/.local/bin/ytdlp-twitch-following-480p -U
             /home/soders/.local/bin/ytdlp-twitch-following-480p --match-filter "!is_live" $twitch_bedtime --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
             /home/soders/Scripts/completion-chime.sh
             sleep 1
             break

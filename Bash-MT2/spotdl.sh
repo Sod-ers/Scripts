@@ -46,7 +46,7 @@ echo "⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀�
 echo -e "${NC} "
 printf "\033]0;%s\a" "SPOTDL@MT2"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("First Listen" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Combine URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete All Music" "Quit")
+options=("First Listen" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Merge URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete All Music" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -149,7 +149,7 @@ done
             sleep 1
             break
             ;;
-        "spotDL Combine URLs")
+        "spotDL Merge URLs")
             export PS3=$'\033[0;32mSelect an option: \e[0m'
             options=("Song" "Album" "Go Back")
             select opt in "${options[@]}"

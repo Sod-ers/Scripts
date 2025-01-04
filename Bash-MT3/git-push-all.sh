@@ -1,6 +1,14 @@
 #!/bin/bash
 
-cp -r /home/soders/Scripts/. /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT3/
+source /home/soders/.env
+
+sshpass -p $SSH_PASSWORD scp -r $MT1:/home/soders/Scripts/git-remove-private.sh /home/soders/Scripts/git-remove-private.sh
+chmod +x /home/soders/Scripts/git-remove-private.sh
+
+sshpass -p $SSH_PASSWORD scp -r $MT2:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT2/
+sshpass -p $SSH_PASSWORD scp -r $MT1:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT1/
+
+cp -r /home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT3/
 
 /home/soders/Scripts/git-remove-private.sh
 
@@ -13,7 +21,6 @@ cd /home/soders/Nextcloud/GitHub/Homepage/Homepage/
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
-
 
 cd /home/soders/Nextcloud/GitHub/Programs/Programs/
 git add .
