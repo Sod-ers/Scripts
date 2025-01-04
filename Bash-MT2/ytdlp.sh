@@ -108,7 +108,7 @@ done
             case $opt in
             "1080p")
             export PS3=$'\033[0;31mSelect an option: \e[0m'
-            options=("Watch Later" "Secondary Playlist" "Go Back")
+            options=("Watch Later" "Binge Playlist" "Go Back")
             select opt in "${options[@]}"
             do
             case $opt in
@@ -139,7 +139,7 @@ done
             ;;
             "480p")
             export PS3=$'\033[0;31mSelect an option: \e[0m'
-            options=("Watch Later" "Secondary Playlist" "Go Back")
+            options=("Watch Later" "Binge Playlist" "Go Back")
             select opt in "${options[@]}"
             do
             case $opt in
