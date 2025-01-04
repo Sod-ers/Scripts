@@ -1,7 +1,5 @@
 @echo off
 
-XCOPY /y /s /e "C:\Users\Soders\Programs\Foobar2000 Radio Tuner\" "C:\Users\Soders\Programs\Foobar2000 Radio Tuner - Backup\"
-
 XCOPY /y /q /s "C:\Users\Soders\Programs\Foobar2000 Radio Tuner\profile\playlists-v2.0\" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 Radio Tuner\profile\playlists-v2.0\"
 XCOPY /y /q /s "C:\Users\Soders\Programs\Foobar2000 Radio Tuner\profile\library-v2.0\" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 Radio Tuner\profile\library-v2.0\"
 XCOPY /y /q "C:\Users\Soders\Programs\Foobar2000 Radio Tuner\profile\radio.sqlite*" "C:\Users\Soders\Programs\Foobar2000 Data\Foobar2000 Radio Tuner\profile\radio.sqlite*"

@@ -204,13 +204,12 @@ done
             find "/home/soders/Videos/YouTube/" \( -name '*.mkv' \)
             find "/home/soders/Videos/YouTube/" \( -name '*.webm' \)
             echo -e '\033[0;31mPress any key to delete the files.\e[0m'
-            # Loop until a key is pressed
             while true; do
-            read -rsn1 key  # Read a single character silently
+            read -rsn1 key
             if [[ -n "$key" ]]; then
             rm -rf /home/soders/Videos/YouTube/*
             echo -e '\033[0;32mFiles deleted.\e[0m'
-            break  # Exit the loop if a key is pressed
+            break
             fi
             done
             /home/soders/.local/bin/ytdlp
@@ -221,13 +220,12 @@ done
             find "/home/soders/Videos/VODs/" \( -name '*.mkv' \)
             find "/home/soders/Videos/VODs/" \( -name '*.webm' \)
             echo -e '\033[0;31mPress any key to delete the files.\e[0m'
-            # Loop until a key is pressed
             while true; do
-            read -rsn1 key  # Read a single character silently
+            read -rsn1 key
             if [[ -n "$key" ]]; then
             rm -rf /home/soders/Videos/VODs/*
             echo -e '\033[0;32mFiles deleted.\e[0m'
-            break  # Exit the loop if a key is pressed
+            break
             fi
             done
             /home/soders/.local/bin/ytdlp
