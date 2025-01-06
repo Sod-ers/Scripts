@@ -51,3 +51,5 @@ cd /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
+
+notify-send -i /home/soders/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
