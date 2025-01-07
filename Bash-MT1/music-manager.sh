@@ -144,6 +144,7 @@ do
             rsync -r --ignore-existing --progress /home/soders/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
             rsync -r --ignore-existing --progress /home/soders/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
             rsync -r --ignore-existing --progress /home/soders/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
+            rsync -r --ignore-existing --progress /home/soders/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
             sudo umount /media/soders/2TBNTFS/
             echo "Unmounted 2TBNTFS."
             echo -e "${Green}Files Updated."

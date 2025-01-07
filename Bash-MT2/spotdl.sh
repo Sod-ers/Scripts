@@ -27,6 +27,7 @@ du -sh "/home/soders/Jellyfin Server Media/Albums"
 du -sh "/home/soders/Jellyfin Server Media/Spotify"
 du -sh "/home/soders/Jellyfin Server Media/Soundcloud"
 du -sh "/home/soders/Jellyfin Server Media/YouTube-Music"
+du -sh "/home/soders/Jellyfin Server Media/Radio"
 du -sh "/home/soders/Jellyfin Server Media/First-Listen"
 
 echo -e "${GREEN} "
@@ -46,7 +47,7 @@ echo "⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀�
 echo -e "${NC} "
 printf "\033]0;%s\a" "SPOTDL@MT2"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("First Listen" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Merge URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete All Music" "Quit")
+options=("First Listen" "Radio" "spotDL Song" "spotDL Album" "spotDL Playlist" "spotDL Favorite Playlists" "spotDL Liked Songs" "spotDL Saved Albums" "spotDL User Playlists" "spotDL Merge URLs" "YouTube Song" "YouTube Album" "YouTube Playlist" "Soundcloud Song" "Soundcloud Album" "Soundcloud Playlist" "Toggle Automation" "Delete All Music" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -88,6 +89,14 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+            break
+            ;;
+        "Radio")
+            read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
+            /home/soders/.local/bin/ytdlp-radio -U
+            /home/soders/.local/bin/ytdlp-radio $link
+            /home/soders/Scripts/completion-chime.sh
+            sleep 1
             break
             ;;
         "spotDL Song")
@@ -187,7 +196,7 @@ done
             break
             ;;
         "YouTube Song")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-song -U
             /home/soders/.local/bin/ytdlp-song $link
             /home/soders/Scripts/completion-chime.sh
@@ -195,7 +204,7 @@ done
             break
             ;;
         "YouTube Album")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-album -U
             /home/soders/.local/bin/ytdlp-album $link
             find /home/soders/Music/Albums/ -mindepth 1 -type d |
@@ -210,7 +219,7 @@ done
             break
             ;;
         "YouTube Playlist")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-music-playlist -U
             /home/soders/.local/bin/ytdlp-music-playlist $link
             /home/soders/Scripts/completion-chime.sh
@@ -225,7 +234,7 @@ done
             break
             ;;
         "Soundcloud Song")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-soundcloud-song -U
             /home/soders/.local/bin/ytdlp-soundcloud-song $link
             /home/soders/Scripts/completion-chime.sh
@@ -233,7 +242,7 @@ done
             break
             ;;
         "Soundcloud Album")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-soundcloud-album -U
             /home/soders/.local/bin/ytdlp-soundcloud-album $link
             find /home/soders/Music/Albums/ -mindepth 1 -type d |
@@ -248,7 +257,7 @@ done
             break
             ;;
         "Soundcloud Playlist")
-            read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
+            read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
             /home/soders/.local/bin/ytdlp-soundcloud-playlist -U
             /home/soders/.local/bin/ytdlp-soundcloud-playlist $link
             /home/soders/Scripts/completion-chime.sh
@@ -312,6 +321,7 @@ done
             rm -rf /home/soders/Music/Soundcloud/*
             rm -rf /home/soders/Music/Spotify/*
             rm -rf /home/soders/Music/YouTube-Music/*
+            rm -rf /home/soders/Music/Radio/*
             echo -e '\033[0;32mFiles deleted.\e[0m'
             break
             fi

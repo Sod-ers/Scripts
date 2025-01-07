@@ -7,10 +7,13 @@ IFS="," read -a sinksArray <<< "$sinkList"
 # Is our simultaneous sink available? → Use for loop with indexes to handle spaces in names
 for ((i = 0; i < ${#sinksArray[@]}; i++)); do
   sink="${sinksArray[$i]}"
-  # echo "sink found: $sink"
+  echo "sink found: $sink"
 
-  # Search for this output device's name
+  # Search for output devices name
   [[ "$sink" =~ "Simultaneous output to Built-in Audio Analog Stereo" ]] && simultaneous=$(echo $sink | cut -d':' -f1)
+  [[ "$sink" =~ "Simultaneous output to GP106 High Definition Audio Controller Digital Stereo (HDMI)" ]] && simultaneous=$(echo $sink | cut -d':' -f1)
+  [[ "$sink" =~ "Simultaneous output to TU104 HD Audio Controller Digital Stereo (HDMI)" ]] && simultaneous=$(echo $sink | cut -d':' -f1)
+  [[ "$sink" =~ "Simultaneous output to Airpods" ]] && simultaneous=$(echo $sink | cut -d':' -f1)
 done
 
 if [[ $simultaneous ]]; then
@@ -22,7 +25,7 @@ if [[ $simultaneous ]]; then
   for soundSource in $musicSourcesList; do
     binary=$(echo $soundSource | cut -d':' -f2);
     index=$(echo $soundSource | cut -d':' -f1);
-    # echo "index: $index, binary: $binary";
+    echo "index: $index, binary: $binary";
 
     # Add programs here
     if [[ "$binary" == "gmod" ]]; then
