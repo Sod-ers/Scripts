@@ -17,7 +17,7 @@ cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/ui/BaseChat.r
 cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/ui/TextWindow.res /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/resource/ui/TextWindow.res
 cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/fonts/csdbig.ttf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/resource/fonts/
 
-rm /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
+rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 
 echo -e "${Green}Patched"
