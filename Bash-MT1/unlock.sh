@@ -2,6 +2,8 @@
 
 source /home/soders/.env
 
+sshpass -p $SSH_PASSWORD ssh $MT2 "echo 0 > /tmp/lock-status-mt2.txt"
+
 /home/soders/Scripts/shift-decider-xscreensaver.sh
 
 # Laptops

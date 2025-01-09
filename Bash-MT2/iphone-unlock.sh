@@ -2,6 +2,8 @@
 
 source /home/soders/.env
 
+echo "0" > /tmp/lock-status-mt2.txt
+
 sshpass -p $SSH_PASSWORD ssh $MT1 pkill xscreensaver > /dev/null 2>&1&
 sshpass -p $SSH_PASSWORD ssh $PM pkill xscreensaver > /dev/null 2>&1&
 

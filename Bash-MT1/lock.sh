@@ -2,6 +2,8 @@
 
 source /home/soders/.env
 
+sshpass -p $SSH_PASSWORD ssh $MT2 "echo 1 > /tmp/lock-status-mt2.txt"
+
 # XScreensaver PC
 xscreensaver-command -activate
 
