@@ -2,6 +2,15 @@
 
 source /home/soders/.env
 
+mkdir /tmp/System-Stats-MT2/
+
+touch /tmp/System-Stats-MT2/uptime.txt
+touch /tmp/System-Stats-MT2/memory.txt
+touch /tmp/System-Stats-MT2/cpu.txt
+touch /tmp/System-Stats-MT2/cpu-detailed.txt
+touch /tmp/System-Stats-MT2/cpu-disks.txt
+
+
 uptime -p > /tmp/uptime-mt2.txt
 sed 's/\bup\b//g' /tmp/uptime-mt2.txt > /tmp/System-Stats-MT2/uptime.txt
 

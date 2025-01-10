@@ -4,6 +4,7 @@ source /home/soders/.env
 
 /home/soders/Scripts/iphone-unlock.sh
 sleep 1
+echo "1" > /tmp/lock-status-mt2.txt
 sshpass -p $SSH_PASSWORD ssh $MT1 /home/soders/Scripts/default-workflow.sh > /dev/null 2>&1&
 sshpass -p $SSH_PASSWORD ssh $PM /home/soders/Scripts/default-workflow.sh > /dev/null 2>&1&
 sleep 4
