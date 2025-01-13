@@ -46,7 +46,7 @@ splits=$(< /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/ga
 time_left_seconds=$(< /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/data/bb_servers/surf/surf_votemap_timeleft.txt)
 current_map=$(< /tmp/bb-current-map.txt)
 
-date -d@$time_left_seconds -u +%M⠀Minutes,⠀%S⠀Seconds|sed 's/^0*//' > /tmp/bb-time-left.txt
+date -d@$time_left_seconds -u +%M⠀minutes,⠀%S⠀seconds > /tmp/bb-time-left.txt
 bb_time_left=$(< /tmp/bb-time-left.txt)
 
 echo "$splits"
