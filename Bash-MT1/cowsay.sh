@@ -9,7 +9,7 @@ source /home/soders/.env
 
 mkdir /tmp/cowsay/ > /dev/null 2>&1&
 
-echo -n "Enter the message to cowsay:"
+echo -n "Enter the message to cowsay: "
 read input
 echo $input > /tmp/cowsay/cowsaid.txt
 
