@@ -27,9 +27,8 @@ do
     case $opt in
         "Copy Music Files for Compression")
             rsync -r --progress /mnt/7TBEXT4/Music/Songs/ /mnt/7TBEXT4/Music/Compressed-Songs
-            rsync -r --progress /mnt/7TBEXT4/Music/Albums/ /mnt/7TBEXT4/Music/Compressed-Albums
+            # rsync -r --progress /mnt/7TBEXT4/Music/Albums/ /mnt/7TBEXT4/Music/Compressed-Albums
             echo -e "${Green}Ready to compress."
-            done
             /home/soders/Scripts/music-manager.sh
             break
             ;;
@@ -63,10 +62,8 @@ do
             break
             ;;
             "Copy Music Files to Windows")
-            echo "Authorize mounting 2TBNTFS.."
-            sudo mount /dev/sdf2 /media/soders/2TBNTFS/
-            sudo mount /dev/sde2 /media/soders/2TBNTFS/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
+            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
             rsync -r --ignore-existing --progress /home/soders/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
             rsync -r --ignore-existing --progress /home/soders/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
@@ -74,8 +71,6 @@ do
             rsync -r --ignore-existing --progress /home/soders/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
             rsync -r --ignore-existing --progress /home/soders/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
             rsync -r --ignore-existing --progress /home/soders/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
-            sudo umount /media/soders/2TBNTFS/
-            echo "Unmounted 2TBNTFS."
             echo -e "${Green}Files Updated."
             sleep 3
             break

@@ -20,5 +20,5 @@ cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/fonts/csdbig.
 rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 
-echo -e "${Green}Patched"
+echo -e "${GREEN}Patched${NC}"
 sleep 3
