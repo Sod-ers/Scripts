@@ -65,6 +65,7 @@ do
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
+            rsync -r --ignore-existing --progress /home/soders/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
             rsync -r --ignore-existing --progress /home/soders/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
             rsync -r --ignore-existing --progress /home/soders/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
             rsync -r --ignore-existing --progress /home/soders/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
