@@ -2,10 +2,11 @@
 ```table-of-contents
 ```
 ### Variables:
-| Description:     | Variable:                      |
-| ---------------- | ------------------------------ |
-| Run as user.     | XDG_RUNTIME_DIR=/run/user/1000 |
-| Disable mailing. | MAILTO=""                      |
+| Description:                      | Variable:                                |
+| --------------------------------- | ---------------------------------------- |
+| Run as user.                      | XDG_RUNTIME_DIR=/run/user/1000           |
+| Disable mailing.                  | MAILTO=""                                |
+| Gives system access to directory. | PATH=/bin:/usr/bin:/home/soders/example/ |
 ### Jobs:
 | Description:                                               | Job:                                            |
 | ---------------------------------------------------------- | ----------------------------------------------- |
