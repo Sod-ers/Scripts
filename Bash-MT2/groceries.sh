@@ -40,7 +40,7 @@ DaySuffix() {
     esac
 }
 date "+%-d`DaySuffix`" > /tmp/todays-date-suffix-groceries.txt
-todays_date=$(cat /tmp/todays-date.txt)
+todays_date=$(cat /tmp/todays-date-suffix-groceries.txt)
 date "+%A, %B $todays_date, %Y" >> /dev/usb/lp0
 date "+%A, %B $todays_date, %Y" >> /dev/usb/lp1
 date "+%A, %B $todays_date, %Y" >> /dev/usb/lp2
