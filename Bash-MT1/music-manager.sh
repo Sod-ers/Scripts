@@ -72,6 +72,7 @@ do
             rsync -r --ignore-existing --progress /home/soders/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
             rsync -r --ignore-existing --progress /home/soders/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
             rsync -r --ignore-existing --progress /home/soders/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
+            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/First-Listen/ /media/soders/2TBNTFS/Music/First-Listen/
             echo -e "${Green}Files Updated."
             sleep 3
             break
