@@ -25,6 +25,8 @@ cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/tier.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/tier.cfg
 cp /home/soders/Configs/GMod/BB/bb-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-autoexec.cfg
 cp /home/soders/Configs/GMod/STELLAR/stellar-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/volume.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/volume.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/mute.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/mute.cfg
 # OPEN-FORTRESS
 cp /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/volume.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/Open-Fortress/volume.cfg
 cp /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/autoexec.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/Open-Fortress/autoexec.cfg
