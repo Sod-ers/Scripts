@@ -2,6 +2,7 @@
 
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\aliases.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-aliases.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-autoexec.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\vv-autoexec.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-chat.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-chat.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-controls.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-controls.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-unbound.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-unbound.cfg*"
@@ -11,7 +12,7 @@ XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\stellar-chat.cfg" "C:\Program Files (x
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\stellar-controls.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\stellar-controls.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\stellar-unbound.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\stellar-unbound.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\tier.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\tier.cfg*"
-XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\windows-settings.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\windows-settings.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\settings.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\settings.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\volume.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\volume.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\mute.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\mute.cfg*"
 
