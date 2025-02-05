@@ -16,8 +16,8 @@ cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-chat.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-controls.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-controls.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-unbound.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-unbound.cfg
-cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/linux-settings.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/linux-settings.cfg
-cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/windows-settings.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/windows-settings.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/settings.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/settings.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/sensitivity.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/sensitivity.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-aliases.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-aliases.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-chat.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-controls.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-controls.cfg
