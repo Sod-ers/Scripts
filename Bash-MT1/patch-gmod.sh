@@ -24,14 +24,14 @@ cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/ui/TextWindow
 cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/fonts/csdbig.ttf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/resource/fonts/
 rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
-cp /home/soders/Configs/GMod/BB/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
             ;;
         "CEF Only")
 /home/soders/.local/bin/GModCEFCodecFix-Linux
-cp /home/soders/Configs/GMod/BB/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
@@ -48,7 +48,7 @@ cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/ui/TextWindow
 cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/fonts/csdbig.ttf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/resource/fonts/
 rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
-cp /home/soders/Configs/GMod/BB/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
@@ -65,7 +65,7 @@ cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/ui/TextWindow
 cp /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/resource/fonts/csdbig.ttf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/resource/fonts/
 rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod-Dark-Theme/GarrysMod/garrysmod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
-cp /home/soders/Configs/GMod/BB/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-autoexec.cfg /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/autoexec.cfg
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
