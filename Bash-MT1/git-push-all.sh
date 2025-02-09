@@ -110,6 +110,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
