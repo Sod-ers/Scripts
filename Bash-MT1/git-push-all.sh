@@ -31,7 +31,7 @@ cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-bhop-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-bhop-autoexec.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-easy-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-easy-autoexec.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/stellar-public-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-public-autoexec.cfg
-cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-climb-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/stellar-public-autoexec.cfg
+cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-climb-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-climb-autoexec.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-easy-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-easy-autoexec.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-hard-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-hard-autoexec.cfg
 cp /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/chat.cfg
