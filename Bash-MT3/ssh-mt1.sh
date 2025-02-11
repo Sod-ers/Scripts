@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh -t $MT1 & sshpass -p $SSH_PASSWORD ssh -t $PM
+ssh -t $MT1 & ssh -t $PM

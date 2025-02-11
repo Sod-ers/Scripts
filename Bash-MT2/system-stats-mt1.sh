@@ -1,13 +1,13 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-uptime=$(cat /home/soders/Programs/System-Stats-MT1/uptime.txt)
-cpu=$(cat /home/soders/Programs/System-Stats-MT1/cpu.txt)
-mem=$(cat /home/soders/Programs/System-Stats-MT1/memory.txt)
-gpu=$(cat /home/soders/Programs/System-Stats-MT1/gpu.txt)
-disks=$(cat /home/soders/Programs/System-Stats-MT1/disks.txt)
-cpu_detailed=$(cat /home/soders/Programs/System-Stats-MT1/cpu-detailed.txt)
+uptime=$(cat /tmp/System-Stats-MT1/uptime.txt)
+cpu=$(cat /tmp/System-Stats-MT1/cpu.txt)
+mem=$(cat /tmp/System-Stats-MT1/memory.txt)
+gpu=$(cat /tmp/System-Stats-MT1/gpu.txt)
+disks=$(cat /tmp/System-Stats-MT1/disks.txt)
+cpu_detailed=$(cat /tmp/System-Stats-MT1/cpu-detailed.txt)
 
 echo "MT1 System Report:" >> /dev/usb/lp0; echo "MT1 System Report:" >> /dev/usb/lp1; echo "MT1 System Report:" >> /dev/usb/lp2
 date "+%I:%M:%S %p  %D" >> /dev/usb/lp0; date "+%I:%M:%S %p  %D" >> /dev/usb/lp1; date "+%I:%M:%S %p  %D" >> /dev/usb/lp2
@@ -33,6 +33,6 @@ $cpu_detailed" >> /dev/usb/lp0; echo "Detailed CPU Usage:
 $cpu_detailed" >> /dev/usb/lp1; echo "Detailed CPU Usage:
 $cpu_detailed" >> /dev/usb/lp2
 
-lpr -o fit-to-page -o media=Custom.70x25mm -P EPSON_TM-T20II /home/soders/Pictures/print.jpg
+lpr -o fit-to-page -o media=Custom.70x25mm -P EPSON_TM-T20II ~/Pictures/print.jpg
 sleep 30
 lprm

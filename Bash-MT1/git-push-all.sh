@@ -68,6 +68,7 @@ cp "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/
 
 cd /home/soders/Nextcloud/GitHub/Bookmarks/Bookmarks/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -75,6 +76,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/Homepage/Homepage/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -82,6 +84,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/Programs/Programs/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -89,6 +92,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/Scripts/Scripts/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -96,6 +100,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/Configs/Configs/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -103,6 +108,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/Misc/Misc/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
@@ -118,6 +124,7 @@ git push origin main
 
 cd /home/soders/Nextcloud/GitHub/BB-Tracker/BB-Tracker/
 git checkout main
+git pull
 git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"

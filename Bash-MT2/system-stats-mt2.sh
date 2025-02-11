@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
 mkdir /tmp/System-Stats-MT2/
 
@@ -8,8 +8,7 @@ touch /tmp/System-Stats-MT2/uptime.txt
 touch /tmp/System-Stats-MT2/memory.txt
 touch /tmp/System-Stats-MT2/cpu.txt
 touch /tmp/System-Stats-MT2/cpu-detailed.txt
-touch /tmp/System-Stats-MT2/cpu-disks.txt
-
+touch /tmp/System-Stats-MT2/disks.txt
 
 uptime -p > /tmp/uptime-mt2.txt
 sed 's/\bup\b//g' /tmp/uptime-mt2.txt > /tmp/System-Stats-MT2/uptime.txt
@@ -50,6 +49,6 @@ $cpu_detailed" >> /dev/usb/lp0; echo "Detailed CPU Usage:
 $cpu_detailed" >> /dev/usb/lp1; echo "Detailed CPU Usage:
 $cpu_detailed" >> /dev/usb/lp2
 
-lpr -o fit-to-page -o media=Custom.70x25mm -P EPSON_TM-T20II /home/soders/Pictures/print.jpg
+lpr -o fit-to-page -o media=Custom.70x25mm -P EPSON_TM-T20II ~/Pictures/print.jpg
 sleep 30
 lprm

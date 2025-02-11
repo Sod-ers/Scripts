@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp /home/soders/Configs/spotDL/First-Listen/config.json /home/soders/.spotdl/config.json
-/home/soders/.local/bin/spotdl-app download all-user-saved-albums --user-auth
+cp ~/Configs/spotDL/First-Listen/config.json ~/.spotdl/config.json
+~/.local/bin/spotdl-app download all-user-saved-albums --user-auth

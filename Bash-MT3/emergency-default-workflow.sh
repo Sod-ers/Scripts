@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-/home/soders/Scripts/default-workflow.sh
-sshpass -p $SSH_PASSWORD ssh $MT1 /home/soders/Scripts/default-workflow-for-mt3.sh & sshpass -p $SSH_PASSWORD ssh $PM /home/soders/Scripts/default-workflow-for-mt3.sh
+~/Scripts/default-workflow.sh
+ssh $MT1 ~/Scripts/default-workflow-for-mt3.sh & ssh $PM ~/Scripts/default-workflow-for-mt3.sh
 
-sshpass -p $SSH_PASSWORD ssh $MT1 /home/soders/Scripts/lock.sh & sshpass -p $SSH_PASSWORD ssh $PM /home/soders/Scripts/lock.sh
+ssh $MT1 ~/Scripts/lock.sh & ssh $PM ~/Scripts/lock.sh
 
 xscreensaver-command -activate

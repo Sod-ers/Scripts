@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/home/soders/Programs/BB-Tracker/BB-Tracker-Silent.sh
+~/Programs/BB-Tracker/BB-Tracker-Silent.sh
 
 map=$(cat ~/BB-Tracker/Active-Maps.txt)
 time=$(cat ~/BB-Tracker/Time.txt)

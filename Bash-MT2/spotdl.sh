@@ -5,19 +5,19 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-source /home/soders/.env
+source ~/.env
 
-source /home/soders/Configs/spotDL/.env
-
-echo -e "${YELLOW}Attempting to synchronize playlists.."
-sshpass -p $SSH_PASSWORD scp $MT1:/home/soders/Configs/spotDL/.env /home/soders/Configs/spotDL/.env 2> /dev/null
+echo -e "${YELLOW}Attempting to synchronize playlists..${NC}"
+sshpass -p $SSH_PASSWORD scp $MT1:~/Configs/spotDL/.env ~/Configs/spotDL/.env 2> /dev/null
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Synchronized playlists."
+    echo -e "${GREEN}Synchronized playlists.${NC}"
 else
-    echo -e "${RED}Failed to synchronize playlists."
+    echo -e "${RED}Failed to synchronize playlists.${NC}"
 fi
 
-automation_status=$(</home/soders/Configs/spotDL/Automation-Status.txt)
+source ~/Configs/spotDL/.env
+
+automation_status=$(<~/Configs/spotDL/Automation-Status.txt)
 
 echo -e "${YELLOW}Storage available:${NC}"
 df -H / --output=source,avail
@@ -58,32 +58,29 @@ do
             do
             case $opt in
         "Spotify")
-            cp /home/soders/Configs/spotDL/First-Listen/config.json /home/soders/.spotdl/config.json
+            cp ~/Configs/spotDL/first-listen.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/spotdl download $link
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "YouTube")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-music-first -U
-            /home/soders/.local/bin/ytdlp-music-first $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/youtube-first-listen.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Soundcloud")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-soundcloud-first -U
-            /home/soders/.local/bin/ytdlp-soundcloud-first $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/soundcloud-first-listen.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -93,69 +90,61 @@ done
             ;;
         "Radio")
             read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-radio -U
-            /home/soders/.local/bin/ytdlp-radio $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/radio.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Song")
-            cp /home/soders/Configs/spotDL/Song/config.json /home/soders/.spotdl/config.json
+            cp ~/Configs/spotDL/song.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/spotdl download $link
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Album")
-            cp /home/soders/Configs/spotDL/Album/config.json /home/soders/.spotdl/config.json
+            cp ~/Configs/spotDL/album.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/spotdl download $link
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Playlist")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" link
-            cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            cp ~/Configs/spotDL/linux-playlists.json ~/.spotdl/config.json
+            ~/.local/bin/spotdl download $link
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Favorite Playlists")
-            cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download $spotify_playlists
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            cp ~/Configs/spotDL/linux-playlists.json ~/.spotdl/config.json
+            ~/.local/bin/spotdl download $spotify_playlists
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Liked Songs")
-            cp /home/soders/Configs/spotDL/Liked-Songs/config.json /home/soders/.spotdl/config.json
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download saved --user-auth
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
+            ~/.local/bin/spotdl download saved --user-auth
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Saved Albums")
-            cp /home/soders/Configs/spotDL/Saved-Albums/config.json /home/soders/.spotdl/config.json
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download all-user-saved-albums --user-auth
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            cp ~/Configs/spotDL/saved-albums/config.json ~/.spotdl/config.json
+            ~/.local/bin/spotdl download all-user-saved-albums --user-auth
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL User Playlists")
-            cp /home/soders/Configs/spotDL/Linux-Playlists/config.json /home/soders/.spotdl/config.json
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download all-user-playlists --user-auth
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            cp ~/Configs/spotDL/linux-playlists/config.json ~/.spotdl/config.json
+            ~/.local/bin/spotdl download all-user-playlists --user-auth
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "spotDL Merge URLs")
@@ -165,29 +154,25 @@ done
             do
             case $opt in
             "Song")
-            cp /home/soders/Configs/spotDL/Song/config.json /home/soders/.spotdl/config.json
+            cp ~/Configs/spotDL/Song/config.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_link
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_link
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download "$cloudtube_link|$spotify_link"
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
-            /home/soders/.local/bin/spotdl
+            ~/.local/bin/spotdl download "$cloudtube_link|$spotify_link"
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
             "Album")
-            cp /home/soders/Configs/spotDL/Album/config.json /home/soders/.spotdl/config.json
+            cp ~/Configs/spotDL/Album/config.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_link
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_link
-            pip install --upgrade spotdl
-            /home/soders/.local/bin/spotdl-app download "$cloudtube_link|$spotify_link"
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
-            /home/soders/.local/bin/spotdl
+            ~/.local/bin/spotdl download "$cloudtube_link|$spotify_link"
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -197,78 +182,70 @@ done
             ;;
         "YouTube Song")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-song -U
-            /home/soders/.local/bin/ytdlp-song $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/song.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "YouTube Album")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-album -U
-            /home/soders/.local/bin/ytdlp-album $link
-            find /home/soders/Music/Albums/ -mindepth 1 -type d |
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/album.conf
+            find ~/Music/Albums/ -mindepth 1 -type d |
             while read empty
             do
             find "$empty" -mindepth 1    -type d | read && continue
             find "$empty" -iname '*.flac' -type f | read && continue
             rm -r "$empty"
             done
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "YouTube Playlist")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-music-playlist -U
-            /home/soders/.local/bin/ytdlp-music-playlist $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/youtube-music-playlist.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "YouTube Favorite Playlists")
-            /home/soders/.local/bin/ytdlp-music-playlist -U
-            /home/soders/.local/bin/ytdlp-music-playlist $youtube_playlists
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $youtube_playlists --config-locations ~/Configs/YTDLP/youtube-music-playlist.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Soundcloud Song")
             read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-soundcloud-song -U
-            /home/soders/.local/bin/ytdlp-soundcloud-song $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/soundcloud-song.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Soundcloud Album")
             read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-soundcloud-album -U
-            /home/soders/.local/bin/ytdlp-soundcloud-album $link
-            find /home/soders/Music/Albums/ -mindepth 1 -type d |
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/soundcloud-album.conf
+            find ~/Music/Albums/ -mindepth 1 -type d |
             while read empty
             do
             find "$empty" -mindepth 1    -type d | read && continue
             find "$empty" -iname '*.flac' -type f | read && continue
             rm -r "$empty"
             done
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Soundcloud Playlist")
             read -p "$(echo -e ${YELLOW}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-soundcloud-playlist -U
-            /home/soders/.local/bin/ytdlp-soundcloud-playlist $link
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/soundcloud-playlist.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Soundcloud Favorite Playlists")
-            /home/soders/.local/bin/ytdlp-soundcloud-playlist -U
-            /home/soders/.local/bin/ytdlp-soundcloud-playlist $soundcloud_playlists
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $soundcloud_playlists --config-locations ~/Configs/YTDLP/soundcloud-playlist.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Toggle Automation")
@@ -280,23 +257,23 @@ done
             do
             case $opt in
             "Enable")
-            echo -e "${GREEN}Enabling automation.."
-            chmod +x "/home/soders/Scripts/spotdl-auto.sh"
-            echo "Enabled" > /home/soders/Configs/spotDL/Automation-Status.txt
+            echo -e "${GREEN}Enabling automation..${NC}"
+            chmod +x ~/Scripts/spotdl-auto.sh
+            echo "Enabled" > ~/Configs/spotDL/Automation-Status.txt
             sleep 1
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
             "Disable")
-            echo -e "${RED}Disabling automation.."
-            chmod -x "/home/soders/Scripts/spotdl-auto.sh"
-            echo "Disabled" > /home/soders/Configs/spotDL/Automation-Status.txt
+            echo -e "${RED}Disabling automation..${NC}"
+            chmod -x ~/Scripts/spotdl-auto.sh
+            echo "Disabled" > ~/Configs/spotDL/Automation-Status.txt
             sleep 1
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -311,22 +288,22 @@ done
             find "/home/soders/Jellyfin Server Media/Soundcloud" \( -name '*.flac' \)
             find "/home/soders/Jellyfin Server Media/Spotify" \( -name '*.flac' \)
             find "/home/soders/Jellyfin Server Media/YouTube-Music" \( -name '*.flac' \)
-            echo -e '\033[0;31mPress any key to delete the files.\e[0m'
+            echo -e "${RED}Press any key to delete the files.${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            rm -rf /home/soders/Music/Albums/*
-            rm -rf /home/soders/Music/First-Listen/*
-            rm -rf /home/soders/Music/Songs/*
-            rm -rf /home/soders/Music/Soundcloud/*
-            rm -rf /home/soders/Music/Spotify/*
-            rm -rf /home/soders/Music/YouTube-Music/*
-            rm -rf /home/soders/Music/Radio/*
-            echo -e '\033[0;32mFiles deleted.\e[0m'
+            rm -rf ~/Music/Albums/*
+            rm -rf ~/Music/First-Listen/*
+            rm -rf ~/Music/Songs/*
+            rm -rf ~/Music/Soundcloud/*
+            rm -rf ~/Music/Spotify/*
+            rm -rf ~/Music/YouTube-Music/*
+            rm -rf ~/Music/Radio/*
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/.local/bin/spotdl
+            ~/Scripts/spotdl.sh
             break
             ;;
         "Quit")

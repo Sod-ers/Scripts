@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-printf "\033]0;%s\a" "terminal title"
+printf "\033]0;%s\a" "Focus Modes"
 export PS3=$'\033[0;31mSelect an option: \e[0m'
 options=("Work" "Study" "Quit")
 select opt in "${options[@]}"

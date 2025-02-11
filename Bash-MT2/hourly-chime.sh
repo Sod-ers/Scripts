@@ -1,3 +1,3 @@
 #!/bin/bash
 
-play /home/soders/.local/share/sounds/hourly-chime.wav
+play ~/.local/share/sounds/MacOS/stereo/hourly-chime.wav

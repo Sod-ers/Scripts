@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh $PM /home/soders/Scripts/disable-tdarr-pm.sh
+ssh $PM ~/Scripts/disable-tdarr-pm.sh

@@ -17,7 +17,4 @@ xfconf-query  \
 # Screensavers:
 
 # Laptop
-cp "/home/soders/Configs/XScreenSaver/Default/.xscreensaver" "/home/soders/"
-
-# End programs:
-pkill vlc
+cp ~/Configs/XScreenSaver/Default/.xscreensaver ~

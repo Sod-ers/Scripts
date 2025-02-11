@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh $MT2 /home/soders/Scripts/print-today-in-history.sh
+ssh $MT2 ~/Scripts/print-today-in-history.sh

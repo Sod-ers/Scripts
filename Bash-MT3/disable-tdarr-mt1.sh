@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh $MT1 /home/soders/Scripts/disable-tdarr-mt1.sh
+ssh $MT1 ~/Scripts/disable-tdarr-mt1.sh

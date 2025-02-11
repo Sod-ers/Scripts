@@ -17,4 +17,4 @@ xfconf-query  \
 # Screensavers:
 
 # Laptop
-cp "/home/soders/Configs/XScreenSaver/Study/.xscreensaver" "/home/soders/"
+cp ~/Configs/XScreenSaver/Study/.xscreensaver ~

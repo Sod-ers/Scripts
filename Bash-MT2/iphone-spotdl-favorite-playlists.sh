@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD scp $MT1:/home/soders/Configs/spotDL/.env /home/soders/Configs/spotDL/.env 2> /dev/null
+scp $MT1:~/Configs/spotDL/.env ~/Configs/spotDL/.env 2> /dev/null
 
-source /home/soders/Configs/spotDL/.env
+source ~/Configs/spotDL/.env
 
-cp /home/soders/Configs/spotDL/Foobar-Playlists/config.json /home/soders/.spotdl/config.json
-/home/soders/.local/bin/spotdl-app download $spotify_playlists > /dev/null 2>&1&
+cp ~/Configs/spotDL/Foobar-Playlists/config.json ~/.spotdl/config.json
+~/.local/bin/spotdl-app download $spotify_playlists > /dev/null 2>&1&
