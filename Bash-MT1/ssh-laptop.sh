@@ -2,4 +2,4 @@
 
 source ~/.env
 
-ssh -t $MT3 && ssh -t $PM2
+ssh -t $MT3 & ssh -t $PM2
