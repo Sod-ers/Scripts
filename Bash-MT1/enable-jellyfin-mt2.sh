@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh $MT2 /home/soders/Scripts/enable-jellyfin-mt2.sh
+ssh $MT2 ~/Scripts/enable-jellyfin-mt2.sh

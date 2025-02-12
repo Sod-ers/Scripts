@@ -41,4 +41,4 @@ sed -i 's/Filesystem/Mint2:     /g' /tmp/System-Stats-MT1/disks.txt
 
 scp -r /tmp/System-Stats-MT1/ $MT2:/tmp/ 2> /dev/null
 
-ssh $MT2 /home/soders/Scripts/system-stats-mt1.sh
+ssh $MT2 ~/Scripts/system-stats-mt1.sh

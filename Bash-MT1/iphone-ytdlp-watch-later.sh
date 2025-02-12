@@ -1,19 +1,19 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD scp $MT2:/home/soders/Configs/YTDLP/watch-history.txt /home/soders/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
+scp $MT2:~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
 
-cat /home/soders/Configs/YTDLP/mt2-watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/mt2-watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-cat /home/soders/Configs/YTDLP/watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-awk '!seen[$0]++' /home/soders/Configs/YTDLP/watch-history-unsynced.txt > /home/soders/Configs/YTDLP/watch-history.txt
+awk '!seen[$0]++' ~/Configs/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
 
-echo " " > /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+echo " " > ~/Configs/YTDLP/watch-history-unsynced.txt
 
-sshpass -p $SSH_PASSWORD scp /home/soders/Configs/YTDLP/watch-history.txt $MT2:/home/soders/Configs/YTDLP/watch-history.txt 2> /dev/null
+scp ~/Configs/YTDLP/watch-history.txt $MT2:~/Configs/YTDLP/watch-history.txt 2> /dev/null
 
-source "/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt"
+source ~/Configs/YTDLP/Subscriptions-Playlists.txt
 
-/home/soders/.local/bin/ytdlp-playlists $primary_playlist --playlist-random --max-downloads 10 > /dev/null 2>&1&
+~/.local/bin/ytdlp $primary_playlist --config-locations ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10 > /dev/null 2>&1&

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD scp /home/soders/Nextcloud/Notes/Notes/Print.md $MT2:/home/soders/Documents/Notes/Print.md
-sshpass -p $SSH_PASSWORD ssh $MT2 /home/soders/Scripts/thermal-print.sh
+scp ~/Nextcloud/Notes/Notes/Print.md $MT2:~/Documents/Notes/Print.md
+ssh $MT2 ~/Scripts/thermal-print.sh

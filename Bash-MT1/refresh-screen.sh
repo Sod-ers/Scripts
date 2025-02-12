@@ -1,4 +1,3 @@
 #!/bin/bash
 
-sleep 0.25
-bash -c 'xset dpms force off'
+bash -c 'sleep 0.5 && xset dpms force off'

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=krita --file-forwarding org.kde.krita "/home/soders/Templates/Other/Drawing.kra"
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=krita --file-forwarding org.kde.krita ~/Templates/Other/Drawing.kra

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
 ###
 
 # Scripts
-sshpass -p $SSH_PASSWORD scp -r $MT2:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT2/
-sshpass -p $SSH_PASSWORD scp -r $MT3:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT3/
+scp -r $MT2:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT2/
+scp -r $MT3:/home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT3/
 cp -r /media/soders/2TBNTFS/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Batch/
 cp -r /home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT1/
 
@@ -64,9 +64,9 @@ cp "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/
 
 ###
 
-/home/soders/Scripts/git-remove-private.sh
+~/Scripts/git-remove-private.sh
 
-cd /home/soders/Nextcloud/GitHub/Bookmarks/Bookmarks/
+cd ~/Nextcloud/GitHub/Bookmarks/Bookmarks/
 git checkout main
 git pull
 git merge main
@@ -74,7 +74,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/Homepage/Homepage/
+cd ~/Nextcloud/GitHub/Homepage/Homepage/
 git checkout main
 git pull
 git merge main
@@ -82,7 +82,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/Programs/Programs/
+cd ~/Nextcloud/GitHub/Programs/Programs/
 git checkout main
 git pull
 git merge main
@@ -90,7 +90,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/Scripts/Scripts/
+cd ~/Nextcloud/GitHub/Scripts/Scripts/
 git checkout main
 git pull
 git merge main
@@ -98,7 +98,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/Configs/Configs/
+cd ~/Nextcloud/GitHub/Configs/Configs/
 git checkout main
 git pull
 git merge main
@@ -106,7 +106,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/Misc/Misc/
+cd ~/Nextcloud/GitHub/Misc/Misc/
 git checkout main
 git pull
 git merge main
@@ -114,7 +114,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
+cd ~/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
 git checkout main
 git pull
 git merge main
@@ -122,7 +122,7 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd /home/soders/Nextcloud/GitHub/BB-Tracker/BB-Tracker/
+cd ~/Nextcloud/GitHub/BB-Tracker/BB-Tracker/
 git checkout main
 git pull
 git merge main
@@ -130,4 +130,4 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-notify-send -i /home/soders/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
+notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."

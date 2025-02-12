@@ -1,8 +1,7 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
+source ~/Configs/spotDL/.env
 
-source /home/soders/Configs/spotDL/.env
-
-cp /home/soders/Configs/spotDL/Foobar-Playlists/config.json /home/soders/.spotdl/config.json
-/home/soders/.local/bin/spotdl-app download $spotify_playlists --m3u "{list} - Foobar" > /dev/null 2>&1&
+cp ~/Configs/spotDL/foobar-playlists.json ~/.spotdl/config.json
+~/.local/bin/spotdl-app download $spotify_playlists --m3u "{list} - Foobar" > /dev/null 2>&1&

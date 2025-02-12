@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
 # Wallpapers:
 
@@ -29,7 +29,7 @@ xfconf-query  \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
 # Laptop:
-ssh $MT3 /home/soders/Scripts/default-workflow.sh & ssh $PM2 /home/soders/Scripts/default-workflow.sh
+ssh $MT3 ~/Scripts/default-workflow.sh & ssh $PM2 ~/Scripts/default-workflow.sh
 
 # Screensavers:
-cp "/home/soders/Configs/XScreenSaver/Default/.xscreensaver" "/home/soders/"
+cp ~/Configs/XScreenSaver/Default/.xscreensaver ~/

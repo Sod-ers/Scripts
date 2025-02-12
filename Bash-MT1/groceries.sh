@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD scp /home/soders/Nextcloud/Notes/Notes/Groceries.md $MT2:/home/soders/Documents/Notes/Groceries.md
-sshpass -p $SSH_PASSWORD ssh $MT2 /home/soders/Scripts/groceries.sh
+scp ~/Nextcloud/Notes/Notes/Groceries.md $MT2:~/Documents/Notes/Groceries.md
+ssh $MT2 ~/Scripts/groceries.sh

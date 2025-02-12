@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh $MT2 /home/soders/Scripts/disable-bb-tracker.sh
+ssh $MT2 ~/Scripts/disable-bb-tracker.sh

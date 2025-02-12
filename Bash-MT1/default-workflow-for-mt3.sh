@@ -27,4 +27,4 @@ xfconf-query  \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
 # Screensavers:
-cp "/home/soders/Configs/XScreenSaver/Default/.xscreensaver" "/home/soders/"
+cp ~/Configs/XScreenSaver/Default/.xscreensaver ~/

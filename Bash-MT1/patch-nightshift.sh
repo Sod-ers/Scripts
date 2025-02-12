@@ -1,5 +1,6 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
@@ -12,16 +13,20 @@ do
     case $opt in
         "Set Summer")
 pkill redshift
-cp /home/soders/Configs/Redshift/.env-summer /home/soders/.env
-cp /home/soders/Configs/Redshift/Summer.conf /home/soders/.config/redshift.conf
-redshift -c /home/soders/.config/redshift.conf
+cp ~/Configs/Redshift/.env-summer ~/Configs/Redshift/.env
+cp ~/Configs/Redshift/Summer.conf ~/.config/redshift.conf
+redshift -c ~/.config/redshift.conf > /dev/null 2>&1&
+echo -e "${GREEN}Summer settings applied.${NC}"
+sleep 3
             break
             ;;
         "Set Winter")
 pkill redshift
-cp /home/soders/Configs/Redshift/.env-winter /home/soders/.env
-cp /home/soders/Configs/Redshift/Winter.conf /home/soders/.config/redshift.conf
-redshift -c /home/soders/.config/redshift.conf
+cp ~/Configs/Redshift/.env-winter ~/Configs/Redshift/.env
+cp ~/Configs/Redshift/Winter.conf ~/.config/redshift.conf
+redshift -c ~/.config/redshift.conf > /dev/null 2>&1&
+echo -e "${GREEN}Winter settings applied.${NC}"
+sleep 3
             break
             ;;
         "Quit")

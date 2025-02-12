@@ -1,10 +1,11 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
+source ~/Configs/Redshift/.env
 
 time=$(date +%k%M)
 if [[ "$time" -ge $NIGHTSHIFT_ENABLED_TIME || "$time" -le $NIGHTSHIFT_DISABLED_TIME ]];then
-/home/soders/Scripts/enable-night-shift-accessories.sh & exit
+~/Scripts/enable-night-shift-accessories.sh & exit
 else
-/home/soders/Scripts/disable-night-shift-accessories.sh & exit
+~/Scripts/disable-night-shift-accessories.sh & exit
 fi

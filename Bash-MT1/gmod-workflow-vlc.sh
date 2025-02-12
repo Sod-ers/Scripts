@@ -1,22 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
-
-# rfkill unblock bluetooth
-
-# nohup /home/soders/Programs/Virtual-Machine-Manager/Foobar2000/open-foobar2000.sh > /dev/null 2>&1&
-
-# sleep 1
-# unmaximize
-# window_ids=$(wmctrl -l | cut -f1 -d " ")
-# for window_id in $window_ids
-# do
-    # wmctrl -i -r "$window_id" -b remove,maximized_vert,maximized_horz
-# done
-
-# sleep 1
-# Move left
-# wmctrl -r ":ACTIVE:" -e 0,0,0,1920,1080
+source ~/Configs/Redshift/.env
 
 time=$(date +%k%M)
 if [[ "$time" -ge $NIGHTSHIFT_ENABLED_TIME || "$time" -le $NIGHTSHIFT_DISABLED_TIME ]];then
@@ -73,8 +57,8 @@ done
 
 sleep 1
 
-/usr/bin/vlc --started-from-file --playlist-enqueue /home/soders/Videos/Music/ > /dev/null 2>&1&
+/usr/bin/vlc --started-from-file --playlist-enqueue ~/Videos/Music/ > /dev/null 2>&1&
 
-/home/soders/Scripts/join-easy-server.sh
+~/Scripts/join-easy-server.sh
 
 exit

@@ -5,23 +5,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-source /home/soders/.env
+source ~/.env
 
-source /home/soders/Configs/spotDL/.env
+source ~/Configs/spotDL/.env
 
-automation_status=$(</home/soders/Configs/spotDL/Automation-Status.txt)
+automation_status=$(<~/Configs/spotDL/Automation-Status.txt)
 
 echo -e "${YELLOW}Storage available:${NC}"
 [ -f "/dev/sdf1" ] || 2> /dev/null df -H /dev/sdf1 --output=source,avail
 [ -f "/dev/sde1" ] || 2> /dev/null df -H /dev/sde1 --output=source,avail
 echo -e "${YELLOW}Storage used:${NC}"
-du -sh /home/soders/Music/Songs
-du -sh /home/soders/Music/Albums
-du -sh /home/soders/Music/Spotify
-du -sh /home/soders/Music/Soundcloud
-du -sh /home/soders/Music/YouTube
-du -sh /home/soders/Music/Radio
-du -sh /home/soders/Music/First-Listen
+du -sh ~/Music/Songs
+du -sh ~/Music/Albums
+du -sh ~/Music/Spotify
+du -sh ~/Music/Soundcloud
+du -sh ~/Music/YouTube
+du -sh ~/Music/Radio
+du -sh ~/Music/First-Listen
 
 echo -e "${GREEN} "
 echo "⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀"

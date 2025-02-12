@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp /home/soders/Configs/spotDL/Liked-Songs/config.json /home/soders/.spotdl/config.json
-/home/soders/.local/bin/spotdl-app download saved --user-auth
+cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
+~/.local/bin/spotdl download saved --user-auth

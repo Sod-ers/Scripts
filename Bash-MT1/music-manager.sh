@@ -28,52 +28,52 @@ do
         "Copy Music Files for Compression")
             rsync -r --progress /mnt/7TBEXT4/Music/Songs/ /mnt/7TBEXT4/Music/Compressed-Songs
             # rsync -r --progress /mnt/7TBEXT4/Music/Albums/ /mnt/7TBEXT4/Music/Compressed-Albums
-            echo -e "${Green}Ready to compress."
-            /home/soders/Scripts/music-manager.sh
+            echo -e "${Green}Ready to compress.${NC}"
+            ~/Scripts/music-manager.sh
             break
             ;;
         "Delete Flac Song Files")
-            find "/home/soders/Music/Compressed-Songs/" \( -name '*.flac' \)
-            echo -e '\e[30;101mPress any key to delete the files.\e[0m'
+            find "~/Music/Compressed-Songs/" \( -name '*.flac' \)
+            echo -e "${RED}Press any key to delete the files...${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            find "/home/soders/Music/Compressed-Songs/" \( -name '*.flac' \) -delete
-            echo -e '\e[30;102mFiles deleted.\e[0m'
+            find "~/Music/Compressed-Songs/" \( -name '*.flac' \) -delete
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/Scripts/music-manager.sh
+            ~/Scripts/music-manager.sh
             break
             ;;
         "Delete Flac Album Files")
-            find "/home/soders/Music/Compressed-Albums/" \( -name '*.flac' \)
-            echo -e '\e[30;101mPress any key to delete the files...\e[0m'
+            find "~/Music/Compressed-Albums/" \( -name '*.flac' \)
+            echo -e "${RED}Press any key to delete the files...${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            find "/home/soders/Music/Compressed-Albums/" \( -name '*.flac' \) -delete
-            rm /home/soders/Music/Compressed-Albums/*/*/cd*.* > /dev/null 2>&1&
-            echo -e '\e[30;102mFiles deleted.\e[0m'
+            find "~/Music/Compressed-Albums/" \( -name '*.flac' \) -delete
+            rm ~/Music/Compressed-Albums/*/*/cd*.* > /dev/null 2>&1&
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/Scripts/music-manager.sh
+            ~/Scripts/music-manager.sh
             break
             ;;
             "Copy Music Files to Windows")
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
-            rsync -r --ignore-existing --progress /home/soders/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
-            rsync -r --ignore-existing --progress /home/soders/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
-            rsync -r --ignore-existing --progress /home/soders/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
-            rsync -r --ignore-existing --progress /home/soders/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
-            rsync -r --ignore-existing --progress /home/soders/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
-            rsync -r --ignore-existing --progress /home/soders/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
-            rsync -r --ignore-existing --progress /home/soders/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
+            rsync -r --ignore-existing --progress ~/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
+            rsync -r --ignore-existing --progress ~/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
+            rsync -r --ignore-existing --progress ~/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
+            rsync -r --ignore-existing --progress ~/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
+            rsync -r --ignore-existing --progress ~/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
+            rsync -r --ignore-existing --progress ~/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
+            rsync -r --ignore-existing --progress ~/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
             rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/First-Listen/ /media/soders/2TBNTFS/Music/First-Listen/
-            echo -e "${Green}Files Updated."
+            echo -e "${GREEN}Files Updated.${NC}"
             sleep 3
             break
             ;;

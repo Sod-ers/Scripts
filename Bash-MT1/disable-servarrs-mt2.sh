@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-sshpass -p $SSH_PASSWORD ssh -t $MT2 /home/soders/Scripts/disable-servarrs-mt2.sh
+ssh -t $MT2 ~/Scripts/disable-servarrs-mt2.sh

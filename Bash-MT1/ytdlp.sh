@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -9,7 +9,7 @@ NC='\033[0m'
 
 echo -e "${YELLOW}Attempting to synchronize history.."
 
-sshpass -p $SSH_PASSWORD scp $MT2:/home/soders/Configs/YTDLP/watch-history.txt /home/soders/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
+scp $MT2:/home/soders/Configs/YTDLP/watch-history.txt /home/soders/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Synchronized history."
 else
@@ -24,7 +24,7 @@ awk '!seen[$0]++' /home/soders/Configs/YTDLP/watch-history-unsynced.txt > /home/
 
 echo " " > /home/soders/Configs/YTDLP/watch-history-unsynced.txt
 
-sshpass -p $SSH_PASSWORD scp /home/soders/Configs/YTDLP/watch-history.txt $MT2:/home/soders/Configs/YTDLP/watch-history.txt 2> /dev/null
+scp /home/soders/Configs/YTDLP/watch-history.txt $MT2:/home/soders/Configs/YTDLP/watch-history.txt 2> /dev/null
 
 source "/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt"
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /home/soders/.env
+source ~/.env
 
-source /home/soders/Configs/spotDL/.env
+source ~/Configs/spotDL/.env
 
-cp /home/soders/Configs/spotDL/Saved-Albums/config.json /home/soders/.spotdl/config.json
-/home/soders/.local/bin/spotdl-app download all-user-saved-albums --user-auth > /dev/null 2>&1&
+cp ~/Configs/spotDL/Saved-Albums/config.json ~/.spotdl/config.json
+~/.local/bin/spotdl-app download all-user-saved-albums --user-auth > /dev/null 2>&1&

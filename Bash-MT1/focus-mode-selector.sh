@@ -15,12 +15,12 @@ do
     case $opt in
         "Work")
             echo -e ${GREEN}"Applying Work focus mode"${NC}
-            nohup /home/soders/Scripts/work-workflow.sh > /dev/null 2>&1& sleep 1 && exit
+            nohup ~/Scripts/work-workflow.sh > /dev/null 2>&1& sleep 1 && exit
             break
             ;;
         "Study")
             echo -e ${GREEN}"Applying Study focus mode"${NC}
-            nohup /home/soders/Scripts/study-workflow.sh > /dev/null 2>&1& sleep 1 && exit
+            nohup ~/Scripts/study-workflow.sh > /dev/null 2>&1& sleep 1 && exit
             break
             ;;
         "Quit")
