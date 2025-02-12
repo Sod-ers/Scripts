@@ -7,41 +7,41 @@ NC='\033[0m'
 
 source ~/.env
 
-echo -e "${YELLOW}Attempting to synchronize subscriptions, playlists, & history.."
+echo -e "${YELLOW}Attempting to synchronize subscriptions, playlists, & history..${NC}"
 
-sshpass -p $SSH_PASSWORD scp $MT1:/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt /home/soders/Configs/YTDLP/Subscriptions-Playlists.txt 2> /dev/null
+scp $MT1:~/Configs/YTDLP/Subscriptions-Playlists.txt ~/Configs/YTDLP/Subscriptions-Playlists.txt 2> /dev/null
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Synchronized subscriptions & playlists."
+    echo -e "${GREEN}Synchronized subscriptions & playlists.${NC}"
 else
-    echo -e "${RED}Failed to synchronize subscriptions & playlists."
+    echo -e "${RED}Failed to synchronize subscriptions & playlists.${NC}"
 fi
 
-sshpass -p $SSH_PASSWORD scp $MT1:/home/soders/Configs/YTDLP/watch-history.txt /home/soders/Configs/YTDLP/mt1-watch-history.txt 2> /dev/null
+scp $MT1:~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/mt1-watch-history.txt 2> /dev/null
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Synchronized history."
+    echo -e "${GREEN}Synchronized history.${NC}"
 else
-    echo -e "${RED}Failed to synchronize history."
+    echo -e "${RED}Failed to synchronize history.${NC}"
 fi
 
-cat /home/soders/Configs/YTDLP/mt1-watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/mt1-watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-cat /home/soders/Configs/YTDLP/watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-awk '!seen[$0]++' /home/soders/Configs/YTDLP/watch-history-unsynced.txt > /home/soders/Configs/YTDLP/watch-history.txt
+awk '!seen[$0]++' ~/Configs/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
 
-echo " " > /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+echo " " > ~/Configs/YTDLP/watch-history-unsynced.txt
 
-sshpass -p $SSH_PASSWORD scp /home/soders/Configs/YTDLP/watch-history.txt $MT1:/home/soders/Configs/YTDLP/watch-history.txt 2> /dev/null
+scp ~/Configs/YTDLP/watch-history.txt $MT1:~/Configs/YTDLP/watch-history.txt 2> /dev/null
 
-source "/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt"
+source ~/Configs/YTDLP/Subscriptions-Playlists.txt
 
-automation_status=$(</home/soders/Configs/YTDLP/Automation-Status.txt)
+automation_status=$(<~/Configs/YTDLP/Automation-Status.txt)
 
 echo -e "${YELLOW}Storage available:${NC}"
 df -H / --output=source,avail
 echo -e "${YELLOW}Storage used:${NC}"
-du -sh /home/soders/Videos/YouTube/
-du -sh /home/soders/Videos/Twitch/
+du -sh ~/Videos/YouTube/
+du -sh ~/Videos/Twitch/
 
 echo -e "${RED} "
 echo "⠀⠀⠀⠀⠀⣀⣤⣤⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -74,25 +74,21 @@ do
             do
             case $opt in
             "1080p")
-            /home/soders/.local/bin/ytdlp-videos-1080p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-videos-1080p $link
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/video-1080p.conf
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "480p")
-            /home/soders/.local/bin/ytdlp-videos-480p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-videos-480p $link
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/video-480p.conf
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -113,23 +109,19 @@ done
             do
             case $opt in
             "Watch Later")
-            /home/soders/.local/bin/ytdlp-playlist-1080p -U
-            /home/soders/.local/bin/ytdlp-playlist-1080p $primary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $primary_playlist --config-locations ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Binge Playlist")
-            /home/soders/.local/bin/ytdlp-playlist-1080p -U
-            /home/soders/.local/bin/ytdlp-playlist-1080p $secondary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $secondary_playlist --config-locations ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -144,23 +136,19 @@ done
             do
             case $opt in
             "Watch Later")
-            /home/soders/.local/bin/ytdlp-playlist-480p -U
-            /home/soders/.local/bin/ytdlp-playlist-480p $primary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $primary_playlist --config-locations ~/Configs/YTDLP/playlist-480p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Binge Playlist")
-            /home/soders/.local/bin/ytdlp-playlist-480p -U
-            /home/soders/.local/bin/ytdlp-playlist-480p $secondary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $secondary_playlist --config-locations ~/Configs/YTDLP/playlist-480p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -169,7 +157,7 @@ done
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -190,31 +178,25 @@ done
             do
             case $opt in
             "Primary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-1080p -U
-            /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Secondary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-1080p -U
-            /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Music Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-1080p -U
-            /home/soders/.local/bin/ytdlp-videos-1080p --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -229,31 +211,25 @@ done
             do
             case $opt in
             "Primary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-480p -U
-            /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --config-locations ~/Configs/YTDLP/video-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Secondary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-480p -U
-            /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --config-locations ~/Configs/YTDLP/video-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Music Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos-480p -U
-            /home/soders/.local/bin/ytdlp-videos-480p --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --config-locations ~/Configs/YTDLP/video-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -262,7 +238,7 @@ done
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -277,25 +253,21 @@ done
             do
             case $opt in
             "1080p")
-            /home/soders/.local/bin/ytdlp-twitch-videos-1080p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-twitch-videos-1080p --match-filter "!is_live" $link
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $link --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "480p")
-            /home/soders/.local/bin/ytdlp-twitch-videos-480p -U
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-twitch-videos-480p --match-filter "!is_live" $link
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $link --config-locations ~/Configs/YTDLP/twitch-video-480p.conf
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -310,23 +282,19 @@ done
             do
             case $opt in
             "1080p")
-            /home/soders/.local/bin/ytdlp-twitch-following-1080p -U
-            /home/soders/.local/bin/ytdlp-twitch-following-1080p --match-filter "!is_live" $twitch_following --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_following --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "480p")
-            /home/soders/.local/bin/ytdlp-twitch-following-480p -U
-            /home/soders/.local/bin/ytdlp-twitch-following-480p --match-filter "!is_live" $twitch_following --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_following --config-locations ~/Configs/YTDLP/twitch-following-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -341,23 +309,19 @@ done
             do
             case $opt in
             "1080p")
-            /home/soders/.local/bin/ytdlp-twitch-following-1080p -U
-            /home/soders/.local/bin/ytdlp-twitch-following-1080p --match-filter "!is_live" $twitch_bedtime --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_bedtime --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "480p")
-            /home/soders/.local/bin/ytdlp-twitch-following-480p -U
-            /home/soders/.local/bin/ytdlp-twitch-following-480p --match-filter "!is_live" $twitch_bedtime --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
-            /home/soders/Scripts/delete-empty-media-directories-mt2.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_bedtime --config-locations ~/Configs/YTDLP/twitch-following-480p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            ~/Scripts/delete-empty-media-directories-mt2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -369,60 +333,59 @@ done
             find "/home/soders/Videos/YouTube/" \( -name '*.mp4' \)
             find "/home/soders/Videos/YouTube/" \( -name '*.mkv' \)
             find "/home/soders/Videos/YouTube/" \( -name '*.webm' \)
-            echo -e '\033[0;31mPress any key to delete the files.\e[0m'
+            echo -e "${RED}Press any key to delete the files.${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            rm -rf /home/soders/Videos/YouTube/*
-            echo -e '\033[0;32mFiles deleted.\e[0m'
+            rm -rf ~/Videos/YouTube/*
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         "Delete Twitch VODs")
             find "/home/soders/Videos/Twitch/" \( -name '*.mp4' \)
             find "/home/soders/Videos/Twitch/" \( -name '*.mkv' \)
             find "/home/soders/Videos/Twitch/" \( -name '*.webm' \)
-            echo -e '\033[0;31mPress any key to delete the files.\e[0m'
+            echo -e "${RED}Press any key to delete the files.${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            rm -rf /home/soders/Videos/Twitch/*
-            echo -e '\033[0;32mFiles deleted.\e[0m'
+            rm -rf ~/Videos/Twitch/*
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         "Toggle Automation")
-            echo -e "${YELLOW}Current status: $automation_status"
-            echo -e "${NC} "
+            echo -e "${YELLOW}Current status: $automation_status${NC}"
             export PS3=$'\033[0;31mSelect an option: \e[0m'
             options=("Enable" "Disable" "Go Back")
             select opt in "${options[@]}"
             do
             case $opt in
             "Enable")
-            echo -e "${GREEN}Enabling automation.."
-            chmod +x "/home/soders/Scripts/ytdlp-auto.sh"
-            echo "Enabled" > /home/soders/Configs/YTDLP/Automation-Status.txt
+            echo -e "${GREEN}Enabling automation..${NC}"
+            chmod +x ~/Scripts/ytdlp-auto.sh
+            echo "Enabled" > ~/Configs/YTDLP/Automation-Status.txt
             sleep 1
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
             "Disable")
-            echo -e "${RED}Disabling automation.."
-            chmod -x "/home/soders/Scripts/ytdlp-auto.sh"
-            echo "Disabled" > /home/soders/Configs/YTDLP/Automation-Status.txt
+            echo -e "${RED}Disabling automation..${NC}"
+            chmod -x ~/Scripts/ytdlp-auto.sh
+            echo "Disabled" > ~/Configs/YTDLP/Automation-Status.txt
             sleep 1
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;

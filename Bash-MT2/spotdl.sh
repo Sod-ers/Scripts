@@ -8,7 +8,7 @@ NC='\033[0m'
 source ~/.env
 
 echo -e "${YELLOW}Attempting to synchronize playlists..${NC}"
-sshpass -p $SSH_PASSWORD scp $MT1:~/Configs/spotDL/.env ~/Configs/spotDL/.env 2> /dev/null
+scp $MT1:~/Configs/spotDL/.env ~/Configs/spotDL/.env 2> /dev/null
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Synchronized playlists.${NC}"
 else
