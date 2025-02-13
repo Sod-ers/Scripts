@@ -32,4 +32,4 @@ xfconf-query  \
 ssh $MT3 ~/Scripts/default-workflow.sh & ssh $PM2 ~/Scripts/default-workflow.sh
 
 # Screensavers:
-cp ~/Configs/XScreenSaver/Default/.xscreensaver ~/
+cp ~/Configs/XScreenSaver/.default ~/.xscreensaver

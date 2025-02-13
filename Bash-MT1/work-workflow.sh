@@ -29,7 +29,7 @@ xfconf-query  \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
 # Laptop
-ssh $MT3 ~/Scripts/study-workflow.sh
+ssh $MT3 ~/Scripts/work-workflow.sh
 
 # Screensavers:
-cp ~/Configs/XScreenSaver/Work/.xscreensaver ~/
+cp ~/Configs/XScreenSaver/.work ~/.xscreensaver

@@ -2,4 +2,4 @@
 
 source ~/.env
 
-ssh $MT2 ~/Scripts/disable-bb-tracker.sh
+ssh $MT2 ~/BB-Tracker/disable-bb-tracker.sh

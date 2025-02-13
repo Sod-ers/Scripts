@@ -32,4 +32,4 @@ xfconf-query  \
 ssh $MT3 ~/Scripts/study-workflow.sh
 
 # Screensavers:
-cp ~/Configs/XScreenSaver/Study/.xscreensaver ~/
+cp ~/Configs/XScreenSaver/.study ~/.screensaver

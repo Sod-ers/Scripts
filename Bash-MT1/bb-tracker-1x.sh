@@ -2,4 +2,4 @@
 
 source ~/.env
 
-ssh $MT2 ~/Scripts/bb-tracker-1x.sh
+ssh $MT2 ~/BB-Tracker/bb-tracker-1x.sh
