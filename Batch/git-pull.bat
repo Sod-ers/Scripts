@@ -29,6 +29,7 @@ XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\stellar-easy-autoexec.cfg" "C:\Program
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\chat.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\chat.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\sensitivity.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\sensitivity.cfg*"
 XCOPY /y /q "E:\Documents\Configs\GMod\BB\mvp.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\mvp.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\tier.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\tier.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\sprays.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\sprays.cfg*"
 XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\materials\vgui\logos\"
 
