@@ -7,33 +7,33 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Attempting to synchronize history.."
+echo -e "${YELLOW}Attempting to synchronize history..${NC}"
 
-scp $MT2:/home/soders/Configs/YTDLP/watch-history.txt /home/soders/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
+scp $MT2:~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Synchronized history."
+    echo -e "${GREEN}Synchronized history.${NC}"
 else
-    echo -e "${RED}Failed to synchronize history."
+    echo -e "${RED}Failed to synchronize history.${NC}"
 fi
 
-cat /home/soders/Configs/YTDLP/mt2-watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/mt2-watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-cat /home/soders/Configs/YTDLP/watch-history.txt >> /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+cat ~/Configs/YTDLP/watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
 
-awk '!seen[$0]++' /home/soders/Configs/YTDLP/watch-history-unsynced.txt > /home/soders/Configs/YTDLP/watch-history.txt
+awk '!seen[$0]++' ~/Configs/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
 
-echo " " > /home/soders/Configs/YTDLP/watch-history-unsynced.txt
+echo " " > ~/Configs/YTDLP/watch-history-unsynced.txt
 
-scp /home/soders/Configs/YTDLP/watch-history.txt $MT2:/home/soders/Configs/YTDLP/watch-history.txt 2> /dev/null
+scp ~/Configs/YTDLP/watch-history.txt $MT2:~/Configs/YTDLP/watch-history.txt 2> /dev/null
 
-source "/home/soders/Configs/YTDLP/Subscriptions-Playlists.txt"
+source ~/Configs/YTDLP/Subscriptions-Playlists.txt
 
 echo -e "${YELLOW}Storage available:${NC}"
 [ -f "/dev/sdf1" ] || 2> /dev/null df -H /dev/sdf1 --output=source,avail
 [ -f "/dev/sde1" ] || 2> /dev/null df -H /dev/sde1 --output=source,avail
 echo -e "${YELLOW}Storage used:${NC}"
-du -sh /home/soders/Videos/YouTube/
-du -sh /home/soders/Videos/VODs/
+du -sh ~/Videos/YouTube/
+du -sh ~/Videos/VODs/
 
 echo -e "${RED} "
 echo "⠀⠀⠀⠀⠀⣀⣤⣤⣶⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀"
@@ -61,11 +61,9 @@ do
     case $opt in
         "YouTube Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-videos -U
-            /home/soders/.local/bin/ytdlp-videos $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/video-1080p.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Playlists")
@@ -75,23 +73,19 @@ do
             do
             case $opt in
             "Watch Later")
-            /home/soders/.local/bin/ytdlp-playlists -U
-            /home/soders/.local/bin/ytdlp-playlists $primary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $primary_playlist --config-locations ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Binge Playlist")
-            /home/soders/.local/bin/ytdlp-playlists -U
-            /home/soders/.local/bin/ytdlp-playlists $secondary_playlist --playlist-random --max-downloads 10
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp-playlists $secondary_playlist ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -106,31 +100,25 @@ done
             do
             case $opt in
             "Primary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos -U
-            /home/soders/.local/bin/ytdlp-videos --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Secondary Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos -U
-            /home/soders/.local/bin/ytdlp-videos --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
             "Music Subscriptions")
-            /home/soders/.local/bin/ytdlp-videos -U
-            /home/soders/.local/bin/ytdlp-videos --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Go Back")
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         *) echo "invalid option $REPLY";;
@@ -140,95 +128,81 @@ done
             ;;
         "YouTube Video Samples")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-sample -U
-            /home/soders/.local/bin/ytdlp-sample $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/sample.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "YouTube Music Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-music-videos -U
-            /home/soders/.local/bin/ytdlp-music-videos $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/music-video.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "YouTube Audio")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-audio -U
-            /home/soders/.local/bin/ytdlp-audio $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/audio.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Generic Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-generic -U
-            /home/soders/.local/bin/ytdlp-generic $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/generic.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Twitch VODs")
             read -p "$(echo -e ${RED}"Enter VOD URLs: "${NC})" link
-            /home/soders/.local/bin/ytdlp-twitch-videos -U
-            /home/soders/.local/bin/ytdlp-twitch-videos $link
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Twitch Following")
-            /home/soders/.local/bin/ytdlp-twitch-following -U
-            /home/soders/.local/bin/ytdlp-twitch-following $twitch_following --playlist-end 1 --lazy-playlist --dateafter now-3days
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp $twitch_following --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Twitch Bedtime")
-            /home/soders/.local/bin/ytdlp-twitch-following -U
-            /home/soders/.local/bin/ytdlp-twitch-following --match-filter "!is_live" $twitch_bedtime --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
-            /home/soders/Scripts/delete-empty-media-directories-mt1.sh
-            /home/soders/Scripts/completion-chime.sh
-            sleep 1
+            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_bedtime --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            ~/Scripts/delete-empty-media-directories-mt1.sh
+            ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Delete YouTube Videos")
-            find "/home/soders/Videos/YouTube/" \( -name '*.mp4' \)
-            find "/home/soders/Videos/YouTube/" \( -name '*.mkv' \)
-            find "/home/soders/Videos/YouTube/" \( -name '*.webm' \)
-            echo -e '\033[0;31mPress any key to delete the files.\e[0m'
+            find ~/Videos/YouTube/ \( -name '*.mp4' \)
+            find ~/Videos/YouTube/ \( -name '*.mkv' \)
+            find ~/Videos/YouTube/ \( -name '*.webm' \)
+            echo -e "${RED}Press any key to delete the files.${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            rm -rf /home/soders/Videos/YouTube/*
-            echo -e '\033[0;32mFiles deleted.\e[0m'
+            rm -rf ~/Videos/YouTube/*
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         "Delete Twitch VODs")
-            find "/home/soders/Videos/VODs/" \( -name '*.mp4' \)
-            find "/home/soders/Videos/VODs/" \( -name '*.mkv' \)
-            find "/home/soders/Videos/VODs/" \( -name '*.webm' \)
-            echo -e '\033[0;31mPress any key to delete the files.\e[0m'
+            find ~/Videos/VODs/ \( -name '*.mp4' \)
+            find ~/Videos/VODs/ \( -name '*.mkv' \)
+            find ~/Videos/VODs/ \( -name '*.webm' \)
+            echo -e "${RED}Press any key to delete the files.${NC}"
             while true; do
             read -rsn1 key
             if [[ -n "$key" ]]; then
-            rm -rf /home/soders/Videos/VODs/*
-            echo -e '\033[0;32mFiles deleted.\e[0m'
+            rm -rf ~/Videos/VODs/*
+            echo -e "${GREEN}Files deleted.${NC}"
             break
             fi
             done
-            /home/soders/.local/bin/ytdlp
+            ~/Scripts/ytdlp.sh
             break
             ;;
         "Quit")
