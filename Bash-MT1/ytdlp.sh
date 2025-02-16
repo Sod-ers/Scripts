@@ -48,6 +48,8 @@ binge_playlist_url=$(cat ~/Configs/YTDLP/binge-playlist-url.txt)
 binge_channel_url=$(cat ~/Configs/YTDLP/binge-channel-url.txt)
 automation_status=$(cat ~/Configs/YTDLP/Automation-Status.txt)
 backup_timestamp=$(cat ~/Configs/YTDLP/Backup/timestamp.txt)
+twitch_prefix=https://www.twitch.tv/
+twitch_suffix=/videos
 
 echo -e "${YELLOW}Storage available:${NC}"
 [ -f "/dev/sdf1" ] || 2> /dev/null df -H /dev/sdf1 --output=source,avail
@@ -208,7 +210,7 @@ done
             ;;
         "Videos")
 export PS3=$'\033[0;31mSelect an option: \e[0m'
-options=("Videos" "Playlist" "Channel" "Music Videos" "Sample" "Go Back")
+options=("Videos" "Playlist" "Channel" "Music Videos" "Sample" "Audio Only" "Go Back")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -286,6 +288,12 @@ done
         "Sample")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
             ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-sample.conf
+            ~/Scripts/completion-chime.sh && sleep 1
+            break
+            ;;
+        "Audio Only")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/audio.conf
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -377,13 +385,20 @@ do
         "Add a Channel")
             read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME
             echo "https://www.twitch.tv/$USERNAME/videos" >> ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            awk -i inplace '!seen[$0]++' ~/Configs/YTDLP/twitch-following-channel-urls.txt
             echo -e "${GREEN}Channel added.${NC}" && sleep 2
             ~/Scripts/ytdlp.sh
             break
             ;;
         "Remove a Channel")
             read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME
-            sed -i "/$USERNAME/d" ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            echo "https://www.twitch.tv/$USERNAME/videos" >> ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            cut -c 23- ~/Configs/YTDLP/twitch-following-channel-urls.txt > /tmp/YTDLP/twitch-following-channel-urls-remove-prefix.txt
+            cut -f1 -d"/" /tmp/YTDLP/twitch-following-channel-urls-remove-prefix.txt > /tmp/YTDLP/twitch-following-channel-urls-remove-suffix.txt
+            awk -i inplace '!seen[$0]++' /tmp/YTDLP/twitch-following-channel-urls-remove-suffix.txt
+            sed -i "/^$USERNAME\$/d" /tmp/YTDLP/twitch-following-channel-urls-remove-suffix.txt
+            awk -v prefix="$twitch_prefix" '{print prefix $1}' /tmp/YTDLP/twitch-following-channel-urls-remove-suffix.txt > /tmp/YTDLP/twitch-following-channel-urls-add-prefix.txt
+            awk -v suffix="$twitch_suffix" '{print $0 suffix}' /tmp/YTDLP/twitch-following-channel-urls-add-prefix.txt > ~/Configs/YTDLP/twitch-following-channel-urls.txt
             echo -e "${RED}Channel removed.${NC}" && sleep 2
             ~/Scripts/ytdlp.sh
             break
