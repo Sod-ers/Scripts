@@ -651,6 +651,11 @@ done
             break
             ;;
         "Remove a Channel")
+            cut -c 23- ~/Configs/YTDLP/twitch-following-channel-urls.txt > /tmp/YTDLP/twitch-urls-remove-prefix.txt
+            cut -f1 -d"/" /tmp/YTDLP/twitch-urls-remove-prefix.txt > /tmp/YTDLP/twitch-urls-remove-suffix.txt
+            awk -i inplace '!seen[$0]++' /tmp/YTDLP/twitch-urls-remove-suffix.txt
+            echo -e "${YELLOW}Current Channels:${NC}"
+            cat /tmp/YTDLP/twitch-urls-remove-suffix.txt
             read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME
             echo "https://www.twitch.tv/$USERNAME/videos" >> ~/Configs/YTDLP/twitch-following-channel-urls.txt
             cut -c 23- ~/Configs/YTDLP/twitch-following-channel-urls.txt > /tmp/YTDLP/twitch-urls-remove-prefix.txt
@@ -728,6 +733,11 @@ done
             break
             ;;
         "Remove a Channel")
+            cut -c 23- ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt > /tmp/YTDLP/twitch-urls-remove-prefix.txt
+            cut -f1 -d"/" /tmp/YTDLP/twitch-urls-remove-prefix.txt > /tmp/YTDLP/twitch-urls-remove-suffix.txt
+            awk -i inplace '!seen[$0]++' /tmp/YTDLP/twitch-urls-remove-suffix.txt
+            echo -e "${YELLOW}Current Channels:${NC}"
+            cat /tmp/YTDLP/twitch-urls-remove-suffix.txt
             read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME
             sed -i "/$USERNAME/d" ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
             cut -c 23- ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt > /tmp/YTDLP/twitch-urls-remove-prefix.txt
