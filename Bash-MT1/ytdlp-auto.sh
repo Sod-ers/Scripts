@@ -10,26 +10,6 @@ echo "Disabled" > /tmp/YTDLP/Automation-Validator.txt
 diff --brief <(sort ~/Configs/YTDLP/Automation-Status.txt) <(sort /tmp/YTDLP/Automation-Validator.txt) >/dev/null
 comp_value=$?
 
-if [ $comp_value -eq 1 ]
-then
-scp $MT1:~/Configs/YTDLP/watch-history.txt /tmp/YTDLP/watch-history-2.txt
-if [ $? -eq 0 ]; then
-cat /tmp/YTDLP/watch-history-2.txt >> /tmp/YTDLP/watch-history-unsynced.txt
-
-cat ~/Configs/YTDLP/watch-history.txt >> /tmp/YTDLP/watch-history-unsynced.txt
-
-awk '!seen[$0]++' /tmp/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
-
-echo " " > /tmp/YTDLP/watch-history-unsynced.txt
-
-scp ~/Configs/YTDLP/watch-history.txt $MT1:~/Configs/YTDLP/watch-history.txt
-
-else
-echo " "
-fi
-
-cp ~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/Backup/watch-history.txt
-
 ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
 ~/Scripts/delete-empty-media-directories.sh
 ~/Scripts/completion-chime.sh && sleep 1

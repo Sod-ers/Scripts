@@ -12,11 +12,11 @@ select opt in "${options[@]}"
 do
     case $opt in
         "option 1")
-            echo -e ${RED}"do something"${NC}
+            echo -e "${RED}do something${NC}"
             break
             ;;
         "option 2")
-            echo -e ${RED}"do something"${NC}
+            echo -e "${RED}do something${NC}"
             break
             ;;
         "Quit")
