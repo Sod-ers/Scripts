@@ -7,26 +7,44 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}Attempting to synchronize history..${NC}"
+mkdir ~/Configs/YTDLP/ 2> /dev/null
+touch ~/Configs/YTDLP/watch-history.txt
+touch ~/Configs/YTDLP/youtube-channel-urls.txt
+touch ~/Configs/YTDLP/twitch-following-channel-urls.txt
+touch ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
+touch ~/Configs/YTDLP/Automation-Status.txt
 
-scp $MT2:~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/mt2-watch-history.txt 2> /dev/null
+echo -e "${YELLOW}Attempting to synchronize history & watch later playlist URL..${NC}"
+
+mkdir /tmp/YTDLP/ 2> /dev/null
+
+scp $MT2:~/Configs/YTDLP/watch-history.txt /tmp/YTDLP/watch-history-2.txt
+scp $MT2:~/Configs/YTDLP/watch-later-playlist-url.txt /tmp/YTDLP/watch-later-playlist-url-2.txt
 if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Synchronized history.${NC}"
-else
-    echo -e "${RED}Failed to synchronize history.${NC}"
+cat /tmp/YTDLP/watch-history-2.txt >> /tmp/YTDLP/watch-history-unsynced.txt
+
+cat ~/Configs/YTDLP/watch-history.txt >> /tmp/YTDLP/watch-history-unsynced.txt
+
+awk '!seen[$0]++' /tmp/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
+
+echo " " > /tmp/YTDLP/watch-history-unsynced.txt
+
+scp ~/Configs/YTDLP/watch-history.txt $MT2:~/Configs/YTDLP/watch-history.txt
+
+if [[ /tmp/YTDLP/watch-later-playlist-url-2.txt -nt ~/Configs/YTDLP/watch-later-playlist-url.txt ]]; then
+cp /tmp/YTDLP/watch-later-playlist-url-2.txt ~/Configs/YTDLP/watch-later-playlist-url.txt
 fi
 
-cat ~/Configs/YTDLP/mt2-watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
+echo -e "${GREEN}Synchronized.${NC}"
+else
+echo -e "${RED}Failed to synchronize.${NC}"
+fi
 
-cat ~/Configs/YTDLP/watch-history.txt >> ~/Configs/YTDLP/watch-history-unsynced.txt
-
-awk '!seen[$0]++' ~/Configs/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-history.txt
-
-echo " " > ~/Configs/YTDLP/watch-history-unsynced.txt
-
-scp ~/Configs/YTDLP/watch-history.txt $MT2:~/Configs/YTDLP/watch-history.txt 2> /dev/null
-
-source ~/Configs/YTDLP/Subscriptions-Playlists.txt
+watch_later_playlist_url=$(cat ~/Configs/YTDLP/watch-later-playlist-url.txt)
+binge_playlist_url=$(cat ~/Configs/YTDLP/binge-playlist-url.txt)
+binge_channel_url=$(cat ~/Configs/YTDLP/binge-channel-url.txt)
+automation_status=$(cat ~/Configs/YTDLP/Automation-Status.txt)
+backup_timestamp=$(cat ~/Configs/YTDLP/Backup/timestamp.txt)
 
 echo -e "${YELLOW}Storage available:${NC}"
 [ -f "/dev/sdf1" ] || 2> /dev/null df -H /dev/sdf1 --output=source,avail
@@ -55,33 +73,221 @@ echo "⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿�
 echo -e "${NC} "
 printf "\033]0;%s\a" "YTDLP@MT1"
 export PS3=$'\033[0;31mSelect an option: \e[0m'
-options=("YouTube Videos" "Playlists" "Subscriptions" "YouTube Video Samples" "YouTube Music Videos" "YouTube Audio" "Generic Videos" "Twitch VODs" "Twitch Following" "Twitch Bedtime" "Delete YouTube Videos" "Delete Twitch Videos" "Quit")
+options=("YouTube" "Twitch" "Generic Videos" "Toggle Automation" "Delete Videos" "Backup" "Restore" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "YouTube Videos")
-            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/video-1080p.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+        "YouTube")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Binge" "Watch Later" "Videos" "Subscriptions" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Binge")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Channel" "Playlist" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Channel")
+export PS3=$'\033[0;31mSort by: \e[0m'
+options=("Release Date" "Random" "Set Channel URL" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Release Date")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1            
+            break
+            ;;
+        "Random")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1            
+            break
+            ;;
+        "Set Channel URL")
+            touch ~/Configs/YTDLP/binge-channel-url.txt
+            read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL        
+            echo "$URL" > ~/Configs/YTDLP/binge-channel-url.txt
+            echo -e "${GREEN}URL set.${NC}" && sleep 2        
+            ~/Scripts/ytdlp.sh
+            break
+            ;;            
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Playlist")
+export PS3=$'\033[0;31mSort by: \e[0m'
+options=("Release Date" "Random" "Set Playlist URL" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Release Date")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1            
+            break
+            ;;
+        "Random")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1            
+            break
+            ;;
+        "Set Playlist URL")
+            touch ~/Configs/YTDLP/binge-playlist-url.txt
+            read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL        
+            echo "$URL" > ~/Configs/YTDLP/binge-playlist-url.txt
+            echo -e "${GREEN}URL set.${NC}" && sleep 2        
+            ~/Scripts/ytdlp.sh  
+            break
+            ;;                      
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Watch Later")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Latest" "Random" "Set Playlist URL" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Latest")
+            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
-        "Playlists")
-            export PS3=$'\033[0;31mSelect an option: \e[0m'
-            options=("Watch Later" "Binge Playlist" "Go Back")
-            select opt in "${options[@]}"
-            do
-            case $opt in
-            "Watch Later")
-            ~/.local/bin/ytdlp $primary_playlist --config-locations ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+        "Random")
+            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
-            "Binge Playlist")
-            ~/.local/bin/ytdlp-playlists $secondary_playlist ~/Configs/YTDLP/playlist-1080p.conf --playlist-random --max-downloads 10
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
+        "Set Playlist URL")
+            touch ~/Configs/YTDLP/watch-later-playlist-url.txt
+            read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL        
+            echo "$URL" > ~/Configs/YTDLP/watch-later-playlist-url.txt
+            echo -e "${GREEN}URL set.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh
+            break
+            ;;            
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Videos")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Video" "Playlist" "Channel" "Music Videos" "Sample" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Videos")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Playlist")
+export PS3=$'\033[0;31mSort by: \e[0m'
+options=("Release Date" "Random" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Release Date")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Random")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Channel")
+export PS3=$'\033[0;31mSort by: \e[0m'
+options=("Release Date" "Random" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Release Date")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Random")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Music Video")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-music-video-1080p.conf
+            ~/Scripts/completion-chime.sh && sleep 1 
+            break
+            ;;
+        "Sample")
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-sample.conf
+            ~/Scripts/completion-chime.sh && sleep 1 
             break
             ;;
         "Go Back")
@@ -94,26 +300,171 @@ done
             break
             ;;
         "Subscriptions")
-            export PS3=$'\033[0;31mSelect an option: \e[0m'
-            options=("Primary Subscriptions" "Secondary Subscriptions" "Music Subscriptions" "Go Back")
-            select opt in "${options[@]}"
-            do
-            case $opt in
-            "Primary Subscriptions")
-            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $primary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Download Subscriptions" "Add a Channel" "Remove a Channel" "Remove All Channels" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Download Subscriptions")
+            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
-            "Secondary Subscriptions")
-            ~/.local/bin/ytdlp --match-filter "!was_live & original_url!*=/shorts/" $secondary_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+        "Add a Channel")
+            read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL        
+            echo "$URL" >> ~/Configs/YTDLP/youtube-channel-urls.txt
+            echo -e "${GREEN}Subscription added.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove a Channel")
+            read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL        
+            sed -i "/$URL/d" ~/Configs/YTDLP/youtube-channel-urls.txt
+            echo -e "${RED}Subscription removed.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove All Channels")
+            echo -e "${YELLOW}WARNING! About to remove ALL channels..${NC}" && sleep 3        
+            echo -e "${RED}Press any key to proceed.${NC}"
+            while true; do
+            read -rsn1 key
+            if [[ -n "$key" ]]; then
+            echo " " > ~/Configs/YTDLP/youtube-channel-urls.txt
+            echo -e "${RED}All channels removed.${NC}"
+            break
+            fi
+            done
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Twitch")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Following" "Bedtime" "VOD" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Following")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Latest VODs" "Add a Channel" "Remove a Channel" "Remove All Channels" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Latest VODs")
+            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-following-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
-            "Music Subscriptions")
-            ~/.local/bin/ytdlp --match-filter "!is_live & original_url!*=/shorts/" $music_subscriptions --config-locations ~/Configs/YTDLP/video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+        "Add a Channel")
+            read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME        
+            echo "https://www.twitch.tv/$USERNAME/videos" >> ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            echo -e "${GREEN}Channel added.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove a Channel")
+            read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME        
+            sed -i "/$USERNAME/d" ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            echo -e "${RED}Channel removed.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove All Channels")
+            echo -e "${YELLOW}WARNING! About to remove ALL channels..${NC}" && sleep 3        
+            echo -e "${RED}Press any key to proceed.${NC}"
+            while true; do
+            read -rsn1 key
+            if [[ -n "$key" ]]; then
+            echo " " > ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            echo -e "${RED}All channels removed.${NC}"
+            break
+            fi
+            done
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Bedtime")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Latest VODs" "Add a Channel" "Remove a Channel" "Remove All Channels" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Latest VODs")
+            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
+            ~/Scripts/delete-empty-media-directories.sh
+            ~/Scripts/completion-chime.sh && sleep 1
+            break
+            ;;
+        "Add a Channel")
+            read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME        
+            echo "https://www.twitch.tv/$USERNAME/videos" >> ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
+            echo -e "${GREEN}Channel added.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove a Channel")
+            read -p "$(echo -e ${RED}"Enter username: "${NC})" USERNAME        
+            sed -i "/$USERNAME/d" ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
+            echo -e "${RED}Channel removed.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh            
+            break
+            ;;
+        "Remove All Channels")
+            echo -e "${YELLOW}WARNING! About to remove ALL channels..${NC}" && sleep 3        
+            echo -e "${RED}Press any key to proceed.${NC}"
+            while true; do
+            read -rsn1 key
+            if [[ -n "$key" ]]; then
+            echo " " > ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
+            echo -e "${RED}All channels removed.${NC}"
+            break
+            fi
+            done
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "VOD")
+            read -p "$(echo -e ${RED}"Enter VOD URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -126,53 +477,51 @@ done
 done
             break
             ;;
-        "YouTube Video Samples")
-            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/sample.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
-            break
-            ;;
-        "YouTube Music Videos")
-            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/music-video.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
-            break
-            ;;
-        "YouTube Audio")
-            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/audio.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
-            break
-            ;;
         "Generic Videos")
-            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/generic.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
+            read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/generic-video.conf
+            ~/Scripts/delete-empty-media-directories.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
-            ;;
-        "Twitch VODs")
-            read -p "$(echo -e ${RED}"Enter VOD URLs: "${NC})" link
-            ~/.local/bin/ytdlp $link --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
+            ;;         
+        "Toggle Automation")
+echo -e "${YELLOW}Current status: $automation_status${NC}"
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Enable Automation" "Disable Automation" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Enable Automation")
+            touch ~/Configs/YTDLP/Automation-Status.txt
+            echo -e "${GREEN}Enabling automation..${NC}"
+            chmod +x ~/Scripts/ytdlp-auto.sh
+            echo "Enabled" > ~/Configs/YTDLP/Automation-Status.txt && sleep 1
+            ~/Scripts/ytdlp.sh
             break
             ;;
-        "Twitch Following")
-            ~/.local/bin/ytdlp $twitch_following --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
+        "Disable Automation")
+            touch ~/Configs/YTDLP/Automation-Status.txt
+            echo -e "${RED}Disabling automation..${NC}"
+            chmod -x ~/Scripts/ytdlp-auto.sh
+            echo "Disabled" > ~/Configs/YTDLP/Automation-Status.txt && sleep 1
+            ~/Scripts/ytdlp.sh
             break
             ;;
-        "Twitch Bedtime")
-            ~/.local/bin/ytdlp --match-filter "!is_live" $twitch_bedtime --config-locations ~/Configs/YTDLP/twitch-following-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1
-            ~/Scripts/delete-empty-media-directories-mt1.sh
-            ~/Scripts/completion-chime.sh && sleep 1
+        "Go Back")
+            ~/Scripts/ytdlp.sh
             break
             ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;
+        "Delete Videos")
+export PS3=$'\033[0;31mSelect an option: \e[0m'
+options=("Delete YouTube Videos" "Delete Twitch Videos" "Go Back")
+select opt in "${options[@]}"
+do
+    case $opt in
         "Delete YouTube Videos")
             find ~/Videos/YouTube/ \( -name '*.mp4' \)
             find ~/Videos/YouTube/ \( -name '*.mkv' \)
@@ -189,7 +538,7 @@ done
             ~/Scripts/ytdlp.sh
             break
             ;;
-        "Delete Twitch VODs")
+        "Delete Twitch Videos")
             find ~/Videos/VODs/ \( -name '*.mp4' \)
             find ~/Videos/VODs/ \( -name '*.mkv' \)
             find ~/Videos/VODs/ \( -name '*.webm' \)
@@ -205,6 +554,52 @@ done
             ~/Scripts/ytdlp.sh
             break
             ;;
+        "Go Back")
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+            break
+            ;;            
+        "Backup")
+            touch ~/Configs/YTDLP/Backup/timestamp.txt
+            echo -e "${YELLOW}WARNING! About to overwrite previous backup:${NC} $backup_timestamp" && sleep 3        
+            echo -e "${RED}Press any key to proceed.${NC}"
+            while true; do
+            read -rsn1 key
+            if [[ -n "$key" ]]; then
+            mkdir ~/Configs/YTDLP/Backup 2> /dev/null
+            touch ~/Configs/YTDLP/Backup/timestamp.txt && date "+%D  %I:%M:%S %p" > ~/Configs/YTDLP/Backup/timestamp.txt
+            cp ~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/Backup/watch-history.txt
+            cp ~/Configs/YTDLP/youtube-channel-urls.txt ~/Configs/YTDLP/Backup/youtube-channel-urls.txt
+            cp ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt ~/Configs/YTDLP/Backup/twitch-bedtime-channel-urls.txt
+            cp ~/Configs/YTDLP/twitch-following-channel-urls.txt ~/Configs/YTDLP/Backup/twitch-following-channel-urls.txt
+            echo -e "${GREEN}Backup successful.${NC}"
+            break
+            fi
+            done
+            ~/Scripts/ytdlp.sh
+            break
+            ;;
+        "Restore")
+            echo -e "${YELLOW}WARNING! About to overwrite current configuration with backup data from:${NC} $backup_timestamp" && sleep 3        
+            echo -e "${RED}Press any key to proceed.${NC}"
+            while true; do
+            read -rsn1 key
+            if [[ -n "$key" ]]; then
+            cp ~/Configs/YTDLP/Backup/watch-history.txt ~/Configs/YTDLP/watch-history.txt
+            cp ~/Configs/YTDLP/Backup/youtube-channel-urls.txt ~/Configs/YTDLP/youtube-channel-urls.txt
+            cp ~/Configs/YTDLP/Backup/twitch-bedtime-channel-urls.txt ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt
+            cp ~/Configs/YTDLP/Backup/twitch-following-channel-urls.txt ~/Configs/YTDLP/twitch-following-channel-urls.txt
+            echo -e "${GREEN}Restoration successful.${NC}"
+            break
+            fi
+            done
+            ~/Scripts/ytdlp.sh
+            break
+            ;;            
         "Quit")
             break
             ;;
