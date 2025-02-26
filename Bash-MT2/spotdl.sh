@@ -10,6 +10,9 @@ YELLOW='\033[0;33m'
 mkdir /tmp/spotDL/ 2> /dev/null
 mkdir ~/Configs/spotDL/ 2> /dev/null
 mkdir ~/Configs/spotDL/Backup 2> /dev/null
+mkdir "/home/soders/Jellyfin Server Media/" 2> /dev/null
+touch "/home/soders/Jellyfin Server Media/do-not-delete.txt"
+echo "1" > "/home/soders/Jellyfin Server Media/do-not-delete.txt"
 
 echo -e "${YELLOW}Attempting to synchronize playlists..${NC}"
 

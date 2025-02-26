@@ -9,7 +9,10 @@ YELLOW='\033[0;33m'
 
 mkdir /tmp/spotDL/ 2> /dev/null
 mkdir ~/Configs/spotDL/ 2> /dev/null
-mkdir ~/Configs/spotDL/Backup 2> /dev/null
+mkdir ~/Configs/spotDL/Backup/ 2> /dev/null
+mkdir ~/Music/First-Listen/ 2> /dev/null
+touch ~/Music/First-Listen/do-not-delete.txt
+echo "1" > ~/Music/First-Listen/do-not-delete.txt
 
 source ~/Configs/spotDL/.env
 
