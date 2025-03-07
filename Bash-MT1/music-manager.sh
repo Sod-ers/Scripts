@@ -62,17 +62,17 @@ do
             break
             ;;
             "Copy Music Files to Windows")
-            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
-            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
-            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
-            rsync -r --ignore-existing --progress ~/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
-            rsync -r --ignore-existing --progress ~/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
-            rsync -r --ignore-existing --progress ~/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
-            rsync -r --ignore-existing --progress ~/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
-            rsync -r --ignore-existing --progress ~/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
-            rsync -r --ignore-existing --progress ~/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
-            rsync -r --ignore-existing --progress ~/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
-            rsync -r --ignore-existing --progress /mnt/7TBEXT4/Music/First-Listen/ /media/soders/2TBNTFS/Music/First-Listen/
+            rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
+            rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
+            rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
+            rsync -r --ignore-existing --progress --delete ~/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
+            rsync -r --ignore-existing --progress --delete ~/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/
+            rsync -r --ignore-existing --progress --delete ~/Music/Playlists/ /media/soders/2TBNTFS/Music/Playlists/
+            rsync -r --ignore-existing --progress --delete ~/Music/Spotify/ /media/soders/2TBNTFS/Music/Spotify/
+            rsync -r --ignore-existing --progress --delete ~/Music/Soundcloud/ /media/soders/2TBNTFS/Music/Soundcloud/
+            rsync -r --ignore-existing --progress --delete ~/Music/YouTube/ /media/soders/2TBNTFS/Music/YouTube/
+            rsync -r --ignore-existing --progress --delete ~/Music/Radio/ /media/soders/2TBNTFS/Music/Radio/
+            rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/First-Listen/ /media/soders/2TBNTFS/Music/First-Listen/
             echo -e "${GREEN}Files Updated.${NC}"
             sleep 3
             break
