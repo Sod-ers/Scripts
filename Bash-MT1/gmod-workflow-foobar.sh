@@ -2,7 +2,7 @@
 
 source ~/Configs/Redshift/.env
 
-rfkill unblock bluetooth
+# rfkill unblock bluetooth
 
 nohup ~/Programs/Virtual-Machine-Manager/Foobar2000/open-foobar2000.sh > /dev/null 2>&1&
 

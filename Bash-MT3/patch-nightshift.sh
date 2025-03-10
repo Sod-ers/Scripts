@@ -12,19 +12,23 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Set Summer")
+echo -e "${YELLOW}Applying..${NC}"       
 pkill redshift
 cp ~/Configs/Redshift/.env-summer ~/Configs/Redshift/.env
 cp ~/Configs/Redshift/Summer.conf ~/.config/redshift.conf
-redshift -c ~/.config/redshift.conf > /dev/null 2>&1&
+sleep 5
+redshift-gtk > /dev/null 2>&1&
 echo -e "${GREEN}Summer settings applied.${NC}"
 sleep 3
             break
             ;;
         "Set Winter")
+echo -e "${YELLOW}Applying..${NC}"        
 pkill redshift
 cp ~/Configs/Redshift/.env-winter ~/Configs/Redshift/.env
 cp ~/Configs/Redshift/Winter.conf ~/.config/redshift.conf
-redshift -c ~/.config/redshift.conf > /dev/null 2>&1&
+sleep 5
+redshift-gtk > /dev/null 2>&1&
 echo -e "${GREEN}Winter settings applied.${NC}"
 sleep 3
             break

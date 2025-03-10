@@ -8,10 +8,12 @@ source ~/.env
 mkdir /tmp/Bash-MT2/
 scp -r $MT2:/home/soders/Scripts/* /tmp/Bash-MT2/
 rsync -r --delete /tmp/Bash-MT2/ /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT2/
+rm -r /tmp/Bash-MT2/
 
 mkdir /tmp/Bash-MT3/
 scp -r $MT3:/home/soders/Scripts/* /tmp/Bash-MT3/
 rsync -r --delete /tmp/Bash-MT3/ /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT3/
+rm -r /tmp/Bash-MT3/
 
 rsync -r /media/soders/2TBNTFS/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Batch/
 rsync -r --delete /home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/Scripts/Bash-MT1/
@@ -42,6 +44,8 @@ rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysm
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-hard-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-hard-autoexec.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/chat.cfg
 rsync /home/soders/Configs/GMod/BB/mvp.cfg /media/soders/2TBNTFS/Documents/Configs/GMod/BB/mvp.cfg
+mkdir /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
+rsync -r --delete /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/data/bb_servers/outfits /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
 rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/sprays.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/sprays.cfg
 # OPEN-FORTRESS
 rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/volume.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/Open-Fortress/volume.cfg
