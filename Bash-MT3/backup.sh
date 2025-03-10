@@ -44,6 +44,10 @@ mkdir /mnt/SD-64/Misc/
 
 mkdir /mnt/SD-64/Linux/MT3/Firewall/
 mkdir /mnt/SD-64/Linux/MT3/System-Reports/
+touch /mnt/SD-64/Linux/MT3/System-Reports/System-Information.txt
+touch /mnt/SD-64/Linux/MT3/crontabs.txt
+mkdir /mnt/SD-64/Linux/MT3/Browser-Bookmarks/
+mkdir /mnt/SD-64/Linux/MT3/Tabliss/
 
 # ConvertAll
 mkdir /mnt/SD-64/Linux/MT3/ConvertAll/

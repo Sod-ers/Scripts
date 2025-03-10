@@ -47,11 +47,22 @@ mkdir /mnt/Backups/Linux/MT1/WinRAR/
 mkdir /mnt/Backups/Windows/WinRAR/
 mkdir /mnt/Backups/Linux/MT1/Firewall/
 mkdir /mnt/Backups/Linux/MT1/System-Reports/
+touch /mnt/Backups/Linux/MT1/System-Reports/System-Information.txt
 mkdir /mnt/Backups/Linux/MT1/Radarr/
 mkdir /mnt/Backups/Linux/MT1/Sonarr/
 mkdir /mnt/Backups/Linux/MT1/Prowlarr/
 mkdir /mnt/Backups/Linux/MT1/Readarr/
 mkdir /mnt/Backups/Linux/MT1/Lidarr/
+mkdir /mnt/Backups/Linux/MT1/Cavasik/
+touch /mnt/Backups/Linux/MT1/crontabs.txt
+mkdir /mnt/Backups/Linux/MT1/Browser-Bookmarks/
+mkdir /mnt/Backups/Linux/MT1/Dark-Reader/
+mkdir /mnt/Backups/Linux/MT1/Tabliss/
+mkdir /mnt/Backups/Linux/MT1/Stylus/
+mkdir /mnt/Backups/Misc/Retro-Arch/
+mkdir /mnt/Backups/Misc/Retro-Arch/AppleTV/
+mkdir /mnt/Backups/Misc/Bitwarden/
+mkdir /mnt/Backups/Misc/Google-Takeout/
 
 # GitHub
 mkdir /mnt/Backups/Linux/MT1/GitHub/
@@ -741,16 +752,14 @@ rsync --progress /mnt/Backups/Linux/MT1/Flameshot/flameshot.ini /home/soders/Nex
 rsync --progress /mnt/Backups/Linux/MT1/KShutdown/kshutdownrc /home/soders/Nextcloud/GitHub/Configs/Configs/KShutdown/
 
 # Retro Arch
-rsync --progress /mnt/Backups/Linux/MT1/retroarch/retroarch.cfg "/home/soders/Nextcloud/GitHub/Configs/Configs/Retro Arch/"
+rsync --progress /mnt/Backups/Linux/MT1/retroarch/retroarch.cfg "/home/soders/Nextcloud/GitHub/Configs/Configs/Retro Arch/PC/"
+rsync --progress /mnt/Backups/Misc/Retro-Arch/AppleTV/retroarch.cfg "/home/soders/Nextcloud/GitHub/Configs/Configs/Retro Arch/AppleTV/"
 
 # Slimbook Battery
 rsync --progress /mnt/Backups/Linux/MT1/slimbookbattery/slimbookbattery.conf "/home/soders/Nextcloud/GitHub/Configs/Configs/Slimbook Battery/"
 
 # ImageGlass
 rsync --progress /mnt/Backups/Windows/ImageGlass/ /home/soders/Nextcloud/GitHub/Configs/Configs/ImageGlass/
-
-# Mousepad
-rsync --progress /mnt/Backups/Linux/PM1/Mousepad/gsettings.txt /home/soders/Nextcloud/GitHub/Configs/Configs/Mousepad/
 
 # ConvertAll
 rsync --progress /mnt/Backups/Linux/MT1/ConvertAll/.convertall /home/soders/Nextcloud/GitHub/Configs/Configs/ConvertAll/

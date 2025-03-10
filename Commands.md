@@ -53,39 +53,40 @@
 | Start screensaver daemon.                                                                           | xscreensaver -no-splash                                                                                                                                                                                  |
 | Start screensaver.                                                                                  | xscreensaver-command -activate                                                                                                                                                                           |
 ### Windows:
-| Description:                                         | Command:                                                                                                                    |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Open a website.                                      | "C:\Program Files\Mozilla Firefox\firefox.exe" https://gs.statcounter.com/os-market-share/desktop/worldwide                 |
-| Open legacy playback devices.                        | %windir%\system32\mmsys.cpl                                                                                                 |
-| Open task manager.                                   | %windir%\system32\taskmgr.exe /7                                                                                            |
-| Open legacy gamepad tester.                          | C:\windows\system32\joy.cpl                                                                                                 |
-| Open system protection.                              | C:\Windows\System32\SystemPropertiesProtection.exe                                                                          |
-| Open calculator.                                     | calculator:                                                                                                                 |
-| Execute a command & prevent window from closing.     | cmd /k cd "C:\User\Soders\Downloads"                                                                                        |
-| Start screensaver.                                   | control desk.cpl,,@screensaver                                                                                              |
-| Delete a file.                                       | del /s /q "C:\Users\Soders\Downloads\file.txt"                                                                              |
-| Deletes files from folder.                           | del /s /q /f *.nfo *.flac folder.jpg folder.png folder.jpeg logo.png logo.jpg logo.jpeg *.mp3                               |
-| Delete all files in a directory.                     | del /s /q C:\Users\Soders\Downloads\*                                                                                       |
-| Taskbar icons directory.                             | explorer "%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"                                           |
-| Network shortcuts directory.                         | explorer “C:\Users\Soders\AppData\Roaming\Microsoft\Windows\Network Shortcuts\EXAMPLE-NETWORK-SHARE                         |
-| Open Windows Store apps directory.                   | explorer shell:AppsFolder                                                                                                   |
-| Direct path to file.                                 | file://C:\User\Soders\Downloads\                                                                                            |
-| Open settings.                                       | Ms-settings:system                                                                                                          |
-| Show windows message.                                | PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('lorem ipsum')"         |
-| Delete a directory.                                  | rmdir /s /q "C:\Users\Soders\Downloads\Directory-to-be-deleted"                                                             |
-| Clear runbox history.                                | rundll32 inetcpl.cpl ClearMyTracksByProcess 1                                                                               |
-| Sleep.                                               | rundll32.exe powrprof.dll,SetSuspendState 0,1,0                                                                             |
-| Lock.                                                | rundll32.exe User32.dll,LockWorkStation                                                                                     |
-| Restart.                                             | shutdown.exe /R /T 0                                                                                                        |
-| Shutdown.                                            | shutdown.exe /s /t 0                                                                                                        |
-| Start a program from cmd.                            | start "" "C:\User\Soders\VLC Player\vlc.exe"                                                                                |
-| Start OBS, minimized in tray.                        | start /d "C:\Program Files (x86)\Steam\steamapps\common\OBS Studio\bin\64bit" obs64.exe --startrecording --minimize-to-tray |
-| Connect to a server using Steam.                     | steam://connect/96.44.144.137:27015                                                                                         |
-| Open Steam library.                                  | steam://open/library                                                                                                        |
-| Open Steam servers.                                  | steam://open/servers                                                                                                        |
-| Open any url in Steam.                               | steam://openurl/https://help.steampowered.com/en/accountdata/                                                               |
-| Stop OBS recording & close app.                      | taskkill /F /IM obs64.exe                                                                                                   |
-| Export list of installed programs winget recognizes. | winget export -o "C:\User\Soders\Downloads\export.txt"                                                                      |
+| Description:                                         | Command:                                                                                                                      |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Open a website.                                      | "C:\Program Files\Mozilla Firefox\firefox.exe" https://gs.statcounter.com/os-market-share/desktop/worldwide                   |
+| Open legacy playback devices.                        | %windir%\system32\mmsys.cpl                                                                                                   |
+| Open task manager.                                   | %windir%\system32\taskmgr.exe /7                                                                                              |
+| Open legacy gamepad tester.                          | C:\windows\system32\joy.cpl                                                                                                   |
+| Open system protection.                              | C:\Windows\System32\SystemPropertiesProtection.exe                                                                            |
+| Open calculator.                                     | calculator:                                                                                                                   |
+| Execute a command & prevent window from closing.     | cmd /k cd "C:\User\Soders\Downloads"                                                                                          |
+| Start screensaver.                                   | control desk.cpl,,@screensaver                                                                                                |
+| Delete a file.                                       | del /s /q "C:\Users\Soders\Downloads\file.txt"                                                                                |
+| Deletes files from folder.                           | del /s /q /f *.nfo *.flac folder.jpg folder.png folder.jpeg logo.png logo.jpg logo.jpeg *.mp3                                 |
+| Delete all files in a directory.                     | del /s /q C:\Users\Soders\Downloads\*                                                                                         |
+| Taskbar icons directory.                             | explorer "%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"                                             |
+| Network shortcuts directory.                         | explorer “C:\Users\Soders\AppData\Roaming\Microsoft\Windows\Network Shortcuts\EXAMPLE-NETWORK-SHARE                           |
+| Open Windows Store apps directory.                   | explorer shell:AppsFolder                                                                                                     |
+| Direct path to file.                                 | file://C:\User\Soders\Downloads\                                                                                              |
+| Open settings.                                       | Ms-settings:system                                                                                                            |
+| Show windows message.                                | PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show('lorem ipsum')"           |
+| Delete a directory.                                  | rmdir /s /q "C:\Users\Soders\Downloads\Directory-to-be-deleted"                                                               |
+| Clear runbox history.                                | rundll32 inetcpl.cpl ClearMyTracksByProcess 1                                                                                 |
+| Sleep.                                               | rundll32.exe powrprof.dll,SetSuspendState 0,1,0                                                                               |
+| Lock.                                                | rundll32.exe User32.dll,LockWorkStation                                                                                       |
+| Restart.                                             | shutdown.exe /R /T 0                                                                                                          |
+| Shutdown.                                            | shutdown.exe /s /t 0                                                                                                          |
+| Start a program from cmd.                            | start "" "C:\User\Soders\VLC Player\vlc.exe"                                                                                  |
+| Start OBS, minimized in tray.                        | start /d "C:\Program Files (x86)\Steam\steamapps\common\OBS Studio\bin\64bit" obs64.exe --startrecording --minimize-to-tray   |
+| Connect to a server using Steam.                     | steam://connect/96.44.144.137:27015                                                                                           |
+| Open Steam library.                                  | steam://open/library                                                                                                          |
+| Open Steam servers.                                  | steam://open/servers                                                                                                          |
+| Open any url in Steam.                               | steam://openurl/https://help.steampowered.com/en/accountdata/                                                                 |
+| Stop OBS recording & close app.                      | taskkill /F /IM obs64.exe                                                                                                     |
+| Export list of installed programs winget recognizes. | winget export -o "C:\User\Soders\Downloads\export.txt"                                                                        |
+| Fastfetch on PowerShell startup.                     | C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -WindowStyle Maximized C:\Programs\Fast-Fetch\fastfetch.exe |
 ### Misc:
 | Description:                                         | Command:                                     |
 | ---------------------------------------------------- | -------------------------------------------- |

@@ -39,9 +39,12 @@ mkdir /mnt/Portable-Backup/Linux/MT2/
 
 mkdir /mnt/Portable-Backup/Linux/MT2/Firewall/
 mkdir /mnt/Portable-Backup/Linux/MT2/System-Reports/
+touch /mnt/Portable-Backup/Linux/MT2/System-Reports/System-Information.txt
 mkdir /mnt/Portable-Backup/Linux/MT2/Radarr/
 mkdir /mnt/Portable-Backup/Linux/MT2/Sonarr/
 mkdir /mnt/Portable-Backup/Linux/MT2/Homebridge/
+touch /mnt/Portable-Backup/Linux/MT2/crontabs.txt
+mkdir /mnt/Portable-Backup/Linux/MT2/Tabliss/
 
 # Desktop
 # mkdir /mnt/Portable-Backup/Desktop/
