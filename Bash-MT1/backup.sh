@@ -7,13 +7,35 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣶⣶⣶⣶⣶⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡿⠟⠛⠋⠉⠉⠉⠉⠙⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣤⣄⠀⠀⣿⣿⠀⠀⣠⣤⡀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣷⣄⣿⣿⣠⣾⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⣾⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣶⣦⣤⣀⣀⣀⣀⣀⣀⣤⣴⣶⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
+
 printf "\033]0;%s\a" "Backup"
-export PS3=$'\033[0;31mSelect an option: \e[0m'
+export PS3=$'\033[0;32mSelect an option: \e[0m'
 options=("Desktop" "MT1/Windows" "Sync" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "Desktop")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 echo -e "${YELLOW}WARNING! About to begin backup.${NC}" && sleep 3
 echo -e "${RED}Press any key to proceed.${NC}"
 while true; do
@@ -29,9 +51,14 @@ break
 fi
 done
 echo -e "${GREEN}Backup completed!${NC}" && sleep 3
+fi
             break
             ;;
         "MT1/Windows")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 echo -e "${YELLOW}WARNING! About to begin backup.${NC}" && sleep 3
 echo -e "${RED}Press any key to proceed.${NC}"
 while true; do
@@ -63,6 +90,7 @@ mkdir /mnt/Backups/Misc/Retro-Arch/
 mkdir /mnt/Backups/Misc/Retro-Arch/AppleTV/
 mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
+mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
 # GitHub
 mkdir /mnt/Backups/Linux/MT1/GitHub/
@@ -301,6 +329,7 @@ rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/feishin/config.json /mnt
 
 # FreeTube
 mkdir /mnt/Backups/Linux/MT1/FreeTube/
+mkdir /mnt/Backups/Linux/MT1/FreeTube/flatpak/
 mkdir /mnt/Backups/Windows/FreeTube/
 rsync --progress ~/.config/FreeTube/profiles.db /mnt/Backups/Linux/MT1/FreeTube/
 rsync --progress ~/.config/FreeTube/settings.db /mnt/Backups/Linux/MT1/FreeTube/
@@ -310,6 +339,10 @@ rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/FreeTube/profiles.db /mn
 rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/FreeTube/settings.db /mnt/Backups/Windows/FreeTube/
 rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/FreeTube/playlists.db /mnt/Backups/Windows/FreeTube/
 rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/FreeTube/history.db /mnt/Backups/Windows/FreeTube/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/profiles.db /mnt/Backups/Linux/MT1/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db /mnt/Backups/Linux/MT1/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/playlists.db /mnt/Backups/Linux/MT1/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/history.db /mnt/Backups/Linux/MT1/FreeTube/flatpak/
 
 # mkchromecast
 mkdir /mnt/Backups/Linux/MT1/mkchromecast/
@@ -631,9 +664,14 @@ break
 fi
 done
 echo -e "${GREEN}Backup completed!${NC}" && sleep 3
+fi
             break
             ;;
         "Sync")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 rsync -r --progress --delete /mnt/Portable-Backup/Linux/ /mnt/Backups/Linux/
 rsync -r --progress --delete /mnt/Portable-Backup/Windows/ /mnt/Backups/Windows/
 rsync -r --progress --delete /mnt/Portable-Backup/Misc/ /mnt/Backups/Misc/
@@ -705,8 +743,10 @@ rsync --progress /mnt/Backups/Linux/MT1/Deckmaster/Decks/unlock-nightshift-enabl
 rsync --progress /mnt/Backups/Linux/MT1/btop/btop.conf /home/soders/Nextcloud/GitHub/Configs/Configs/btop/
 
 # fooyin
-rsync --progress /mnt/Backups/Linux/MT1/fooyin/layouts/Purple.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/
-rsync --progress /mnt/Backups/Linux/MT1/fooyin/layouts/Orange.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/
+rsync --progress /mnt/Backups/Linux/MT1/fooyin/layouts/Purple.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/PC/
+rsync --progress /mnt/Backups/Linux/MT1/fooyin/layouts/Orange.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/PC/
+rsync --progress /mnt/Backups/Linux/MT3/fooyin/layouts/Green.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/Laptop/
+rsync --progress /mnt/Backups/Linux/MT3/fooyin/layouts/Orange.fyl /home/soders/Nextcloud/GitHub/Configs/Configs/fooyin/Laptop/
 
 # FreeTube
 rsync --progress /mnt/Backups/Linux/MT1/FreeTube/settings.db /home/soders/Nextcloud/GitHub/Configs/Configs/FreeTube/
@@ -764,6 +804,10 @@ rsync --progress /mnt/Backups/Windows/ImageGlass/ /home/soders/Nextcloud/GitHub/
 # ConvertAll
 rsync --progress /mnt/Backups/Linux/MT1/ConvertAll/.convertall /home/soders/Nextcloud/GitHub/Configs/Configs/ConvertAll/
 
+# Printer timestamp
+touch /mnt/Backups/timestamp.txt
+date "+%B %d" > /mnt/Backups/timestamp.txt
+
 ~/Scripts/git-remove-private.sh
 
 cd ~/Nextcloud/GitHub/Programs/Programs/
@@ -791,7 +835,7 @@ git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
 notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
-
+fi
             break
             ;;
         "Quit")

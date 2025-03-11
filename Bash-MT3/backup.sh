@@ -7,13 +7,34 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣶⣶⣶⣶⣶⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡿⠟⠛⠋⠉⠉⠉⠉⠙⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⢠⣤⣄⠀⠀⣿⣿⠀⠀⣠⣤⡀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣷⣄⣿⣿⣠⣾⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⣾⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣶⣦⣤⣀⣀⣀⣀⣀⣀⣤⣴⣶⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
 printf "\033]0;%s\a" "Backup"
-export PS3=$'\033[0;31mSelect an option: \e[0m'
+export PS3=$'\033[0;32mSelect an option: \e[0m'
 options=("Desktop" "MT3" "Sync" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
         "Desktop")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 echo -e "${YELLOW}WARNING! About to begin backup.${NC}" && sleep 3
 echo -e "${RED}Press any key to proceed.${NC}"
 while true; do
@@ -29,9 +50,14 @@ break
 fi
 done
 echo -e "${GREEN}Backup completed!${NC}" && sleep 3
+fi
             break
             ;;
         "MT3")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 echo -e "${YELLOW}WARNING! About to begin backup.${NC}" && sleep 3
 echo -e "${RED}Press any key to proceed.${NC}"
 while true; do
@@ -125,7 +151,7 @@ rsync -r --progress ~/.config/btop /mnt/SD-64/Linux/MT3/
 
 # Fooyin
 mkdir /mnt/SD-64/Linux/MT3/fooyin/
-rsync -r --progress ~/.config/fooyin/layouts /mnt/SD-64/Linux/MT3/fooyin/
+rsync -r --progress /home/soders/.var/app/org.fooyin.fooyin/config/fooyin /mnt/SD-64/Linux/MT3/
 
 # Feishin
 mkdir /mnt/SD-64/Linux/MT3/Feishin/
@@ -133,10 +159,15 @@ rsync --progress ~/.config/feishin/config.json /mnt/SD-64/Linux/MT3/Feishin/
 
 # FreeTube
 mkdir /mnt/SD-64/Linux/MT3/FreeTube/
+mkdir /mnt/SD-64/Linux/MT3/FreeTube/flatpak/
 rsync --progress ~/.config/FreeTube/profiles.db /mnt/SD-64/Linux/MT3/FreeTube/
 rsync --progress ~/.config/FreeTube/settings.db /mnt/SD-64/Linux/MT3/FreeTube/
 rsync --progress ~/.config/FreeTube/playlists.db /mnt/SD-64/Linux/MT3/FreeTube/
 rsync --progress ~/.config/FreeTube/history.db /mnt/SD-64/Linux/MT3/FreeTube/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/profiles.db /mnt/SD-64/Linux/MT3/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/settings.db /mnt/SD-64/Linux/MT3/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/playlists.db /mnt/SD-64/Linux/MT3/FreeTube/flatpak/
+rsync --progress ~/.var/app/io.freetubeapp.FreeTube/config/FreeTube/history.db /mnt/SD-64/Linux/MT3/FreeTube/flatpak/
 
 # mkchromecast
 mkdir /mnt/SD-64/Linux/MT3/mkchromecast/
@@ -273,8 +304,8 @@ rsync --progress ~/.var/app/com.calibre_ebook.calibre/config/calibre/gui.py.json
 
 # Furtherance
 mkdir /mnt/SD-64/Linux/MT3/Furtherance/
-rsync --progress ~/.var/app/com.lakoliu.Furtherance/data/furtherance/furtherance.db /mnt/SD-64/Linux/MT3/Furtherance/
-rsync --progress ~/.var/app/com.lakoliu.Furtherance/config/glib-2.0/settings/keyfile /mnt/SD-64/Linux/MT3/Furtherance/
+rsync --progress ~/.var/app/io.unobserved.furtherance/data/furtherance/furtherance.db /mnt/SD-64/Linux/MT3/Furtherance/
+rsync --progress ~/.var/app/io.unobserved.furtherance/config/glib-2.0/settings/keyfile /mnt/SD-64/Linux/MT3/Furtherance/
 
 # Musicpod
 mkdir /mnt/SD-64/Linux/MT3/Musicpod/
@@ -323,12 +354,18 @@ break
 fi
 done
 echo -e "${GREEN}Backup completed!${NC}" && sleep 3
+fi
             break
             ;;
         "Sync")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
 rsync -r --progress --delete /mnt/Portable-Backup/Linux/ /mnt/SD-64/Linux/
 rsync -r --progress --delete /mnt/Portable-Backup/Windows/ /mnt/SD-64/Windows/
 rsync -r --progress --delete /mnt/Portable-Backup/Misc/ /mnt/SD-64/Misc/
+fi
             break
             ;;
         "Quit")
