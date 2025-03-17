@@ -2,6 +2,9 @@
 
 source ~/.env
 
+# Close programs
+pkill nextcloud
+
 ###
 
 # Scripts
@@ -141,3 +144,6 @@ git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
 notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
+
+# Enable programs
+nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
