@@ -4,6 +4,8 @@ cd E:\GitHub\GMod-Resources
 git pull https://github.com/Sod-ers/GMod-Resources.git
 cd E:\GitHub\Configs
 git pull https://github.com/Sod-ers/Configs.git
+cd E:\GitHub\MetroSteam
+git pull https://github.com/RoseTheFlower/MetroSteam.git
 
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\aliases.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-aliases.cfg*"
@@ -29,7 +31,7 @@ XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\stellar-easy-autoexec.cfg" "C:\Program
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\chat.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\chat.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\sensitivity.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\sensitivity.cfg*"
 XCOPY /y /q "E:\Documents\Configs\GMod\BB\mvp.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\mvp.cfg*"
-XCOPY /y /q "E:\Documents\Configs\GMod\BB\outfits\" "C:\program files (x86)\steam\steamapps\common\GarrysMod\garrysmod\data\bb_servers\outfits\"
+XCOPY /y /q /s "E:\Documents\Configs\GMod\BB\outfits" "C:\program files (x86)\steam\steamapps\common\GarrysMod\garrysmod\data\bb_servers\outfits\"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\tier.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\tier.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\sprays.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\sprays.cfg*"
 XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\materials\vgui\logos\"
@@ -50,3 +52,6 @@ XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\unbound.cfg" "C:\Program Files (x86
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\volume.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfgvolume.cfg*"
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\practice.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\practice.cfg*"
 XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\materials\vgui\logos\"
+
+XCOPY /y /q "E:\GitHub\MetroSteam\notifications.custom.css" "C:\Program Files (x86)\Steam\steamui\skins\MetroSteam\notifications.custom.css*"
+XCOPY /y /q "E:\GitHub\MetroSteam\libraryroot.custom.css" "C:\Program Files (x86)\Steam\steamui\skins\MetroSteam\libraryroot.custom.css*"

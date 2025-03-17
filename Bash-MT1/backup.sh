@@ -7,6 +7,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+printf "\033]0;%s\a" "Backup"
+
+if [ ! -f /mnt/Backups/status.txt ]; then
+echo -e "${RED}Backup drive not detected.${NC}"
+sleep 3
+else
+
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣶⣶⣶⣶⣶⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡿⠟⠛⠋⠉⠉⠉⠉⠙⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -24,10 +31,8 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣶⣦⣤⣀⣀⣀⣀⣀⣀⣤⣴⣶⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
-
-printf "\033]0;%s\a" "Backup"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("Desktop" "MT1/Windows" "Sync" "Quit")
+options=("MT1/Windows" "Sync" "Desktop" "Projects" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -115,6 +120,8 @@ mkdir /mnt/Backups/Linux/MT1/Pictures/Steam/
 mkdir /mnt/Backups/Windows/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Cats /mnt/Backups/Linux/MT1/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Groceries /mnt/Backups/Linux/MT1/Pictures/
+rsync -r --progress ~/Pictures/Groceries/Grocery-List.bee /mnt/Backups/Linux/MT1/Pictures/Groceries/
+rsync -r --progress ~/Pictures/Groceries/Grocery-List.png /mnt/Backups/Linux/MT1/Pictures/Groceries/
 rsync -r --progress --ignore-existing ~/Pictures/Jellyfin-Thumbnails /mnt/Backups/Linux/MT1/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Misc /mnt/Backups/Linux/MT1/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Profile-Pictures /mnt/Backups/Linux/MT1/Pictures/
@@ -123,7 +130,7 @@ rsync -r --progress --ignore-existing "/home/soders/Pictures/Screenshots/Steam S
 rsync -r --progress --ignore-existing "/home/soders/Pictures/Screenshots/Steam Screenshots/1353230" /mnt/Backups/Linux/MT1/Pictures/Steam/
 rsync -r --progress --ignore-existing "/home/soders/Pictures/Screenshots/Steam Screenshots/11677091221058336806" /mnt/Backups/Linux/MT1/Pictures/Steam/
 rsync -r --progress --ignore-existing ~/Pictures/SteamGridDB /mnt/Backups/Linux/MT1/Pictures/
-rsync -r --progress --ignore-existing ~/Pictures/Wallpapers /mnt/Backups/Linux/MT1/Pictures/
+rsync -r --progress ~/Pictures/Wallpapers /mnt/Backups/Linux/MT1/Pictures/
 rsync --progress ~/Pictures/digikam4.db /mnt/Backups/Linux/MT1/Pictures/
 rsync --progress ~/Pictures/recognition.db /mnt/Backups/Linux/MT1/Pictures/
 rsync --progress ~/Pictures/similarity.db /mnt/Backups/Linux/MT1/Pictures/
@@ -135,9 +142,10 @@ rsync -r --progress --ignore-existing /media/soders/2TBNTFS/Pictures/Wallpapers 
 
 # Videos
 mkdir /mnt/Backups/Misc/Videos/
+mkdir /mnt/Backups/Videos/
 mkdir /mnt/Backups/Linux/MT1/Videos/
-rsync -r --progress --ignore-existing --delete ~/Videos/Twitch /mnt/Backups/Misc/Videos/
-rsync -r --progress --ignore-existing --delete ~/Videos/Music /mnt/Backups/Misc/Videos/
+rsync -r --progress --ignore-existing --delete ~/Videos/Twitch /mnt/Backups/Videos/
+rsync -r --progress --ignore-existing --delete ~/Videos/Music /mnt/Backups/Videos/
 rsync -r --progress ~/Videos/Playlists /mnt/Backups/Linux/MT1/Videos/
 
 # Documents
@@ -270,8 +278,14 @@ rsync --progress ~/.var/app/org.videolan.VLC/config/vlc/vlc-qt-interface.conf /m
 rsync -r --progress ~/Configs/spotDL  /mnt/Backups/Linux/MT1/
 
 # Spicetify
-rsync -r --progress ~/.spicetify /mnt/Backups/Linux/MT1/
+rsync -r --progress ~/.config/spicetify /mnt/Backups/Linux/MT1/
 rsync -r --progress /mnt/WIN1/Users/Soders/AppData/Roaming/spicetify /mnt/Backups/Windows/
+
+# Spotify
+mkdir /mnt/Backups/Windows/Spotify/
+rsync -r --progress ~/.var/app/com.spotify.Client/config/spotify /mnt/Backups/Linux/MT1/
+rsync -r --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Spotify/Users /mnt/Backups/Windows/Spotify/
+rsync --progress/mnt/WIN1/Users/Soders/AppData/Roaming/Spotify/prefs /mnt/Backups/Windows/Spotify/
 
 # GTK
 rsync -r --progress ~/.config/gtk-3.0 /mnt/Backups/Linux/MT1/
@@ -485,6 +499,9 @@ rsync -r --progress ~/Documents/Backups /mnt/Backups/Linux/MT1/Packages/
 snap list > /mnt/Backups/Linux/MT1/Packages/Snap.txt
 flatpak list > /mnt/Backups/Linux/MT1/Packages/Flatpak.txt
 
+# Winget
+rsync -r --progress /media/soders/2TBNTFS/Documents/Winget /mnt/Backups/Windows/
+
 # Cavalier
 mkdir /mnt/Backups/Linux/MT1/Cavalier/
 rsync --progress "/home/soders/.var/app/org.nickvision.cavalier/config/Nickvision Cavalier/cava_config" /mnt/Backups/Linux/MT1/Cavalier/
@@ -549,10 +566,11 @@ rsync --progress ~/.config/slimbookbattery/slimbookbattery.conf /mnt/Backups/Lin
 rsync -r --progress ~/.var/app/eu.ithz.umftpd/config/umftpd /mnt/Backups/Linux/MT1/
 
 # Music
+mkdir /mnt/Backups/Music/
 mkdir /mnt/Backups/Misc/Music/
-rsync -r --progress --ignore-existing --delete ~/Music/Songs /mnt/Backups/Misc/Music/
-rsync -r --progress --ignore-existing --delete ~/Music/Albums /mnt/Backups/Misc/Music/
-rsync -r --progress --ignore-existing --delete ~/Music/Spotify /mnt/Backups/Misc/Music/
+rsync -r --progress --ignore-existing --delete ~/Music/Songs /mnt/Backups/Music/
+rsync -r --progress --ignore-existing --delete ~/Music/Albums /mnt/Backups/Music/
+# rsync -r --progress --ignore-existing --delete ~/Music/Spotify /mnt/Backups/Music/
 rsync -r --progress --delete ~/Music/Playlists /mnt/Backups/Misc/Music/
 rsync -r --progress --ignore-existing "/home/soders/Music/External Tags" /mnt/Backups/Misc/Music/
 
@@ -589,6 +607,10 @@ rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/discord/settings.json /m
 # PowerToys
 mkdir /mnt/Backups/Windows/PowerToys/
 rsync -r --progress --ignore-existing /media/soders/2TBNTFS/Documents/PowerToys/Backup /mnt/Backups/Windows/PowerToys/
+
+# Powershell
+mkdir /mnt/Backups/Windows/Powershell/
+rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Microsoft/Windows/PowerShell/PSReadLine/ConsoleHost_history.txt /mnt/Backups/Windows/Powershell/
 
 # QBit
 mkdir /mnt/Backups/Windows/qBittorrent/
@@ -641,7 +663,9 @@ $disks" > /mnt/Backups/Linux/MT1/System-Reports/disks.txt
 
 # Timestamp
 touch /mnt/Backups/Linux/MT1/timestamp.txt
+touch /mnt/Backups/Windows/timestamp.txt
 date "+%I:%M:%S %p  %D" > /mnt/Backups/Linux/MT1/timestamp.txt
+date "+%I:%M:%S %p  %D" > /mnt/Backups/Windows/timestamp.txt
 
 # Portable Backup
 mkdir /mnt/Portable-Backup/Misc/
@@ -810,6 +834,14 @@ date "+%B %d" > /mnt/Backups/timestamp.txt
 
 ~/Scripts/git-remove-private.sh
 
+cd ~/Nextcloud/GitHub/Bookmarks/Bookmarks/
+git checkout main
+git pull
+git merge main
+git add .
+git commit -m "$(date +"%D  %I:%M:%S %p")"
+git push origin main
+
 cd ~/Nextcloud/GitHub/Programs/Programs/
 git checkout main
 git pull
@@ -834,8 +866,21 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
+cd ~/Nextcloud/GitHub/Misc/Misc/
+git checkout main
+git pull
+git merge main
+git add .
+git commit -m "$(date +"%D  %I:%M:%S %p")"
+git push origin main
+
 notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
 fi
+            break
+            ;;
+        "Projects")
+mkdir /mnt/Backups/Projects/
+rsync -r --progress ~/Projects /mnt/Backups/Projects/
             break
             ;;
         "Quit")
@@ -844,3 +889,5 @@ fi
         *) echo "invalid option $REPLY";;
     esac
 done
+
+fi

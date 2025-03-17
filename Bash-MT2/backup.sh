@@ -26,7 +26,7 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⠿⠿⠿
 
 printf "\033]0;%s\a" "Backup"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("Desktop" "MT2" "Quit")
+options=("MT2" "Desktop" "Nextcloud" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -77,8 +77,6 @@ mkdir /mnt/Portable-Backup/Linux/MT2/Tabliss/
 # mkdir /mnt/Portable-Backup/Desktop/MT2/
 # rsync -r --progress --delete ~/Desktop/ /mnt/Portable-Backup/Desktop/MT2/
 
-sudo /snap/bin/nextcloud.export
-
 # PKG list
 mkdir /mnt/Portable-Backup/Linux/MT2/Packages/
 touch /mnt/Portable-Backup/Linux/MT2/Packages/Snap.txt
@@ -98,7 +96,7 @@ sed -i 's/Filesystem/MT2:      /g' /tmp/System-Stats-MT2/disks.txt
 sed -i 's/Filesystem/Mint2:     /g' /tmp/System-Stats-MT2/disks.txt
 disks=$(cat /tmp/System-Stats-MT2/disks.txt)
 echo "Disk Usage:
-$disks" > /mnt/Backups/Linux/MT2/System-Reports/disks.txt
+$disks" > /mnt/Portable-Backup/Linux/MT2/System-Reports/disks.txt
 
 # Timestamp
 touch /mnt/Portable-Backup/Linux/MT2/timestamp.txt
@@ -109,6 +107,10 @@ fi
 done
 echo -e "${GREEN}Backup completed!${NC}" && sleep 3
 fi
+            break
+            ;;
+        "Nextcloud")
+sudo /snap/bin/nextcloud.export
             break
             ;;
         "Quit")

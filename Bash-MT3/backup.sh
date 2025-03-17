@@ -7,6 +7,13 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+printf "\033]0;%s\a" "Backup"
+
+if [ ! -f /mnt/SD-64/status.txt ]; then
+echo -e "${RED}Backup drive not detected.${NC}"
+sleep 3
+else
+
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⣶⣶⣶⣶⣶⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡿⠟⠛⠋⠉⠉⠉⠉⠙⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -24,9 +31,8 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣦⣄⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣶⣦⣤⣀⣀⣀⣀⣀⣀⣤⣴⣶⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠻⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
-printf "\033]0;%s\a" "Backup"
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("Desktop" "MT3" "Sync" "Quit")
+options=("MT3" "Sync" "Desktop" "Projects" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -92,7 +98,7 @@ rsync --progress ~/.gitconfig /mnt/SD-64/Linux/MT3/GitHub/
 mkdir /mnt/SD-64/Linux/MT3/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Misc /mnt/SD-64/Linux/MT3/Pictures/
 rsync -r --progress --ignore-existing ~/Pictures/Screenshots /mnt/SD-64/Linux/MT3/Pictures/
-rsync -r --progress --ignore-existing ~/Pictures/Wallpapers /mnt/SD-64/Linux/MT3/Pictures/
+rsync -r --progress ~/Pictures/Wallpapers /mnt/SD-64/Linux/MT3/Pictures/
 
 # Videos
 mkdir /mnt/SD-64/Linux/MT3/Videos/
@@ -368,9 +374,16 @@ rsync -r --progress --delete /mnt/Portable-Backup/Misc/ /mnt/SD-64/Misc/
 fi
             break
             ;;
+        "Projects")
+mkdir /mnt/SD-64/Projects/
+rsync -r --progress ~/Projects /mnt/SD-64/Projects/
+            break
+            ;;
         "Quit")
             break
             ;;
         *) echo "invalid option $REPLY";;
     esac
 done
+
+fi
