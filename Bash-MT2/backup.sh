@@ -72,6 +72,10 @@ mkdir /mnt/Portable-Backup/Linux/MT2/Homebridge/
 touch /mnt/Portable-Backup/Linux/MT2/crontabs.txt
 mkdir /mnt/Portable-Backup/Linux/MT2/Tabliss/
 
+# Whisker Menu programs
+mkdir /mnt/Portable-Backup/Linux/MT2/Whisker-Menu/
+rsync -r --progress --delete ~/.local/share/applications /mnt/Portable-Backup/Linux/MT2/Whisker-Menu/
+
 # Desktop
 # mkdir /mnt/Portable-Backup/Desktop/
 # mkdir /mnt/Portable-Backup/Desktop/MT2/

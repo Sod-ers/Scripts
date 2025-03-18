@@ -97,6 +97,10 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# Whisker Menu programs
+mkdir /mnt/Backups/Linux/MT1/Whisker-Menu/
+rsync -r --progress --delete ~/.local/share/applications /mnt/Backups/Linux/MT1/Whisker-Menu/
+
 # GitHub
 mkdir /mnt/Backups/Linux/MT1/GitHub/
 rsync --progress ~/.gitconfig /mnt/Backups/Linux/MT1/GitHub/
@@ -232,6 +236,12 @@ rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/config/config.vdf" /mnt/Ba
 rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/config/localconfig.vdf" /mnt/Backups/Windows/Steam/
 rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/7/remote/sharedconfig.vdf" /mnt/Backups/Windows/Steam/
 rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/7/remote/serverbrowser_hist.vdf" /mnt/Backups/Windows/Steam/
+
+# GIMP
+mkdir /mnt/Backups/Linux/MT1/GIMP/
+rsync -r --progress ~/.config/GIMP/3.0/themes /mnt/Backups/Linux/MT1/GIMP/
+rsync --progress ~/.config/GIMP/3.0/gimprc /mnt/Backups/Linux/MT1/GIMP/
+rsync --progress ~/.config/GIMP/3.0/toolrc /mnt/Backups/Linux/MT1/GIMP/
 
 # SFP
 mkdir /mnt/Backups/Linux/MT1/SFP/

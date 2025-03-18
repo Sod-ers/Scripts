@@ -81,6 +81,10 @@ touch /mnt/SD-64/Linux/MT3/crontabs.txt
 mkdir /mnt/SD-64/Linux/MT3/Browser-Bookmarks/
 mkdir /mnt/SD-64/Linux/MT3/Tabliss/
 
+# Whisker menu programs
+mkdir /mnt/SD-64/Linux/MT3/Whisker-Menu/
+rsync -r --progress --delete ~/.local/share/applications /mnt/SD-64/Linux/MT3/Whisker-Menu/
+
 # ConvertAll
 mkdir /mnt/SD-64/Linux/MT3/ConvertAll/
 rsync --progress ~/.convertall /mnt/SD-64/Linux/MT3/ConvertAll/
