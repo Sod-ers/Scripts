@@ -77,6 +77,7 @@ mkdir /mnt/Backups/Misc/
 
 mkdir /mnt/Backups/Linux/MT1/WinRAR/
 mkdir /mnt/Backups/Windows/WinRAR/
+mkdir /mnt/Backups/Windows/Winaero-Tweaker/
 mkdir /mnt/Backups/Linux/MT1/Firewall/
 mkdir /mnt/Backups/Linux/MT1/System-Reports/
 touch /mnt/Backups/Linux/MT1/System-Reports/System-Information.txt
