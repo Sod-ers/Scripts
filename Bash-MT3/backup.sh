@@ -313,9 +313,14 @@ rsync --progress ~/.var/app/com.calibre_ebook.calibre/config/calibre/gui.json /m
 rsync --progress ~/.var/app/com.calibre_ebook.calibre/config/calibre/gui.py.json /mnt/SD-64/Linux/MT3/Calibre/
 
 # Furtherance
-mkdir /mnt/SD-64/Linux/MT3/Furtherance/
-rsync --progress ~/.var/app/io.unobserved.furtherance/data/furtherance/furtherance.db /mnt/SD-64/Linux/MT3/Furtherance/
-rsync --progress ~/.var/app/io.unobserved.furtherance/config/glib-2.0/settings/keyfile /mnt/SD-64/Linux/MT3/Furtherance/
+# mkdir /mnt/SD-64/Linux/MT3/Furtherance/
+# rsync --progress ~/.var/app/io.unobserved.furtherance/data/furtherance/furtherance.db /mnt/SD-64/Linux/MT3/Furtherance/
+# rsync --progress ~/.var/app/io.unobserved.furtherance/config/glib-2.0/settings/keyfile /mnt/SD-64/Linux/MT3/Furtherance/
+
+# Khronos
+mkdir /mnt/SD-64/Linux/MT3/Khronos/
+rsync -r --progress ~/.var/app/io.github.lainsce.Khronos/data /mnt/SD-64/Linux/MT3/Khronos/
+
 
 # Musicpod
 mkdir /mnt/SD-64/Linux/MT3/Musicpod/
