@@ -2,6 +2,7 @@
 
 source ~/.env
 
+pkill vlc
 pkill mpv
 pkill mkchromecast
 pulseaudio -k

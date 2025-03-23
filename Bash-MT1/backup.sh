@@ -243,6 +243,7 @@ mkdir /mnt/Backups/Linux/MT1/GIMP/
 rsync -r --progress ~/.config/GIMP/3.0/themes /mnt/Backups/Linux/MT1/GIMP/
 rsync --progress ~/.config/GIMP/3.0/gimprc /mnt/Backups/Linux/MT1/GIMP/
 rsync --progress ~/.config/GIMP/3.0/toolrc /mnt/Backups/Linux/MT1/GIMP/
+rsync -r --progress ~/.config/GIMP/3.0/splashes /mnt/Backups/Linux/MT1/GIMP/
 
 # SFP
 mkdir /mnt/Backups/Linux/MT1/SFP/
