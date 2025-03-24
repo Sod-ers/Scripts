@@ -24,7 +24,7 @@ printf "\033]0;%s\a" "Bedtime"
 
 shutdown -c
 echo -e "${RED}Authentication required..${NC}"
-sudo shutdown +420
+sudo shutdown +420 --no-wall
 
 chmod -x ~/Scripts/hourly-chime.sh
 chmod -x ~/Scripts/completion-chime.sh
