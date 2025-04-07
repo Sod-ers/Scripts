@@ -9,7 +9,7 @@ diff --brief <(sort ~/Configs/spotDL/Automation-Status.txt) <(sort /tmp/spotDL/A
 comp_value=$?
 
 cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
-~/.local/bin/spotdl download saved --user-auth
+~/.local/bin/spotdl --bitrate 192k download saved --user-auth
 else
 echo " "
 fi

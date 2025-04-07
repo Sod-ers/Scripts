@@ -27,7 +27,7 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣿⣷⣦⣤⣄⣀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 # Close Nextcloud
-pkill nextcloud
+pkill nextcloud > /dev/null 2>&1&
 
 # Apt
 echo -e "${YELLOW}Updating Apt packages..${NC}"

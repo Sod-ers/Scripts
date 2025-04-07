@@ -67,13 +67,13 @@ do
         "Songs")
             cp ~/Configs/spotDL/song.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl download $URLS
+            ~/.local/bin/spotdl --bitrate 192k download $URLS
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Liked Songs")
             cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download saved --user-auth
+            ~/.local/bin/spotdl --bitrate 192k download saved --user-auth
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -95,13 +95,13 @@ do
         "Album")
             cp ~/Configs/spotDL/album.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl download $URLS
+            ~/.local/bin/spotdl --bitrate 192k download $URLS
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Saved Albums")
             cp ~/Configs/spotDL/saved-albums.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download all-user-saved-albums --user-auth
+            ~/.local/bin/spotdl --bitrate 192k download all-user-saved-albums --user-auth
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -124,33 +124,33 @@ do
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $URLS --m3u "{list} - Windows"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Windows"
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $URLS --m3u "{list} - Linux"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Linux"
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $URLS --m3u "{list} - Foobar"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Foobar"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Favorite Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $favorite_playlists --m3u "{list} - Windows"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Windows"
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $favorite_playlists --m3u "{list} - Linux"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Linux"
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download $favorite_playlists --m3u "{list} - Foobar"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Foobar"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "My Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download all-user-playlists --user-auth --m3u "{list} - Windows"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Windows"
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download all-user-playlists --user-auth --m3u "{list} - Linux"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Linux"
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl download all-user-playlists --user-auth --m3u "{list} - Foobar"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Foobar"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -166,14 +166,14 @@ done
         "First Listen")
             cp ~/Configs/spotDL/first-listen.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl download $URLS
+            ~/.local/bin/spotdl --bitrate 192k download $URLS
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Artist")
             cp ~/Configs/spotDL/artist.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter artist URL: "${NC})" URL
-            ~/.local/bin/spotdl download $URL
+            ~/.local/bin/spotdl --bitrate 192k download $URL
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -187,7 +187,7 @@ do
             cp ~/Configs/spotDL/song.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_url
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_url
-            ~/.local/bin/spotdl download "$cloudtube_url|$spotify_url"
+            ~/.local/bin/spotdl --bitrate 192k download "$cloudtube_url|$spotify_url"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -195,7 +195,7 @@ do
             cp ~/Configs/spotDL/album.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_url
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_url
-            ~/.local/bin/spotdl download "$cloudtube_url|$spotify_url"
+            ~/.local/bin/spotdl --bitrate 192k download "$cloudtube_url|$spotify_url"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;

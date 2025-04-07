@@ -33,7 +33,7 @@ do
     case $opt in
         "MT1")
 # Close programs
-pkill nextcloud
+pkill nextcloud > /dev/null 2>&1&
 ~/Scripts/disable-jellyfin-mt1.sh
 
 # Apt
@@ -62,6 +62,7 @@ echo -e "${YELLOW}Updating Spicetify..${NC}"
 sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 ~/.spicetify/spicetify update
+~/.spicetify/spicetify backup apply
 ~/.spicetify/spicetify restore backup apply
 echo -e "${GREEN}Spicetify complete!${NC}"
 
