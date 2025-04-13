@@ -95,3 +95,4 @@
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) argument. | -a, --batch-file FILE                        |
 | Remove all metadata.                                 | exiftool -All= <br>exiftool -delete_original |
 | FTP format/structure.                                | ftp://user@server/folder/                    |
+| VLC argument.                                        | --fullscreen                                 |
