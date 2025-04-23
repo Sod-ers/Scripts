@@ -226,6 +226,10 @@ rsync -r --progress ~/.factorio /mnt/Backups/Linux/MT1/
 # Terraria
 rsync -r --progress ~/.local/share/Terraria /mnt/Backups/Linux/MT1/
 
+# Blender
+mkdir /mnt/Backups/Linux/MT1/Blender/
+rsync -r --progress ~/Documents/Blender/Projects /mnt/Backups/Linux/MT1/Blender/
+
 # Steam
 mkdir /mnt/Backups/Linux/MT1/Steam/
 mkdir /mnt/Backups/Windows/Steam/

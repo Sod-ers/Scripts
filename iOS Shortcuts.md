@@ -3,7 +3,6 @@
 | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | Hidden diagnostic app for testing cellular connection.. MUST ADD TO HOMESCREEN TO FUNCTION! | https://www.icloud.com/shortcuts/00a9f75d55b44f9c938aa71f021ae62d |
 | Open settings app.                                                                          | https://www.icloud.com/shortcuts/ebc9de08475e43e3886df14300d41428 |
-| Airplay in background. Requires Actions app & create referenced files.                      | https://www.icloud.com/shortcuts/f360c619816942a98ab50448ef630ac6 |
 | Add new reminder to list.                                                                   | https://www.icloud.com/shortcuts/0f781aa4ccec4403a2f501ab053359d5 |
 | Scan document.                                                                              | https://www.icloud.com/shortcuts/6678af90bb4e40a2ada418902d8f0196 |
 | Open downloads folder.                                                                      | https://www.icloud.com/shortcuts/b303c27a20f746b4b7ba53a9655230cd |
