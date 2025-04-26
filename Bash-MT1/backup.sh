@@ -229,6 +229,7 @@ rsync -r --progress ~/.local/share/Terraria /mnt/Backups/Linux/MT1/
 # Blender
 mkdir /mnt/Backups/Linux/MT1/Blender/
 rsync -r --progress ~/Documents/Blender/Projects /mnt/Backups/Linux/MT1/Blender/
+rsync -r --progress ~/.var/app/org.blender.Blender/config/blender/4.4/config /mnt/Backups/Linux/MT1/Blender/
 
 # Steam
 mkdir /mnt/Backups/Linux/MT1/Steam/
