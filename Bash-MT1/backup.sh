@@ -243,6 +243,10 @@ rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/config/
 rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/7/remote/sharedconfig.vdf" /mnt/Backups/Windows/Steam/
 rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/userdata/158642257/7/remote/serverbrowser_hist.vdf" /mnt/Backups/Windows/Steam/
 
+# Postal2
+mkdir /mnt/Backups/Linux/MT1/Postal2/
+rsync -r --progress ~/.lgp/postal2 /mnt/Backups/Linux/MT1/Postal2/
+
 # GIMP
 mkdir /mnt/Backups/Linux/MT1/GIMP/
 rsync -r --progress ~/.config/GIMP/3.0/themes /mnt/Backups/Linux/MT1/GIMP/
