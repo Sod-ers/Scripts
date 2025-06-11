@@ -65,7 +65,8 @@
 | Open system protection.                              | C:\Windows\System32\SystemPropertiesProtection.exe                                                                            |
 | Open calculator.                                     | calculator:                                                                                                                   |
 | Execute a command & prevent window from closing.     | cmd /k cd "C:\User\Soders\Downloads"                                                                                          |
-| Start screensaver.                                   | control desk.cpl,,@screensaver                                                                                                |
+| Open screensaver dialog.                             | control desk.cpl,,@screensaver                                                                                                |
+| Start screensaver & lock after interaction.          | cmd /c start /wait scrnsave.scr /s && rundll32 user32.dll,LockWorkStation                                                     |
 | Delete a file.                                       | del /s /q "C:\Users\Soders\Downloads\file.txt"                                                                                |
 | Deletes files from folder.                           | del /s /q /f *.nfo *.flac folder.jpg folder.png folder.jpeg logo.png logo.jpg logo.jpeg *.mp3                                 |
 | Delete all files in a directory.                     | del /s /q C:\Users\Soders\Downloads\*                                                                                         |

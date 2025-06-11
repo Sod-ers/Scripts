@@ -285,9 +285,9 @@ do
 done
             break
             ;;
-        "Music Video")
+        "Music Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-music-video-1080p.conf
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-music-video.conf
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
