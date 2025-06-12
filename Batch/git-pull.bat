@@ -49,7 +49,7 @@ XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\mute.cfg" "C:\Program Files (x86)\S
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\settings.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\settings.cfg*"
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\sprays.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\sprays.cfg*"
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\unbound.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\unbound.cfg*"
-XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\volume.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfgvolume.cfg*"
+XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\volume.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\volume.cfg*"
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\practice.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\practice.cfg*"
 XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\materials\vgui\logos\"
 

@@ -450,7 +450,9 @@ rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Notepad++/config.xml /mn
 
 # Chatterino
 mkdir /mnt/Backups/Linux/MT1/Chatterino/
+mkdir /mnt/Backups/Windows/Chatterino/
 rsync --progress ~/.local/share/chatterino/Settings/settings.json /mnt/Backups/Linux/MT1/Chatterino/
+rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Chatterino2/Settings/settings.json /mnt/Backups/Windows/Chatterino/
 
 # Jellyfin
 mkdir /mnt/Backups/Linux/MT1/Jellyfin/
