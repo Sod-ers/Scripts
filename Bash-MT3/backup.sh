@@ -222,8 +222,8 @@ rsync --progress "/home/soders/.var/app/com.github.iwalton3.jellyfin-media-playe
 # Digikam
 mkdir /mnt/SD-64/Linux/MT3/digiKam/
 mkdir /mnt/SD-64/Linux/MT3/digiKam/systempackage/
-rsync --progress ~/.var/app/org.kde.digikam/config/digikamrc /mnt/SD-64/Linux/MT3/digiKam/
-rsync --progress ~/.var/app/org.kde.digikam/config/digikam_systemrc /mnt/SD-64/Linux/MT3/digiKam/
+# rsync --progress ~/.var/app/org.kde.digikam/config/digikamrc /mnt/SD-64/Linux/MT3/digiKam/
+# rsync --progress ~/.var/app/org.kde.digikam/config/digikam_systemrc /mnt/SD-64/Linux/MT3/digiKam/
 rsync --progress ~/.local/share/digikam/QtWebEngine/Default/user_prefs.json /mnt/SD-64/Linux/MT3/digiKam/systempackage/
 
 # local bin

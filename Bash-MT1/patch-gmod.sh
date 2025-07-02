@@ -12,7 +12,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Full Patch")
-~/.local/bin/GModCEFCodecFix-Linux
+~/.local/bin/gmodpatchtool
 cp /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Dark-Theme/Linux/GarrysMod/garrysmod/html/template/main.html /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/html/template/main.html
 cp /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Dark-Theme/Linux/GarrysMod/garrysmod/materials/console/background01.vtf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials/console/background01.vtf
 cp /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Dark-Theme/Linux/GarrysMod/garrysmod/materials/console/background01_widescreen.vtf /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials/console/background01_widescreen.vtf
@@ -29,7 +29,7 @@ sleep 3
             break
             ;;
         "CEF Only")
-~/.local/bin/GModCEFCodecFix-Linux
+~/.local/bin/gmodpatchtool
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
