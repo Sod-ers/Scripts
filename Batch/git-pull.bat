@@ -7,6 +7,9 @@ git pull https://github.com/Sod-ers/Configs.git
 cd E:\GitHub\MetroSteam
 git pull https://github.com/RoseTheFlower/MetroSteam.git
 
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-autoexec.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-autoexec.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\server.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\server.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\aliases.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-aliases.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\bb-autoexec.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\bb-autoexec.cfg*"
