@@ -46,6 +46,9 @@ rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysm
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-easy-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-easy-autoexec.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-hard-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-hard-autoexec.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/chat.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/server.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/server.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test.cfg home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-autoexec.cfg
 rsync /home/soders/Configs/GMod/BB/mvp.cfg /media/soders/2TBNTFS/Documents/Configs/GMod/BB/mvp.cfg
 mkdir /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
 rsync -r --delete /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/data/bb_servers/outfits /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
