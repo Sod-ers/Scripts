@@ -12,7 +12,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Full Patch")
-~/.local/bin/gmodpatchtool --skip-exit-prompt
+~/.local/bin/gmodpatchtool
 cp -r /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Dark-Theme/Linux/garrysmod/addons/dark-theme /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/addons
 rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 cp -r /home/soders/Games/GMod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
@@ -22,7 +22,7 @@ sleep 3
             break
             ;;
         "CEF Only")
-~/.local/bin/gmodpatchtool --skip-exit-prompt
+~/.local/bin/gmodpatchtool
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break
