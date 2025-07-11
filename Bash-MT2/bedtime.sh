@@ -29,7 +29,9 @@ sudo shutdown +720 --no-wall
 chmod -x ~/Scripts/hourly-chime.sh
 chmod -x ~/Scripts/completion-chime.sh
 
+# Built-in Audio Analog Stereo for CVLC
 cvlc -q --loop ~/Audio/river.mp3 > /dev/null 2>&1&
+# Mkchromecast for mpv
 mpv ~/Audio/river.mp3 --no-video --loop --no-terminal &
 
 echo ⠀⠀⠀⣠⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣦⣄⠀⠀⠀
