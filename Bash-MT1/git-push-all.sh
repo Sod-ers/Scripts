@@ -92,13 +92,15 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd ~/Nextcloud/GitHub/Homepage/Homepage/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+sleep 3
+
+# cd ~/Nextcloud/GitHub/Homepage/Homepage/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
 cd ~/Nextcloud/GitHub/Programs/Programs/
 git checkout main
@@ -108,6 +110,8 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
+sleep 3
+
 cd ~/Nextcloud/GitHub/Scripts/Scripts/
 git checkout main
 git pull
@@ -115,6 +119,8 @@ git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
+
+sleep 3
 
 cd ~/Nextcloud/GitHub/Configs/Configs/
 git checkout main
@@ -124,6 +130,8 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
+sleep 3
+
 cd ~/Nextcloud/GitHub/Misc/Misc/
 git checkout main
 git pull
@@ -131,6 +139,8 @@ git merge main
 git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
+
+sleep 3
 
 cd ~/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
 git checkout main
@@ -140,13 +150,15 @@ git add .
 git commit -m "$(date +"%D  %I:%M:%S %p")"
 git push origin main
 
-cd ~/Nextcloud/GitHub/BB-Tracker/BB-Tracker/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+sleep 3
+
+# cd ~/Nextcloud/GitHub/BB-Tracker/BB-Tracker/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
 notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
 
