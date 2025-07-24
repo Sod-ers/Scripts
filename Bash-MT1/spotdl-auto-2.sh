@@ -10,13 +10,13 @@ comp_value=$?
 
 source ~/Configs/spotDL/.env
 
-cd ~/Music/Playlists/
-cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Windows"
-cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Linux"
-cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Foobar"
+# cd ~/Music/Playlists/
+# cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
+# ~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Windows"
+# cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
+# ~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Linux"
+# cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
+# ~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Foobar"
 
 cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
 ~/.local/bin/spotdl --bitrate 192k download saved --user-auth

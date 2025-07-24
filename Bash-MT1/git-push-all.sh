@@ -77,6 +77,8 @@ rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmat
 rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/unbound.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/unbound.cfg
 rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/controls.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/controls.cfg
 rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/sprays.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/sprays.cfg
+# CS2
+rsync /home/soders/Configs/CS2/autoexec.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/CS2/autoexec.cfg
 
 ###
 
