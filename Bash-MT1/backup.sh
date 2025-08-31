@@ -857,53 +857,113 @@ date "+%B %d" > /mnt/Backups/timestamp.txt
 
 ~/Scripts/git-remove-private.sh
 
-cd ~/Nextcloud/GitHub/Bookmarks/Bookmarks/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+# cd ~/Nextcloud/GitHub/Bookmarks/Bookmarks/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
-cd ~/Nextcloud/GitHub/Programs/Programs/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+# cd ~/Nextcloud/GitHub/Programs/Programs/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
-cd ~/Nextcloud/GitHub/Scripts/Scripts/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+# cd ~/Nextcloud/GitHub/Scripts/Scripts/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
-cd ~/Nextcloud/GitHub/Configs/Configs/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+# cd ~/Nextcloud/GitHub/Configs/Configs/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
-cd ~/Nextcloud/GitHub/Misc/Misc/
-git checkout main
-git pull
-git merge main
-git add .
-git commit -m "$(date +"%D  %I:%M:%S %p")"
-git push origin main
+# cd ~/Nextcloud/GitHub/Misc/Misc/
+# git checkout main
+# git pull
+# git merge main
+# git add .
+# git commit -m "$(date +"%D  %I:%M:%S %p")"
+# git push origin main
 
-notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
+# notify-send -i ~/.icons/GitHub-Symbolic.png "GitHub" "Repositories updated."
 fi
             break
             ;;
         "Projects")
+if [ ! -f /mnt/Portable-Backup/status.txt ]; then
+echo -e "${RED}USB not detected.${NC}"
+sleep 3
+else
+echo -e "${YELLOW}WARNING! About to backup projects.${NC}" && sleep 3
+echo -e "${RED}Press any key to proceed.${NC}"
+while true; do
+read -rsn1 key
+if [[ -n "$key" ]]; then
+# WINDOWS
+mkdir /mnt/Portable-Backup/Projects/
+mkdir /mnt/Portable-Backup/Projects/Windows/
 mkdir /mnt/Backups/Projects/
-rsync -r --progress ~/Projects /mnt/Backups/Projects/
+mkdir /mnt/Backups/Projects/Windows/
+mkdir /mnt/Backups/Projects/Windows/modelsrc/
+mkdir /mnt/Backups/Projects/Windows/models/
+mkdir /mnt/Backups/Projects/Windows/materials/
+mkdir /mnt/Backups/Projects/Windows/Blender/
+mkdir /mnt/Backups/Projects/Windows/GIMP/
+mkdir /mnt/Backups/Projects/Windows/Hammer/
+mkdir /mnt/Backups/Projects/Windows/Substance-Painter/
+mkdir /mnt/Backups/Projects/Windows/Screenshots/
+mkdir /mnt/Backups/Projects/Windows/references/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/modelsrc" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/models" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/materials" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Blender" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/GIMP" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Hammer" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Substance-Painter" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Pictures/Screenshots" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/references" /mnt/Backups/Projects/Windows/
+
+rsync -r --progress --delete /mnt/Backups/Projects/Windows/ /mnt/Portable-Backup/Projects/Windows/
+
+# LINUX
+mkdir /mnt/Portable-Backup/Projects/
+mkdir /mnt/Portable-Backup/Projects/Linux/
+mkdir /mnt/Backups/Projects/
+mkdir /mnt/Backups/Projects/Linux/
+mkdir /mnt/Backups/Projects/Linux/modelsrc/
+mkdir /mnt/Backups/Projects/Linux/models/
+mkdir /mnt/Backups/Projects/Linux/materials/
+mkdir /mnt/Backups/Projects/Linux/Blender/
+mkdir /mnt/Backups/Projects/Linux/GIMP/
+mkdir /mnt/Backups/Projects/Linux/Screenshots/
+# mkdir /mnt/Backups/Projects/Linux/references/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/Linux/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/Linux/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials /mnt/Backups/Projects/Linux/
+rsync -r --progress --delete ~/Projects/Blender /mnt/Backups/Projects/Linux/
+rsync -r --progress --delete ~/Projects/GIMP /mnt/Backups/Projects/Linux/
+rsync -r --progress --delete ~/Pictures/Screenshots /mnt/Backups/Projects/Linux/
+# rsync -r --progress --delete ~/Projects/references /mnt/Backups/Projects/Linux/
+
+rsync -r --progress --delete /mnt/Backups/Projects/Linux/ /mnt/Portable-Backup/Projects/Linux/
+
+break
+fi
+done
+echo -e "${GREEN}Backup completed!${NC}" && sleep 3
+fi
             break
             ;;
         "Quit")

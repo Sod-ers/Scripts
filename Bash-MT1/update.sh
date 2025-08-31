@@ -50,6 +50,7 @@ echo -e "${GREEN}Flatpaks complete!${NC}"
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
+pip install --upgrade yt-dlp
 echo -e "${GREEN}YTDLP complete!${NC}"
 
 # spotDL
@@ -59,12 +60,13 @@ echo -e "${GREEN}spotDL complete!${NC}"
 
 # Spicetify
 echo -e "${YELLOW}Updating Spicetify..${NC}"
-# curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
 sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 ~/.spicetify/spicetify update
 ~/.spicetify/spicetify backup apply
 ~/.spicetify/spicetify restore backup apply
+# Spicetify marketplace
+# curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
 echo -e "${GREEN}Spicetify complete!${NC}"
 
 # Steam Metro theme
