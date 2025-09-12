@@ -12,7 +12,7 @@ pkill nextcloud > /dev/null 2>&1&
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
 
-cd ~/Nextcloud/GitHub/Homepage/Homepage/
+cd ~/Nextcloud/GitHub/Collaboration/Collaboration/
 echo -e "${RED}git checkout main${NC}"
 git checkout main
 sleep 1
@@ -28,7 +28,7 @@ git commit -m "$MSG"
 sleep 1
 echo -e "${RED}git push origin main${NC}"
 git push origin main
-notify-send -i ~/.icons/GitHub-Symbolic-16.svg "GitHub" "Homepage updated."
-echo -e "${GREEN}Homepage updated.${NC}" && sleep 1
+notify-send -i ~/.icons/GitHub-Symbolic-16.svg "GitHub" "Collaboration updated."
+echo -e "${GREEN}Collaboration updated.${NC}" && sleep 1
 
 nohup "/usr/bin/nextcloud" --background & sleep 1 && exit

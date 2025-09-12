@@ -75,6 +75,7 @@ cd /tmp/
 git clone https://github.com/RoseTheFlower/MetroSteam.git
 rsync --progress /tmp/MetroSteam/notifications.custom.css ~/.steam/steam/steamui/skins/MetroSteam/notifications.custom.css
 rsync --progress /tmp/MetroSteam/libraryroot.custom.css ~/.steam/steam/steamui/skins/MetroSteam/libraryroot.custom.css
+rsync --progress /tmp/MetroSteam/friends.custom.css ~/.steam/steam/steamui/skins/MetroSteam/friends.custom.css
 cd ~/
 echo -e "${GREEN}Steam Metro theme complete!${NC}"
 
@@ -96,6 +97,9 @@ echo -e "${GREEN}Steam Metro theme complete!${NC}"
 echo -e "${YELLOW}Cleaning up..${NC}"
 sudo apt autoremove
 sudo apt autoclean
+
+# Remove OpenRGB logs
+rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 
 # Enable programs
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&

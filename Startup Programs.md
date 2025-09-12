@@ -1,6 +1,7 @@
 
 | Description:                              | Command:                                                                                                   |
 | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Dunst enable notifications.               | dunst && dunstctl set-paused false                                                                         |
 | Nvidia always prefer maximum performance. | `nvidia-settings -a '[gpu:1]/GPUPowerMizerMode=1'`                                                         |
 | Nvidia always prefer maximum performance. | `nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'`                                                         |
 | Disable game controller audio device.     | `pactl set-card-profile alsa_card.usb-ASTRO_Gaming_ASTRO_C40_ff00004b68-00 off`                            |

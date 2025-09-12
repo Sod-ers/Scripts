@@ -98,6 +98,14 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# Dunst
+mkdir /mnt/Backups/Linux/MT1/Dunst/
+rsync -r --progress ~/.config/dunst/dunstrc /mnt/Backups/Linux/MT1/Dunst/
+
+# Geany
+mkdir /mnt/Backups/Linux/MT1/Geany/
+rsync -r --progress ~/.config/geany/geany.conf /mnt/Backups/Linux/MT1/Geany/
+
 # Whisker Menu programs
 mkdir /mnt/Backups/Linux/MT1/Whisker-Menu/
 rsync -r --progress --delete ~/.local/share/applications /mnt/Backups/Linux/MT1/Whisker-Menu/
@@ -156,6 +164,9 @@ rsync -r --progress ~/Videos/Playlists /mnt/Backups/Linux/MT1/Videos/
 # Documents
 mkdir /mnt/Backups/Linux/MT1/Documents/
 mkdir /mnt/Backups/Windows/Documents/
+mkdir /mnt/Backups/Linux/MT1/Nextcloud/
+mkdir /mnt/Backups/Linux/MT1/Nextcloud/Documents/
+
 rsync -r --progress ~/Documents/Spreadsheets /mnt/Backups/Linux/MT1/Documents/
 rsync -r --progress --ignore-existing ~/Documents/PDFs /mnt/Backups/Linux/MT1/Documents/
 rsync -r --progress ~/Documents/Notes /mnt/Backups/Linux/MT1/Documents/
@@ -165,6 +176,8 @@ rsync -r --progress ~/Documents/Configs /mnt/Backups/Linux/MT1/Documents/
 rsync -r --progress --ignore-existing /media/soders/2TBNTFS/Documents/Notes /mnt/Backups/Windows/Documents/
 rsync -r --progress --ignore-existing /media/soders/2TBNTFS/Documents/PDFs /mnt/Backups/Windows/Documents/
 rsync -r --progress --ignore-existing /media/soders/2TBNTFS/Documents/Spreadsheets /mnt/Backups/Windows/Documents/
+
+rsync -r --progress ~/Nextcloud/Documents /mnt/Backups/Linux/MT1/Nextcloud/Documents/
 
 # Memes
 mkdir /mnt/Backups/Misc/Memes/
@@ -229,7 +242,7 @@ rsync -r --progress ~/.local/share/Terraria /mnt/Backups/Linux/MT1/
 # Blender
 mkdir /mnt/Backups/Linux/MT1/Blender/
 rsync -r --progress ~/Documents/Blender/Projects /mnt/Backups/Linux/MT1/Blender/
-rsync -r --progress ~/.var/app/org.blender.Blender/config/blender/4.4/config /mnt/Backups/Linux/MT1/Blender/
+rsync -r --progress ~/.var/app/org.blender.Blender/config/blender/4.5/config /mnt/Backups/Linux/MT1/Blender/
 
 # Steam
 mkdir /mnt/Backups/Linux/MT1/Steam/
@@ -850,6 +863,12 @@ rsync --progress /mnt/Backups/Windows/ImageGlass/ /home/soders/Nextcloud/GitHub/
 
 # ConvertAll
 rsync --progress /mnt/Backups/Linux/MT1/ConvertAll/.convertall /home/soders/Nextcloud/GitHub/Configs/Configs/ConvertAll/
+
+# Dunst
+rsync --progress /mnt/Backups/Linux/MT1/Dunst/dunstrc /home/soders/Nextcloud/GitHub/Configs/Configs/Dunst/
+
+# Geany
+rsync --progress /mnt/Backups/Linux/MT1/Geany/geany.conf /home/soders/Nextcloud/GitHub/Configs/Configs/Geany/
 
 # Printer timestamp
 touch /mnt/Backups/timestamp.txt

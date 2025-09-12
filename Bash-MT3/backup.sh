@@ -81,6 +81,14 @@ touch /mnt/SD-64/Linux/MT3/crontabs.txt
 mkdir /mnt/SD-64/Linux/MT3/Browser-Bookmarks/
 mkdir /mnt/SD-64/Linux/MT3/Tabliss/
 
+# Dunst
+mkdir /mnt/SD-64/Linux/MT3/Dunst/
+rsync -r --progress ~/.config/dunst/dunstrc /mnt/SD-64/Linux/MT3/Dunst/
+
+# Geany
+mkdir /mnt/SD-64/Linux/MT3/Geany/
+rsync -r --progress ~/.config/geany/geany.conf /mnt/SD-64/Linux/MT3/Geany/
+
 # Whisker menu programs
 mkdir /mnt/SD-64/Linux/MT3/Whisker-Menu/
 rsync -r --progress --delete ~/.local/share/applications /mnt/SD-64/Linux/MT3/Whisker-Menu/
