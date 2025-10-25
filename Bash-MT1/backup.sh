@@ -98,6 +98,12 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# TF2 Tools
+mkdir /mnt/Backups/Linux/MT1/TF2/
+mkdir /mnt/Backups/Windows/TF2/
+rsync --progress "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Team Fortress 2/tools.bat" /mnt/Backups/Windows/TF2/
+rsync --progress "/home/soders/Team Fortress 2/tools.bat" /mnt/Backups/Linux/MT1/TF2/
+
 # Dunst
 mkdir /mnt/Backups/Linux/MT1/Dunst/
 rsync -r --progress ~/.config/dunst/dunstrc /mnt/Backups/Linux/MT1/Dunst/
@@ -361,6 +367,9 @@ rsync -r --progress ~/.config/input-remapper-2 /mnt/Backups/Linux/MT1/
 
 # btop
 rsync -r --progress ~/.config/btop /mnt/Backups/Linux/MT1/
+
+# feh
+rsync -r --progress ~/.config/feh /mnt/Backups/Linux/MT1/
 
 # Foobar2000
 rsync -r --progress "/mnt/WIN1/Users/Soders/Programs/Foobar2000 Data" /mnt/Backups/Windows/
@@ -870,6 +879,11 @@ rsync --progress /mnt/Backups/Linux/MT1/Dunst/dunstrc /home/soders/Nextcloud/Git
 # Geany
 rsync --progress /mnt/Backups/Linux/MT1/Geany/geany.conf /home/soders/Nextcloud/GitHub/Configs/Configs/Geany/
 
+# feh
+rsync --progress /home/soders/Backups/Linux/MT1/feh/themes /home/soders/Nextcloud/GitHub/Configs/Configs/feh/themes
+rsync --progress /home/soders/Backups/Linux/MT1/feh/keys /home/soders/Nextcloud/GitHub/Configs/Configs/feh/keys
+
+
 # Printer timestamp
 touch /mnt/Backups/timestamp.txt
 date "+%B %d" > /mnt/Backups/timestamp.txt
@@ -935,24 +949,30 @@ mkdir /mnt/Portable-Backup/Projects/
 mkdir /mnt/Portable-Backup/Projects/Windows/
 mkdir /mnt/Backups/Projects/
 mkdir /mnt/Backups/Projects/Windows/
+mkdir /mnt/Backups/Projects/Windows/mapsrc/
 mkdir /mnt/Backups/Projects/Windows/modelsrc/
 mkdir /mnt/Backups/Projects/Windows/models/
 mkdir /mnt/Backups/Projects/Windows/materials/
-mkdir /mnt/Backups/Projects/Windows/Blender/
-mkdir /mnt/Backups/Projects/Windows/GIMP/
-mkdir /mnt/Backups/Projects/Windows/Hammer/
-mkdir /mnt/Backups/Projects/Windows/Substance-Painter/
 mkdir /mnt/Backups/Projects/Windows/Screenshots/
-mkdir /mnt/Backups/Projects/Windows/references/
+mkdir "/mnt/Backups/Projects/Windows/Desktop 1/"
+mkdir "/mnt/Backups/Projects/Windows/Desktop 2/"
+# mkdir /mnt/Backups/Projects/Windows/Blender/
+# mkdir /mnt/Backups/Projects/Windows/GIMP/
+# mkdir /mnt/Backups/Projects/Windows/Hammer/
+# mkdir /mnt/Backups/Projects/Windows/Substance-Painter/
+# mkdir /mnt/Backups/Projects/Windows/references/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/references" /mnt/Backups/Projects/Windows/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Blender" /mnt/Backups/Projects/Windows/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/GIMP" /mnt/Backups/Projects/Windows/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Hammer" /mnt/Backups/Projects/Windows/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Substance-Painter" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/mapsrc" /mnt/Backups/Projects/Windows/
 rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/modelsrc" /mnt/Backups/Projects/Windows/
 rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/models" /mnt/Backups/Projects/Windows/
 rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/materials" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Blender" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/GIMP" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Hammer" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Substance-Painter" /mnt/Backups/Projects/Windows/
 rsync -r --progress --delete "/media/soders/2TBNTFS/Pictures/Screenshots" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/references" /mnt/Backups/Projects/Windows/
+rsync -r --progress --delete /mnt/WIN1/Users/Soders/Desktop "/mnt/Backups/Projects/Windows/Desktop 1/"
+rsync -r --progress --delete /mnt/WIN2/Users/Soders/Desktop "/mnt/Backups/Projects/Windows/Desktop 2/"
 
 rsync -r --progress --delete /mnt/Backups/Projects/Windows/ /mnt/Portable-Backup/Projects/Windows/
 
@@ -964,17 +984,17 @@ mkdir /mnt/Backups/Projects/Linux/
 mkdir /mnt/Backups/Projects/Linux/modelsrc/
 mkdir /mnt/Backups/Projects/Linux/models/
 mkdir /mnt/Backups/Projects/Linux/materials/
-mkdir /mnt/Backups/Projects/Linux/Blender/
-mkdir /mnt/Backups/Projects/Linux/GIMP/
 mkdir /mnt/Backups/Projects/Linux/Screenshots/
+# mkdir /mnt/Backups/Projects/Linux/Blender/
+# mkdir /mnt/Backups/Projects/Linux/GIMP/
 # mkdir /mnt/Backups/Projects/Linux/references/
+# rsync -r --progress --delete ~/Projects/references /mnt/Backups/Projects/Linux/
+# rsync -r --progress --delete ~/Projects/Blender /mnt/Backups/Projects/Linux/
+# rsync -r --progress --delete ~/Projects/GIMP /mnt/Backups/Projects/Linux/
 rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/Linux/
 rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/Linux/
 rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/Projects/Blender /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/Projects/GIMP /mnt/Backups/Projects/Linux/
 rsync -r --progress --delete ~/Pictures/Screenshots /mnt/Backups/Projects/Linux/
-# rsync -r --progress --delete ~/Projects/references /mnt/Backups/Projects/Linux/
 
 rsync -r --progress --delete /mnt/Backups/Projects/Linux/ /mnt/Portable-Backup/Projects/Linux/
 

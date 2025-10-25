@@ -31,7 +31,7 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿
 
 echo -e "${RED}Authenticate to enable Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Jellyseerr, & Flaresolverr...${NC}"
 
-nohup ~/Programs/Flaresolverr/flaresolverr > /dev/null 2>&1&
+# nohup ~/Programs/Flaresolverr/flaresolverr > /dev/null 2>&1&
 
 sudo systemctl start lidarr
 sudo systemctl start radarr

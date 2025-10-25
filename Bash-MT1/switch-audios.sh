@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# GP106 = homepod mini
+
 # Collect all sinks
 sinkList=$(pactl list sinks | tr '\n' '\r' | perl -pe 's/Sink #([0-9]+).+?device\.description = "([^\r]+)"\r.+?(?=Sink #|$)/\1:"\2",/g' | tr '\r' '\n')
 IFS="," read -a sinksArray <<< "$sinkList"

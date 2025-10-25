@@ -8,6 +8,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m'
 
 pkill nextcloud > /dev/null 2>&1&
+rm ~/Nextcloud/GitHub/Scripts/Scripts/nohup.out
 
 echo -e "${RED}rsync${NC}"
 mkdir /tmp/Bash-MT2/

@@ -19,6 +19,6 @@ while [ $WIN_IDs ]; do
     WIN_IDs=$(wmctrl -l | grep -vwE "Desktop$|xfce4-panel$|Whisker Menu$|Factorio: Space Age 2.*$" | cut -f1 -d' ')
 done
 
-ssh $MT3 pkill vlc & ssh $PM2 pkill vlc
+ssh $MT3 pkill vlc & ssh $PM2 pkill vlc & ssh $MT3 pkill feh & ssh $PM2 pkill feh
 ssh $MT3 pkill xscreensaver & ssh $PM2 pkill xscreensaver
 ssh $MT3 xscreensaver -nosplash & ssh $PM2 xscreensaver -nosplash

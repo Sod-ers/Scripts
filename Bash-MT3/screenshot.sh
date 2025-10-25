@@ -1,3 +1,6 @@
 #!/bin/bash
 
-xfce4-screenshooter -r -c -s "/home/soders/Pictures/Screenshots/$(date -d "today" +"%Y-%m-%d %I-%M-%S %p").png"
+# Capture region
+xfce4-screenshooter -r -c -s  "/home/soders/Pictures/Screenshots/$(date -d "today" +"%Y-%m-%d %I-%M-%S %p").png"
+
+notify-send -i ~/.local/share/icons/Colloid-Green-Dracula-Dark/devices/16/camera-photo.svg "xfce4-screenshooter" "Screenshot saved."

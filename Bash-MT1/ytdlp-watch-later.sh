@@ -2,7 +2,7 @@
 
 source ~/.env
 
-scp $MT2:~/Configs/YTDLP/watch-later-playlist-url.txt /tmp/YTDLP/watch-later-playlist-url-2.txt
+scp $MT1:~/Configs/YTDLP/watch-later-playlist-url.txt /tmp/YTDLP/watch-later-playlist-url-2.txt
 
 if [[ /tmp/YTDLP/watch-later-playlist-url-2.txt -nt ~/Configs/YTDLP/watch-later-playlist-url.txt ]]; then
 cp /tmp/YTDLP/watch-later-playlist-url-2.txt ~/Configs/YTDLP/watch-later-playlist-url.txt
@@ -10,7 +10,7 @@ fi
 
 watch_later_playlist_url=$(cat ~/Configs/YTDLP/watch-later-playlist-url.txt)
 
-scp $MT1:~/Configs/YTDLP/watch-history.txt /tmp/YTDLP/watch-history-2.txt 2> /dev/null
+scp $MT2:~/Configs/YTDLP/watch-history.txt /tmp/YTDLP/watch-history-2.txt 2> /dev/null
 
 cat /tmp/YTDLP/watch-history-2.txt >> /tmp/YTDLP/watch-history-unsynced.txt
 
@@ -20,7 +20,7 @@ awk '!seen[$0]++' /tmp/YTDLP/watch-history-unsynced.txt > ~/Configs/YTDLP/watch-
 
 echo " " > /tmp/YTDLP/watch-history-unsynced.txt
 
-scp ~/Configs/YTDLP/watch-history.txt $MT1:~/Configs/YTDLP/watch-history.txt 2> /dev/null
+scp ~/Configs/YTDLP/watch-history.txt $MT2:~/Configs/YTDLP/watch-history.txt 2> /dev/null
 
 cp ~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/Backup/watch-history.txt
 

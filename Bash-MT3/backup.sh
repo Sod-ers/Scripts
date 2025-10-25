@@ -81,6 +81,9 @@ touch /mnt/SD-64/Linux/MT3/crontabs.txt
 mkdir /mnt/SD-64/Linux/MT3/Browser-Bookmarks/
 mkdir /mnt/SD-64/Linux/MT3/Tabliss/
 
+# feh
+rsync -r --progress ~/.config/feh /mnt/SD-64/Linux/MT3/
+
 # Dunst
 mkdir /mnt/SD-64/Linux/MT3/Dunst/
 rsync -r --progress ~/.config/dunst/dunstrc /mnt/SD-64/Linux/MT3/Dunst/

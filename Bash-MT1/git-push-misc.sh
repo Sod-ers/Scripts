@@ -8,6 +8,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m'
 
 pkill nextcloud > /dev/null 2>&1&
+rm ~/Nextcloud/GitHub/Misc/Misc/nohup.out
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
