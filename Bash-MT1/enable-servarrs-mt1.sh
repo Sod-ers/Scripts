@@ -29,7 +29,7 @@ echo ⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 echo ⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠁⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠛⠛⠛⠋⠉⠉⠁⠀⠀⠀⠀⠀
 
-echo -e "${RED}Authenticate to enable Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Jellyseerr, & Flaresolverr...${NC}"
+echo -e "${RED}Authenticate to enable Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Jellyseerr${NC}"
 
 # nohup ~/Programs/Flaresolverr/flaresolverr > /dev/null 2>&1&
 

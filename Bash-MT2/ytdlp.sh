@@ -543,13 +543,13 @@ select opt in "${options[@]}"
 do
     case $opt in
         "1080p")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 3 --lazy-playlist --dateafter now-30days --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-30days --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "480p")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-480p.conf --playlist-end 3 --lazy-playlist --dateafter now-30days --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-30days --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -718,13 +718,13 @@ select opt in "${options[@]}"
 do
     case $opt in
         "1080p")
-            ~/.local/bin/ytdlp --sleep-interval 60 --max-sleep-interval 120 --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --sleep-interval 60 --max-sleep-interval 120 --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "480p")
-            ~/.local/bin/ytdlp --sleep-interval 60 --max-sleep-interval 120 --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-480p.conf --playlist-end 2 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --sleep-interval 60 --max-sleep-interval 120 --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-480p.conf --playlist-end 1 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break

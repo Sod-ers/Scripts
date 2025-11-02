@@ -5,7 +5,8 @@ git pull https://github.com/Sod-ers/GMod-Resources.git
 cd E:\GitHub\Configs
 git pull https://github.com/Sod-ers/Configs.git
 
-XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-cosmetic.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-cosmetic.cfg*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-map.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-map.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-autoexec.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-autoexec.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\server.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\server.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\aliases.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\aliases.cfg*"

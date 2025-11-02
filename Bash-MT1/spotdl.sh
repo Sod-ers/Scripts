@@ -470,6 +470,7 @@ done
             break
             ;;
         "Quit")
+            exit
             break
             ;;
         *) echo "invalid option $REPLY";;

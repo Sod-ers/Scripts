@@ -452,7 +452,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Recent VODs")
-            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-7days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break

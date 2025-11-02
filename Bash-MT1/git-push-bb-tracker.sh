@@ -30,6 +30,6 @@ sleep 1
 echo -e "${RED}git push origin main${NC}"
 git push origin main
 notify-send -i ~/.icons/GitHub-Symbolic-16.svg "GitHub" "BB Tracker updated."
-echo -e "${GREEN}Programs updated.${NC}" && sleep 1
+echo -e "${GREEN}BB Tracker updated.${NC}" && sleep 1
 
 nohup "/usr/bin/nextcloud" --background & sleep 1 && exit

@@ -35,12 +35,14 @@ rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysm
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/bb-hard-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/bb-hard-autoexec.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/chat.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/server.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/server.cfg
-rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-autoexec.cfg
 rsync /home/soders/Configs/GMod/BB/mvp.cfg /media/soders/2TBNTFS/Documents/Configs/GMod/BB/mvp.cfg
 mkdir /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
 rsync -r --delete /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/data/bb_servers/outfits /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
 rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/sprays.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/sprays.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-cosmetic.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-cosmetic.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-map.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-map.cfg
+
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
@@ -62,6 +64,6 @@ sleep 1
 echo -e "${RED}git push origin main${NC}"
 git push origin main
 notify-send -i ~/.icons/GitHub-Symbolic-16.svg "GitHub" "GMod Resources updated."
-echo -e "${GREEN}Programs updated.${NC}" && sleep 1
+echo -e "${GREEN}Gmod Resources updated.${NC}" && sleep 1
 
 nohup "/usr/bin/nextcloud" --background & sleep 1 && exit

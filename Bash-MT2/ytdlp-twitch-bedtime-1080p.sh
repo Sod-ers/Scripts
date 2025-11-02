@@ -18,4 +18,4 @@ cp ~/Configs/YTDLP/watch-history.txt ~/Configs/YTDLP/Backup/watch-history.txt
 
 ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
 
-~/.local/bin/ytdlp --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 2 --lazy-playlist --dateafter now-3days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt > /dev/null 2>&1&
+~/.local/bin/ytdlp --match-filter '!is_live' -a ~/Configs/YTDLP/twitch-bedtime-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-3days --max-downloads 1 --download-archive ~/Configs/YTDLP/watch-history.txt > /dev/null 2>&1&
