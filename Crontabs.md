@@ -11,3 +11,4 @@
 | Description:                                               | Job:                                            |
 | ---------------------------------------------------------- | ----------------------------------------------- |
 | Deletes files that have been in trash for more than 1 day. | @daily /usr/bin/trash-empty 1 > /dev/null 2>&1& |
+| YTDLP schedule - 12am & 12pm daily.                        | 0 */12 * * *                                    |

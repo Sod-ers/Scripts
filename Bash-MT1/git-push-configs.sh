@@ -26,15 +26,15 @@ rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress
 rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/cfg/practice.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/Open-Fortress/practice.cfg
 rsync -r --ignore-existing --delete /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress/materials/vgui/logos /home/soders/Nextcloud/GitHub/Configs/Configs/Open-Fortress/
 # HL2DM
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/autoexec.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/autoexec.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/volume.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/volume.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/mute.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/mute.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/settings.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/settings.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/aliases.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/aliases.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/chat.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/chat.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/unbound.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/unbound.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/controls.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/controls.cfg
-rsync "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/sprays.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/sprays.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/autoexec.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/autoexec.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/volume.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/volume.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/mute.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/mute.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/settings.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/settings.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/aliases.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/aliases.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/chat.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/chat.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/unbound.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/unbound.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/controls.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/controls.cfg
+rsync "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg/sprays.cfg" /home/soders/Nextcloud/GitHub/Configs/Configs/HL2DM/sprays.cfg
 # CS2
 rsync /home/soders/Configs/CS2/autoexec.cfg /home/soders/Nextcloud/GitHub/Configs/Configs/CS2/autoexec.cfg
 
@@ -45,9 +45,9 @@ cd ~/Nextcloud/GitHub/Configs/Configs/
 echo -e "${RED}git checkout main${NC}"
 git checkout main
 sleep 1
-echo -e "${RED}git pull${NC}"
-git pull
-sleep 1
+# echo -e "${RED}git pull${NC}"
+# git pull
+# sleep 1
 echo -e "${RED}git merge main${NC}"
 git merge main
 sleep 1

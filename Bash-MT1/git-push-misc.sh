@@ -17,9 +17,9 @@ cd ~/Nextcloud/GitHub/Misc/Misc/
 echo -e "${RED}git checkout main${NC}"
 git checkout main
 sleep 1
-echo -e "${RED}git pull${NC}"
-git pull
-sleep 1
+# echo -e "${RED}git pull${NC}"
+# git pull
+# sleep 1
 echo -e "${RED}git merge main${NC}"
 git merge main
 sleep 1

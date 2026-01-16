@@ -98,6 +98,9 @@ echo -e "${YELLOW}Cleaning up..${NC}"
 sudo apt autoremove
 sudo apt autoclean
 
+# Remove mpv shaders cache
+# rm ~/.config/mpv/shaders/cache/*
+
 # Remove OpenRGB logs
 rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 

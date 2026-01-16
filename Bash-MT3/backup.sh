@@ -81,6 +81,13 @@ touch /mnt/SD-64/Linux/MT3/crontabs.txt
 mkdir /mnt/SD-64/Linux/MT3/Browser-Bookmarks/
 mkdir /mnt/SD-64/Linux/MT3/Tabliss/
 
+# mpv
+mkdir /mnt/SD-64/Linux/MT2/mpv/
+rsync -r --progress ~/.config/mpv/mpv.conf /mnt/SD-64/Linux/MT2/mpv/
+rsync -r --progress ~/.config/mpv/input.conf /mnt/SD-64/Linux/MT2/mpv/
+rsync -r --progress ~/.config/mpv/script-opts /mnt/SD-64/Linux/MT2/mpv/
+rsync -r --progress ~/.config/mpv/scripts /mnt/SD-64/Linux/MT2/mpv/
+
 # feh
 rsync -r --progress ~/.config/feh /mnt/SD-64/Linux/MT3/
 

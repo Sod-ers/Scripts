@@ -3,12 +3,12 @@
 source ~/.env
 
 virsh shutdown Foobar2000 > /dev/null 2>&1&
-virsh shutdown Debian > /dev/null 2>&1&
-virsh shutdown MintXFCE > /dev/null 2>&1&
-virsh shutdown SDK > /dev/null 2>&1&
+# virsh shutdown Debian > /dev/null 2>&1&
+# virsh shutdown MintXFCE > /dev/null 2>&1&
+# virsh shutdown SDK > /dev/null 2>&1&
 virsh shutdown Sideloadly > /dev/null 2>&1&
-virsh shutdown Windows11-Offline > /dev/null 2>&1&
-virsh shutdown Windows11-Online > /dev/null 2>&1&
+# virsh shutdown Windows11-Offline > /dev/null 2>&1&
+# virsh shutdown Windows11-Online > /dev/null 2>&1&
 ~/Scripts/default-workflow.sh > /dev/null 2>&1&
 
 WIN_IDs=$(wmctrl -l | grep -vwE "Desktop$|xfce4-panel$|Whisker Menu$|Factorio: Space Age 2.*$" | cut -f1 -d' ')
@@ -19,6 +19,6 @@ while [ $WIN_IDs ]; do
     WIN_IDs=$(wmctrl -l | grep -vwE "Desktop$|xfce4-panel$|Whisker Menu$|Factorio: Space Age 2.*$" | cut -f1 -d' ')
 done
 
-ssh $MT3 pkill vlc & ssh $PM2 pkill vlc & ssh $MT3 pkill feh & ssh $PM2 pkill feh
-ssh $MT3 pkill xscreensaver & ssh $PM2 pkill xscreensaver
-ssh $MT3 xscreensaver -nosplash & ssh $PM2 xscreensaver -nosplash
+ssh $MT3 pkill mpv & ssh $PM2 pkill mpv & ssh $MT3 pkill feh & ssh $PM2 pkill feh
+# ssh $MT3 pkill xscreensaver & ssh $PM2 pkill xscreensaver
+# ssh $MT3 xscreensaver -nosplash & ssh $PM2 xscreensaver -nosplash

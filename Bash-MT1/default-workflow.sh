@@ -19,13 +19,13 @@ xfconf-query  \
 # Third monitor
 xfconf-query  \
   --channel xfce4-desktop \
-  --property /backdrop/screen0/monitorHDMI-2-2/workspace0/last-image \
+  --property /backdrop/screen0/monitorHDMI-1-2/workspace0/last-image \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
 # TV
 xfconf-query  \
   --channel xfce4-desktop \
-  --property /backdrop/screen0/monitorHDMI-1-0/workspace0/last-image \
+  --property /backdrop/screen0/monitorHDMI-0/workspace0/last-image \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
 # Laptop:

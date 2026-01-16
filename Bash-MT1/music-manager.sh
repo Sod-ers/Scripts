@@ -64,6 +64,7 @@ do
             "Copy Music Files to Windows")
             rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Songs/ /media/soders/2TBNTFS/Music/Songs/
             rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Songs-Archived/ /media/soders/2TBNTFS/Music/Songs-Archived/
+            rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Songs-Rarely-Listen/ /media/soders/2TBNTFS/Music/Songs-Rarely-Listen/
             rsync -r --ignore-existing --progress --delete /mnt/7TBEXT4/Music/Albums/ /media/soders/2TBNTFS/Music/Albums/
             rsync -r --ignore-existing --progress --delete ~/Videos/Twitch/ /media/soders/2TBNTFS/Videos/Twitch/
             rsync -r --ignore-existing --progress --delete ~/Music/Videos/ /media/soders/2TBNTFS/Music/Videos/

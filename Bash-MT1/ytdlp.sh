@@ -107,13 +107,13 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Recent")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_channel_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_channel_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Random")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_channel_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_channel_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -142,13 +142,13 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Sorted")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Random")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -186,13 +186,13 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Recent")
-            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Random")
-            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 10 --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp $watch_later_playlist_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -235,14 +235,14 @@ do
     case $opt in
         "Recent")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist
+            ~/.local/bin/ytdlp $URLS --sponsorblock-remove sponsor,selfpromo --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Random")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random
+            ~/.local/bin/ytdlp $URLS --sponsorblock-remove sponsor,selfpromo --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -264,14 +264,14 @@ do
     case $opt in
         "Recent")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --sponsorblock-remove sponsor,selfpromo
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Random")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-random --sponsorblock-remove sponsor,selfpromo
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -319,7 +319,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Download Subscriptions")
-            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-30days --sleep-interval 60 --max-sleep-interval 120 --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-urls.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-30days --sponsorblock-remove sponsor,selfpromo --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -386,7 +386,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Recent VODs")
-            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-following-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-7days --sleep-interval 60 --max-sleep-interval 120 --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/.local/bin/ytdlp --match-filter "!is_live" -a ~/Configs/YTDLP/twitch-following-channel-urls.txt --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf --playlist-end 1 --lazy-playlist --dateafter now-7days --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -513,7 +513,7 @@ done
             ;;
         "VOD")
             read -p "$(echo -e ${RED}"Enter VOD URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --sleep-interval 60 --max-sleep-interval 120 --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/twitch-video-1080p.conf
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break
@@ -529,7 +529,7 @@ done
             ;;
         "Generic Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --sleep-interval 60 --max-sleep-interval 120 --config-locations ~/Configs/YTDLP/generic-video.conf
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/generic-video.conf
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break

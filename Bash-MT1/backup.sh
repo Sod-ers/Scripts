@@ -98,6 +98,13 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# mpv
+mkdir /mnt/Backups/Linux/MT1/mpv/
+rsync -r --progress ~/.config/mpv/mpv.conf /mnt/Backups/Linux/MT1/mpv/
+rsync -r --progress ~/.config/mpv/input.conf /mnt/Backups/Linux/MT1/mpv/
+rsync -r --progress ~/.config/mpv/script-opts /mnt/Backups/Linux/MT1/mpv/
+rsync -r --progress ~/.config/mpv/scripts /mnt/Backups/Linux/MT1/mpv/
+
 # TF2 Tools
 mkdir /mnt/Backups/Linux/MT1/TF2/
 mkdir /mnt/Backups/Windows/TF2/

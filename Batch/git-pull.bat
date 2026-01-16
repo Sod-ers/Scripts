@@ -38,8 +38,11 @@ XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\tier.cfg" "C:\Program Files (x86)\Stea
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\sprays.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\sprays.cfg*"
 XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\materials\vgui\logos\"
 
-XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\program files (x86)\steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\materials\vgui\logos\"
-XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\sprays.cfg" "C:\program files (x86)\steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\cfg\sprays.cfg*"
+:: XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "C:\program files (x86)\steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\materials\vgui\logos\"
+:: XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\sprays.cfg" "C:\program files (x86)\steam\steamapps\common\Half-Life 2 Deathmatch\hl2mp\cfg\sprays.cfg*"
+
+XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\logos" "E:\Games\SteamLibrary\steamapps\common\Half-Life 2 Deathmatch\hl2mp\materials\vgui\logos\"
+XCOPY /y /q /s "E:\GitHub\Configs\Open-Fortress\sprays.cfg" "E:\Games\SteamLibrary\steamapps\common\Half-Life 2 Deathmatch\hl2mp\cfg\sprays.cfg*"
 
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\alias.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\alias.cfg*"
 XCOPY /y /q "E:\GitHub\Configs\Open-Fortress\announcers.cfg" "C:\Program Files (x86)\Steam\steamapps\sourcemods\open_fortress\cfg\announcers.cfg*"
