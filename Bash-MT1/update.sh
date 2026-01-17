@@ -40,23 +40,28 @@ pkill nextcloud > /dev/null 2>&1&
 echo -e "${YELLOW}Updating Apt packages..${NC}"
 sudo apt update
 sudo apt upgrade -y
-echo -e "${GREEN}Apt packages complete!${NC}"
+echo -e "${GREEN}Apt packages finished!${NC}"
+
+# Deno
+echo -e "${YELLOW}Updating Deno..${NC}"
+deno upgrade stable
+echo -e "${GREEN}Deno finished!${NC}"
 
 # Flatpak
 echo -e "${YELLOW}Updating Flatpaks..${NC}"
 flatpak update -y
-echo -e "${GREEN}Flatpaks complete!${NC}"
+echo -e "${GREEN}Flatpaks finished!${NC}"
 
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
 pip install --upgrade yt-dlp
-echo -e "${GREEN}YTDLP complete!${NC}"
+echo -e "${GREEN}YTDLP finished!${NC}"
 
 # spotDL
 echo -e "${YELLOW}Updating spotDL..${NC}"
 pip install --upgrade spotdl
-echo -e "${GREEN}spotDL complete!${NC}"
+echo -e "${GREEN}spotDL finished!${NC}"
 
 # Spicetify
 echo -e "${YELLOW}Updating Spicetify..${NC}"
@@ -67,7 +72,7 @@ sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/
 ~/.spicetify/spicetify restore backup apply
 # Spicetify marketplace
 # curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
-echo -e "${GREEN}Spicetify complete!${NC}"
+echo -e "${GREEN}Spicetify finished!${NC}"
 
 # Steam Metro theme
 echo -e "${YELLOW}Updating Steam Metro theme..${NC}"
@@ -77,7 +82,7 @@ rsync --progress /tmp/MetroSteam/notifications.custom.css ~/.steam/steam/steamui
 rsync --progress /tmp/MetroSteam/libraryroot.custom.css ~/.steam/steam/steamui/skins/MetroSteam/libraryroot.custom.css
 rsync --progress /tmp/MetroSteam/friends.custom.css ~/.steam/steam/steamui/skins/MetroSteam/friends.custom.css
 cd ~/
-echo -e "${GREEN}Steam Metro theme complete!${NC}"
+echo -e "${GREEN}Steam Metro theme finished!${NC}"
 
 # RetroArch thumbnails
 # echo -e "${YELLOW}Updating RetroArch thumbnails..${NC}"
@@ -85,13 +90,13 @@ echo -e "${GREEN}Steam Metro theme complete!${NC}"
 # git pull
 # git submodule update --recursive --remote --init --force
 # cd ~/
-# echo -e "${GREEN}RetroArch thumbnails complete!${NC}"
+# echo -e "${GREEN}RetroArch thumbnails finished!${NC}"
 
 # Tdarr
 # echo -e "${YELLOW}Updating Tdarr..${NC}"
 # cd ~/Programs/Tdarr/
 # ~/Programs/Tdarr/Tdarr_Updater
-# echo -e "${GREEN}Tdarr complete!${NC}"
+# echo -e "${GREEN}Tdarr finished!${NC}"
 
 # Clean
 echo -e "${YELLOW}Cleaning up..${NC}"
@@ -107,7 +112,7 @@ rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 # Enable programs
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
 
-echo -e "${GREEN}Updates completed!${NC}" && sleep 3
+echo -e "${GREEN}Updates finished!${NC}" && sleep 3
 
 # Enable Jellyfin
 nohup ~/Scripts/enable-jellyfin-mt1.sh
@@ -128,7 +133,7 @@ npm install -g win-node-env
 set CYPRESS_INSTALL_BINARY=0 && pnpm install --frozen-lockfile
 
 pnpm build
-echo -e "${GREEN}Jellyseerr complete!${NC}"
+echo -e "${GREEN}Jellyseerr finished!${NC}"
             break
             ;;
         "Quit")

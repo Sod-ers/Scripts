@@ -33,17 +33,22 @@ pkill nextcloud > /dev/null 2>&1&
 echo -e "${YELLOW}Updating Apt packages..${NC}"
 sudo apt update
 sudo apt upgrade -y
-echo -e "${GREEN}Apt packages complete!${NC}"
+echo -e "${GREEN}Apt packages finished!${NC}"
+
+# Deno
+echo -e "${YELLOW}Updating Deno..${NC}"
+deno upgrade stable
+echo -e "${GREEN}Deno finished!${NC}"
 
 # Flatpak
 echo -e "${YELLOW}Updating Flatpaks..${NC}"
 flatpak update -y
-echo -e "${GREEN}Flatpaks complete!${NC}"
+echo -e "${GREEN}Flatpaks finished!${NC}"
 
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
-echo -e "${GREEN}YTDLP complete!${NC}"
+echo -e "${GREEN}YTDLP finished!${NC}"
 
 # Clean
 echo -e "${YELLOW}Cleaning up..${NC}"
@@ -53,4 +58,4 @@ sudo apt autoclean
 # Start Nextcloud
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
 
-echo -e "${GREEN}Updates completed!${NC}" && sleep 3
+echo -e "${GREEN}Updates finished!${NC}" && sleep 3

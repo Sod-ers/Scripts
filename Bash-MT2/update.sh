@@ -39,31 +39,36 @@ do
 echo -e "${YELLOW}Updating Apt packages..${NC}"
 sudo apt update
 sudo apt upgrade -y
-echo -e "${GREEN}Apt packages complete!${NC}"
+echo -e "${GREEN}Apt packages finished!${NC}"
+
+# Deno
+echo -e "${YELLOW}Updating Deno..${NC}"
+deno upgrade stable
+echo -e "${GREEN}Deno finished!${NC}"
 
 # Flatpak
 echo -e "${YELLOW}Updating Flatpaks..${NC}"
 flatpak update -y
-echo -e "${GREEN}Flatpaks complete!${NC}"
+echo -e "${GREEN}Flatpaks finished!${NC}"
 
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
 pip install --upgrade yt-dlp
-echo -e "${GREEN}YTDLP complete!${NC}"
+echo -e "${GREEN}YTDLP finished!${NC}"
 
 # Tdarr
 # echo -e "${YELLOW}Updating Tdarr..${NC}"
 # cd ~/Programs/Tdarr/
 # ~/Programs/Tdarr/Tdarr_Updater
-# echo -e "${GREEN}Tdarr complete!${NC}"
+# echo -e "${GREEN}Tdarr finished!${NC}"
 
 # Clean
 echo -e "${YELLOW}Cleaning up..${NC}"
 sudo apt autoremove
 sudo apt autoclean
 
-echo -e "${GREEN}Updates completed!${NC}" && sleep 3
+echo -e "${GREEN}Updates finished!${NC}" && sleep 3
 
 # Enable programs
 nohup ~/Scripts/enable-jellyfin-mt2.sh
@@ -84,7 +89,7 @@ npm install -g win-node-env
 set CYPRESS_INSTALL_BINARY=0 && pnpm install --frozen-lockfile
 
 pnpm build
-echo -e "${GREEN}Jellyseerr complete!${NC}"
+echo -e "${GREEN}Jellyseerr finished!${NC}"
             break
             ;;
         "Quit")

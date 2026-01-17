@@ -3,12 +3,12 @@
 date "+%I:%M:%S %p  %D" >> /dev/usb/lp0
 date "+%I:%M:%S %p  %D" >> /dev/usb/lp1
 date "+%I:%M:%S %p  %D" >> /dev/usb/lp2
-echo " " >> /dev/usb/lp0
-echo " " >> /dev/usb/lp1
-echo " " >> /dev/usb/lp2
-echo Urgent: >> /dev/usb/lp0
-echo Urgent: >> /dev/usb/lp1
-echo Urgent: >> /dev/usb/lp2
+echo "------------------------------------------------" >> /dev/usb/lp0
+echo "------------------------------------------------" >> /dev/usb/lp1
+echo "------------------------------------------------" >> /dev/usb/lp2
+# echo Urgent: >> /dev/usb/lp0
+# echo Urgent: >> /dev/usb/lp1
+# echo Urgent: >> /dev/usb/lp2
 cat /tmp/thermal-print/urgent.md >> /dev/usb/lp0
 cat /tmp/thermal-print/urgent.md >> /dev/usb/lp1
 cat /tmp/thermal-print/urgent.md >> /dev/usb/lp2

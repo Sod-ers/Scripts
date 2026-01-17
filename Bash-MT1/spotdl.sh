@@ -301,13 +301,13 @@ do
     case $opt in
         "Song")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/song.conf
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/song.conf --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Album")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/album.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/album.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             find ~/Music/Albums/ -mindepth 1 -type d |
             while read empty
             do
@@ -320,13 +320,13 @@ do
             ;;
         "Playlist")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-music-playlist.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-music-playlist.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "First Listen")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-first-listen.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/youtube-first-listen.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -346,13 +346,13 @@ do
     case $opt in
         "Song")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-song.conf
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-song.conf --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Album")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-album.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-album.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             find ~/Music/Albums/ -mindepth 1 -type d |
             while read empty
             do
@@ -365,13 +365,13 @@ do
             ;;
         "Playlist")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-playlist.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-playlist.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "First Listen")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-first-listen.conf --sleep-interval 30 --max-sleep-interval 60
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/soundcloud-first-listen.conf --sleep-interval 30 --max-sleep-interval 60 --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -385,7 +385,7 @@ done
             ;;
         "Radio")
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS
+            ~/.local/bin/ytdlp $URLS --config-locations ~/Configs/YTDLP/radio.conf --js-runtimes deno:/home/soders/.deno/bin/deno
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
