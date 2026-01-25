@@ -42,11 +42,6 @@ sudo apt update
 sudo apt upgrade -y
 echo -e "${GREEN}Apt packages finished!${NC}"
 
-# Deno
-echo -e "${YELLOW}Updating Deno..${NC}"
-deno upgrade stable
-echo -e "${GREEN}Deno finished!${NC}"
-
 # Flatpak
 echo -e "${YELLOW}Updating Flatpaks..${NC}"
 flatpak update -y
@@ -57,6 +52,11 @@ echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
 pip install --upgrade yt-dlp
 echo -e "${GREEN}YTDLP finished!${NC}"
+
+# Deno
+echo -e "${YELLOW}Updating Deno..${NC}"
+~/.deno/bin/deno upgrade stable
+echo -e "${GREEN}Deno finished!${NC}"
 
 # spotDL
 echo -e "${YELLOW}Updating spotDL..${NC}"
