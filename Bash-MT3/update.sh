@@ -50,6 +50,11 @@ echo -e "${YELLOW}Updating Deno..${NC}"
 ~/.deno/bin/deno upgrade stable
 echo -e "${GREEN}Deno finished!${NC}"
 
+# Git
+# echo -e "${YELLOW}Updating Git..${NC}"
+# sudo apt upgrade git
+# echo -e "${GREEN}Git finished!${NC}"
+
 # Clean
 echo -e "${YELLOW}Cleaning up..${NC}"
 sudo apt autoremove

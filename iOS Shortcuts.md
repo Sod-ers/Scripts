@@ -16,3 +16,5 @@
 | Generate QR code for shortcut.                                                              | https://www.icloud.com/shortcuts/297de86e568443028d74d47224e0cdad |
 | Nightshift conditional.                                                                     | https://www.icloud.com/shortcuts/d5fd1e80d22d47018c094019b52d90f7 |
 | Toggle nightshift.                                                                          | https://www.icloud.com/shortcuts/b0acee561b6946f1a45cbdfb6bd5781e |
+| Lock screen calendar.                                                                       | https://routinehub.co/shortcut/24765/                             |
+| Dynamic wallpaper.                                                                          | https://www.icloud.com/shortcuts/3e2caeca65634afdae16082631dcdf2c |

@@ -23,7 +23,7 @@
 | OpenRGB.                                     | `/opt/Scripts/openrgb.sh`                                                                                  |
 | mkChromecast.                                | `/opt/Scripts/mkchromecast.sh`                                                                             |
 | Redshift.                                    | `redshift -c "/home/soders/.config/redshift.conf"`                                                         |
-| SFPUI.                                       | `/home/soders/Programs/SFP/SFP_UI`                                                                         |
+| SFPUI.                                       | `bash -c "sleep 5;/home/soders/Programs/SFP/SFP_UI"`                                                       |
 | Disable BB-Tracker.                          | `bash -c "chmod -x /home/soders/.local/bin/bb-tracker-printer.sh"`                                         |
 | Declare unlocked.                            | `/home/soders/Scripts/iphone-start-declare-unlocked.sh`                                                    |
 | Jellyfin.                                    | `bash -c "sleep 5;/home/soders/Scripts/enable-jellyfin-mt2.sh"`                                            |

@@ -98,10 +98,15 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# traymd
+mkdir /mnt/Backups/Linux/MT1/traymd/
+rsync -r --progress ~/.local/share/traymd/notes /mnt/Backups/Linux/MT1/traymd/
+rsync --progress ~/.config/traymd/config.ini /mnt/Backups/Linux/MT1/traymd/
+
 # mpv
 mkdir /mnt/Backups/Linux/MT1/mpv/
-rsync -r --progress ~/.config/mpv/mpv.conf /mnt/Backups/Linux/MT1/mpv/
-rsync -r --progress ~/.config/mpv/input.conf /mnt/Backups/Linux/MT1/mpv/
+rsync --progress ~/.config/mpv/mpv.conf /mnt/Backups/Linux/MT1/mpv/
+rsync --progress ~/.config/mpv/input.conf /mnt/Backups/Linux/MT1/mpv/
 rsync -r --progress ~/.config/mpv/script-opts /mnt/Backups/Linux/MT1/mpv/
 rsync -r --progress ~/.config/mpv/scripts /mnt/Backups/Linux/MT1/mpv/
 
@@ -254,8 +259,12 @@ rsync -r --progress ~/.local/share/Terraria /mnt/Backups/Linux/MT1/
 
 # Blender
 mkdir /mnt/Backups/Linux/MT1/Blender/
-rsync -r --progress ~/Documents/Blender/Projects /mnt/Backups/Linux/MT1/Blender/
-rsync -r --progress ~/.var/app/org.blender.Blender/config/blender/4.5/config /mnt/Backups/Linux/MT1/Blender/
+mkdir /mnt/Backups/Linux/MT1/Blender/5.0
+mkdir /mnt/Backups/Linux/MT1/Blender/3.0
+# rsync -r --progress ~/Documents/Blender/Projects /mnt/Backups/Linux/MT1/Blender/
+# rsync -r --progress ~/.var/app/org.blender.Blender/config/blender/5.0/config /mnt/Backups/Linux/MT1/Blender/
+rsync -r --progress ~/.config/blender/5.0/config /mnt/Backups/Linux/MT1/Blender/5.0
+rsync -r --progress ~/.config/blender/3.0/config /mnt/Backups/Linux/MT1/Blender/3.0
 
 # Steam
 mkdir /mnt/Backups/Linux/MT1/Steam/
@@ -466,7 +475,18 @@ mkdir /mnt/Backups/Linux/MT1/.local/share/
 rsync -r --progress ~/.local/share/notes /mnt/Backups/Linux/MT1/.local/share/
 
 # Hammer++
-rsync -r --progress ~/Programs/Hammer++ /mnt/Backups/Linux/MT1/
+mkdir /mnt/Backups/Linux/MT1/Hammer++/
+# rsync -r --progress ~/Programs/Hammer++ /mnt/Backups/Linux/MT1/
+rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/bin/win64/hammerplusplus/hammerplusplus_gameconfig.txt" /mnt/Backups/Linux/MT1/Hammer++/
+rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/bin/win64/hammerplusplus/hammerplusplus_keybindings.cfg" /mnt/Backups/Linux/MT1/Hammer++/
+rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/bin/win64/hammerplusplus/hammerplusplus_sequences.cfg" /mnt/Backups/Linux/MT1/Hammer++/
+rsync --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/bin/win64/hammerplusplus/hammerplusplus_settings.ini"/mnt/Backups/Linux/MT1/Hammer++/
+
+# ArmorPaint
+mkdir /mnt/Backups/Linux/MT1/ArmorPaint/
+mkdir /mnt/Backups/Linux/MT1/ArmorPaint/themes/
+rsync --progress ~/ArmorPaint/data/config.json /mnt/Backups/Linux/MT1/ArmorPaint/
+rsync --progress ~/ArmorPaint/data/themes/Dracula.json /mnt/Backups/Linux/MT1/ArmorPaint/themes/
 
 # Mod Organizer 2
 rsync -r --progress ~/Programs/Mod-Organizer-2 /mnt/Backups/Linux/MT1/
@@ -644,6 +664,7 @@ rsync -r --progress /mnt/WIN1/Users/Soders/AppData/Roaming/LibreOffice /mnt/Back
 # Tdarr
 mkdir /mnt/Backups/Linux/MT1/Tdarr/
 rsync -r --progress ~/Programs/Tdarr/configs /mnt/Backups/Linux/MT1/Tdarr/
+rsync ~/configs/Tdarr_Updater_Config.json /mnt/Backups/Linux/MT1/Tdarr/
 
 # Tenacity
 mkdir /mnt/Backups/Linux/MT1/Tenacity/

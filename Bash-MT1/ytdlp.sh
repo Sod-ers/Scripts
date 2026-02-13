@@ -102,10 +102,26 @@ do
     case $opt in
         "Channel")
 export PS3=$'\033[0;31mSelect an option: \e[0m'
-options=("Recent" "Random" "Set Channel URL" "Go Back")
+options=("Popular" "Recent" "Random" "Set Channel URL" "Go Back")
 select opt in "${options[@]}"
 do
     case $opt in
+        "Popular")
+            if [ ! -f ~/Configs/YTDLP/youtube-channel-sorted-popular.txt ]; then
+            echo -e "${RED}Binge channel not set.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh
+            else
+            if [ ! -s ~/Configs/YTDLP/youtube-channel-sorted-popular.txt ]; then
+            echo -e "${RED}No data found.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh
+            else
+            ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' -a ~/Configs/YTDLP/youtube-channel-sorted-popular.txt --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --sleep-interval 60 --max-sleep-interval 120 --js-runtimes deno:/home/soders/.deno/bin/deno --download-archive ~/Configs/YTDLP/watch-history.txt
+            ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
+            ~/Scripts/completion-chime.sh && sleep 1
+            fi
+            fi
+            break
+            ;;
         "Recent")
             ~/.local/bin/ytdlp --match-filter '!was_live & original_url!*=/shorts/' $binge_channel_url --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf --lazy-playlist --max-downloads 5 --sponsorblock-remove sponsor,selfpromo --sleep-interval 60 --max-sleep-interval 120 --js-runtimes deno:/home/soders/.deno/bin/deno --download-archive ~/Configs/YTDLP/watch-history.txt
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
@@ -119,11 +135,21 @@ do
             break
             ;;
         "Set Channel URL")
+            touch ~/Configs/YTDLP/youtube-channel-sorted-popular.txt
             touch ~/Configs/YTDLP/binge-channel-url.txt
             read -p "$(echo -e ${RED}"Enter URL: "${NC})" URL
             echo "$URL" > ~/Configs/YTDLP/binge-channel-url.txt
-            echo -e "${GREEN}URL set.${NC}" && sleep 2
+            echo -e "${GREEN}URL set.${NC}"
+            ~/.local/bin/ytdlp --dump-json --flat-playlist \
+            "$URL" |\
+            jq -r -s 'sort_by(-.view_count) | .[:300] | .[] | .url' > ~/Configs/YTDLP/youtube-channel-sorted-popular.txt
+            if [ ! -s ~/Configs/YTDLP/youtube-channel-sorted-popular.txt ]; then
+            echo -e "${RED}Failed to sort by views.${NC}" && sleep 2
             ~/Scripts/ytdlp.sh
+            else
+            echo -e "${GREEN}Successfully sorted by views.${NC}" && sleep 2
+            ~/Scripts/ytdlp.sh
+            fi
             break
             ;;
         "Go Back")
