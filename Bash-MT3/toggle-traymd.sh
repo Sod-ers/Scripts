@@ -5,5 +5,5 @@
 if test $(wmctrl -l | grep "traymd" 2>&1 | wc -l) -eq 1; then
 wmctrl -c "traymd"
 else
-traymd
+traymd --no-tray
 fi

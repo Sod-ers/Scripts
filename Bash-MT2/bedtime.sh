@@ -28,6 +28,7 @@ sudo shutdown +840 --no-wall
 
 chmod -x ~/Scripts/hourly-chime.sh
 chmod -x ~/Scripts/completion-chime.sh
+chmod -x ~/Scripts/ytdlp-auto.sh
 
 # Built-in Audio Analog Stereo for CVLC
 cvlc -q --loop ~/Audio/river.mp3 > /dev/null 2>&1&

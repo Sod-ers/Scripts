@@ -492,10 +492,10 @@ rsync --progress ~/ArmorPaint/data/themes/Dracula.json /mnt/Backups/Linux/MT1/Ar
 rsync -r --progress ~/Programs/Mod-Organizer-2 /mnt/Backups/Linux/MT1/
 
 # Notepad++
-mkdir /mnt/Backups/Linux/MT1/Notepad++/
-mkdir /mnt/Backups/Windows/Notepad++/
-rsync --progress ~/Programs/Notepad++/config.xml /mnt/Backups/Linux/MT1/Notepad++/
-rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Notepad++/config.xml /mnt/Backups/Windows/Notepad++/
+# mkdir /mnt/Backups/Linux/MT1/Notepad++/
+# mkdir /mnt/Backups/Windows/Notepad++/
+# rsync --progress ~/Programs/Notepad++/config.xml /mnt/Backups/Linux/MT1/Notepad++/
+# rsync --progress /mnt/WIN1/Users/Soders/AppData/Roaming/Notepad++/config.xml /mnt/Backups/Windows/Notepad++/
 
 # Chatterino
 mkdir /mnt/Backups/Linux/MT1/Chatterino/
@@ -972,60 +972,52 @@ echo -e "${RED}Press any key to proceed.${NC}"
 while true; do
 read -rsn1 key
 if [[ -n "$key" ]]; then
-# WINDOWS
-mkdir /mnt/Portable-Backup/Projects/
-mkdir /mnt/Portable-Backup/Projects/Windows/
+# (Location 1)
 mkdir /mnt/Backups/Projects/
-mkdir /mnt/Backups/Projects/Windows/
-mkdir /mnt/Backups/Projects/Windows/mapsrc/
-mkdir /mnt/Backups/Projects/Windows/modelsrc/
-mkdir /mnt/Backups/Projects/Windows/models/
-mkdir /mnt/Backups/Projects/Windows/materials/
-mkdir /mnt/Backups/Projects/Windows/Screenshots/
-mkdir "/mnt/Backups/Projects/Windows/Desktop 1/"
-mkdir "/mnt/Backups/Projects/Windows/Desktop 2/"
-# mkdir /mnt/Backups/Projects/Windows/Blender/
-# mkdir /mnt/Backups/Projects/Windows/GIMP/
-# mkdir /mnt/Backups/Projects/Windows/Hammer/
-# mkdir /mnt/Backups/Projects/Windows/Substance-Painter/
-# mkdir /mnt/Backups/Projects/Windows/references/
-# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/references" /mnt/Backups/Projects/Windows/
-# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Blender" /mnt/Backups/Projects/Windows/
-# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/GIMP" /mnt/Backups/Projects/Windows/
-# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Hammer" /mnt/Backups/Projects/Windows/
-# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/Substance-Painter" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/mapsrc" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/modelsrc" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/models" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Multiplayer/hl2/materials" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete "/media/soders/2TBNTFS/Pictures/Screenshots" /mnt/Backups/Projects/Windows/
-rsync -r --progress --delete /mnt/WIN1/Users/Soders/Desktop "/mnt/Backups/Projects/Windows/Desktop 1/"
-rsync -r --progress --delete /mnt/WIN2/Users/Soders/Desktop "/mnt/Backups/Projects/Windows/Desktop 2/"
 
-rsync -r --progress --delete /mnt/Backups/Projects/Windows/ /mnt/Portable-Backup/Projects/Windows/
+# surf_brainstorm
+mkdir /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/references/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/surf_brainstorm/references" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/Blender/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/surf_brainstorm/Blender" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/GIMP/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/surf_brainstorm/GIMP" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/ArmorPaint/
+rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/surf_brainstorm/ArmorPaint" /mnt/Backups/Projects/surf_brainstorm/
+# mkdir /mnt/Backups/Projects/surf_brainstorm/Substance-Painter/
+# rsync -r --progress --delete "/media/soders/2TBNTFS/Projects/surf_brainstorm/Substance Painter" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/mapsrc/
+rsync -a --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/mapsrc/surf_brainstorm/" /mnt/Backups/Projects/surf_brainstorm/mapsrc/
+mkdir /mnt/Backups/Projects/surf_brainstorm/modelsrc/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/modelsrc" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/models/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/models" /mnt/Backups/Projects/surf_brainstorm/
+mkdir /mnt/Backups/Projects/surf_brainstorm/materials/
+rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/materials/models" /mnt/Backups/Projects/surf_brainstorm/
 
-# LINUX
+# gone-fishing-collection
+mkdir /mnt/Backups/Projects/gone-fishing-collection/
+rsync -a --progress ~/Projects/Cosmetics/gone-fishing-collection/ /mnt/Backups/Projects/gone-fishing-collection/
+mkdir /mnt/Backups/Projects/gone-fishing-collection/modelsrc/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/gone-fishing-collection/
+mkdir /mnt/Backups/Projects/gone-fishing-collection/models/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/gone-fishing-collection/
+mkdir /mnt/Backups/Projects/gone-fishing-collection/materials/
+rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials/models /mnt/Backups/Projects/gone-fishing-collection/
+
+# Version Control (Location 2)
+mkdir ~/Projects/Archive/
+cd ~/Projects/Archive/
+zip -r "gone-fishing-$(date +"%Y-%m-%d-%s").tar.gz" /mnt/Backups/Projects/gone-fishing-collection/
+zip -r "surf_brainstorm-$(date +"%Y-%m-%d-%s").tar.gz" /mnt/Backups/Projects/surf_brainstorm/
+
+# Sync Offline Backup (Location 3)
 mkdir /mnt/Portable-Backup/Projects/
-mkdir /mnt/Portable-Backup/Projects/Linux/
-mkdir /mnt/Backups/Projects/
-mkdir /mnt/Backups/Projects/Linux/
-mkdir /mnt/Backups/Projects/Linux/modelsrc/
-mkdir /mnt/Backups/Projects/Linux/models/
-mkdir /mnt/Backups/Projects/Linux/materials/
-mkdir /mnt/Backups/Projects/Linux/Screenshots/
-# mkdir /mnt/Backups/Projects/Linux/Blender/
-# mkdir /mnt/Backups/Projects/Linux/GIMP/
-# mkdir /mnt/Backups/Projects/Linux/references/
-# rsync -r --progress --delete ~/Projects/references /mnt/Backups/Projects/Linux/
-# rsync -r --progress --delete ~/Projects/Blender /mnt/Backups/Projects/Linux/
-# rsync -r --progress --delete ~/Projects/GIMP /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials /mnt/Backups/Projects/Linux/
-rsync -r --progress --delete ~/Pictures/Screenshots /mnt/Backups/Projects/Linux/
-
-rsync -r --progress --delete /mnt/Backups/Projects/Linux/ /mnt/Portable-Backup/Projects/Linux/
-
+mkdir /mnt/Portable-Backup/Projects/surf_brainstorm/
+mkdir /mnt/Portable-Backup/Projects/gone-fishing-collection/
+rsync -r --progress --delete /mnt/Backups/Projects/surf_brainstorm/ /mnt/Portable-Backup/Projects/surf_brainstorm/
+rsync -r --progress --delete /mnt/Backups/Projects/gone-fishing-collection/ /mnt/Portable-Backup/Projects/gone-fishing-collection/
 break
 fi
 done

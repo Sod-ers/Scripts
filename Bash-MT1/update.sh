@@ -50,7 +50,7 @@ echo -e "${GREEN}Flatpaks finished!${NC}"
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
-pip install --upgrade yt-dlp
+# pip install --upgrade yt-dlp
 echo -e "${GREEN}YTDLP finished!${NC}"
 
 # Deno
@@ -60,7 +60,7 @@ echo -e "${GREEN}Deno finished!${NC}"
 
 # spotDL
 echo -e "${YELLOW}Updating spotDL..${NC}"
-pip install --upgrade spotdl
+# pip install --upgrade spotdl
 echo -e "${GREEN}spotDL finished!${NC}"
 
 # Spicetify
@@ -90,27 +90,8 @@ sudo winetricks --self-update
 echo -e "${GREEN}Winetricks finished!${NC}"
 
 # ArmorPaint
-# Backup current install
-cd "/home/soders/Programs/ArmorPaint Backups"
-zip -r "armorpaint-$(date +"%Y-%m-%d-%s").tar.gz" ~/ArmorPaint/
-# Remove old build, clone, & build new
-cd ~/armory3d/
-rm -rf ~/armory3d/*
-git clone https://github.com/armory3d/armortools.git
-cd ~/armory3d/armortools/paint/
-../base/make --compile
-# Save configs & themes before wiping current install
-cp ~/ArmorPaint/data/themes/Dracula.json ~/Configs/ArmorPaint/themes/
-cp ~/ArmorPaint/data/config.json ~/Configs/ArmorPaint/
-# Delete current install & copy build as new install
-rm ~/ArmorPaint/ArmorPaint
-rm -r ~/ArmorPaint/data
-cp ~/armory3d/armortools/paint/build/out/ArmorPaint ~/ArmorPaint/
-cp -r ~/armory3d/armortools/paint/build/out/data ~/ArmorPaint/
-# Import configs
-rm ~/ArmorPaint/data/config.json
-cp ~/Configs/ArmorPaint/config.json ~/ArmorPaint/data/
-cp ~/Configs/ArmorPaint/themes/Dracula.json ~/ArmorPaint/data/themes/
+# ~/Scripts/update-armor-paint.sh
+# cd ~/
 
 # RetroArch thumbnails
 # echo -e "${YELLOW}Updating RetroArch thumbnails..${NC}"
@@ -144,11 +125,8 @@ rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 
 # Enable programs
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
-
-echo -e "${GREEN}Updates finished!${NC}" && sleep 3
-
-# Enable Jellyfin
 nohup ~/Scripts/enable-jellyfin-mt1.sh
+echo -e "${GREEN}Updates finished!${NC}" && sleep 3
             break
             ;;
         "Jellyseerr")

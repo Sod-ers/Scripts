@@ -49,7 +49,7 @@ echo -e "${GREEN}Flatpaks finished!${NC}"
 # YTDLP
 echo -e "${YELLOW}Updating YTDLP..${NC}"
 ~/.local/bin/ytdlp -U
-pip install --upgrade yt-dlp
+# pip install --upgrade yt-dlp
 echo -e "${GREEN}YTDLP finished!${NC}"
 
 # Deno
