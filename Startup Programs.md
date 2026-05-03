@@ -1,6 +1,7 @@
 
 | Description:                                 | Command:                                                                                                   |
 | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| x-on-resize example.                         | `x-on-resize -c /home/soders/Scripts/monitor-check-1.sh`                                                   |
 | Disable switch audio script until recording. | `/home/soders/Scripts/disable-switch-audios-for-obs.sh`                                                    |
 | Set display positions.                       | `bash -c "sleep 10;/home/soders/Scripts/enable-tv.sh"`                                                     |
 | Dunst enable notifications.                  | `dunst && dunstctl set-paused false`                                                                       |

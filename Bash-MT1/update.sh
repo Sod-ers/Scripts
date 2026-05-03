@@ -27,7 +27,7 @@ echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣿⣷⣦⣤⣄⣀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠿⠿⠿⠿⠿⠿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 export PS3=$'\033[0;32mSelect an option: \e[0m'
-options=("MT1" "Jellyseerr" "Quit")
+options=("MT1" "Spotify/Spicetify" "Jellyseerr" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -64,15 +64,17 @@ echo -e "${YELLOW}Updating spotDL..${NC}"
 echo -e "${GREEN}spotDL finished!${NC}"
 
 # Spicetify
-echo -e "${YELLOW}Updating Spicetify..${NC}"
-sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
-sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
-~/.spicetify/spicetify update
-~/.spicetify/spicetify backup apply
-~/.spicetify/spicetify restore backup apply
+# echo -e "${YELLOW}Updating Spicetify..${NC}"
+# sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+# sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
+# ~/.spicetify/spicetify update
+# ~/.spicetify/spicetify backup apply
+# ~/.spicetify/spicetify restore backup apply
+
 # Spicetify marketplace
 # curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
-echo -e "${GREEN}Spicetify finished!${NC}"
+
+# echo -e "${GREEN}Spicetify finished!${NC}"
 
 # Steam Metro theme
 echo -e "${YELLOW}Updating Steam Metro theme..${NC}"
@@ -127,6 +129,10 @@ rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
 nohup ~/Scripts/enable-jellyfin-mt1.sh
 echo -e "${GREEN}Updates finished!${NC}" && sleep 3
+            break
+            ;;
+        "Spotify/Spicetify")
+~/Scripts/update-spicetify-spotify-flatpak.sh
             break
             ;;
         "Jellyseerr")

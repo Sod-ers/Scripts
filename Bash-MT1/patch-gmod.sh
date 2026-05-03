@@ -7,7 +7,7 @@ NC='\033[0m'
 
 printf "\033]0;%s\a" "Patch GMod"
 export PS3=$'\033[0;31mSelect an option: \e[0m'
-options=("Full Patch" "CEF Only" "Custom Files Only" "Default Menu" "Delete Maps" "Quit")
+options=("Full Patch" "CEF Only" "Backgrounds Only" "Custom Files Only" "Default Menu" "Delete Maps" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -23,6 +23,13 @@ sleep 3
             ;;
         "CEF Only")
 ~/.local/bin/gmodpatchtool --skip-exit-prompt --no-sourcescheme
+echo -e "${GREEN}Patched${NC}"
+sleep 3
+            break
+            ;;
+        "Backgrounds Only")
+rm -r /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
+cp -r /home/soders/Games/GMod/backgrounds /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/backgrounds
 echo -e "${GREEN}Patched${NC}"
 sleep 3
             break

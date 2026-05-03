@@ -84,7 +84,7 @@ echo "⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿�
 echo -e "${NC} "
 printf "\033]0;%s\a" "YTDLP@MT1"
 export PS3=$'\033[0;31mSelect an option: \e[0m'
-options=("YouTube" "Twitch" "Generic Videos" "Toggle Automation" "Delete Videos" "Backup" "Restore" "Quit")
+options=("YouTube" "Twitch" "Generic Videos" "Toggle Automation" "Delete Videos" "Backup" "Restore" "Update" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -673,6 +673,18 @@ done
             fi
             done
             ~/Scripts/ytdlp.sh
+            break
+            ;;
+        "Update")
+# YTDLP
+echo -e "${YELLOW}Updating YTDLP..${NC}"
+~/.local/bin/ytdlp -U
+echo -e "${GREEN}YTDLP finished!${NC}"
+
+# Deno
+echo -e "${YELLOW}Updating Deno..${NC}"
+~/.deno/bin/deno upgrade stable
+echo -e "${GREEN}Deno finished!${NC}"
             break
             ;;
         "Quit")

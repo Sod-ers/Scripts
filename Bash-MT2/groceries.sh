@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mkdir /tmp/thermal-print/
+touch /tmp/thermal-print/time.txt
+touch /tmp/thermal-print/print-groceries.txt
+
 DaySuffix() {
     if [ "x`date +%-d | cut -c2`x" = "xx" ]
     then
@@ -39,17 +43,17 @@ DaySuffix() {
       return 1 ;;
     esac
 }
-date "+%-d`DaySuffix`" > /tmp/todays-date-suffix-groceries.txt
-todays_date=$(cat /tmp/todays-date-suffix-groceries.txt)
-date "+%A, %B $todays_date, %Y" >> /dev/usb/lp0
-date "+%A, %B $todays_date, %Y" >> /dev/usb/lp1
-date "+%A, %B $todays_date, %Y" >> /dev/usb/lp2
-echo " " >> /dev/usb/lp0
-echo " " >> /dev/usb/lp1
-echo " " >> /dev/usb/lp2
-cat /tmp/thermal-print/groceries.md >> /dev/usb/lp0
-cat /tmp/thermal-print/groceries.md >> /dev/usb/lp1
-cat /tmp/thermal-print/groceries.md >> /dev/usb/lp2
+date "+%-d`DaySuffix`" > /tmp/thermal-print/time.txt
+todays_date=$(cat /tmp/thermal-print/time.txt)
+
+date "+%A, %B $todays_date, %Y" > /tmp/thermal-print/print-groceries.txt
+echo "------------------------------------------------" >> /tmp/thermal-print/print-groceries.txt
+cat /tmp/thermal-print/groceries.md >> /tmp/thermal-print/print-groceries.txt
+
+cat /tmp/thermal-print/print-groceries.txt >> /dev/usb/lp0
+cat /tmp/thermal-print/print-groceries.txt >> /dev/usb/lp1
+cat /tmp/thermal-print/print-groceries.txt >> /dev/usb/lp2
+
 lpr -o fit-to-page -o media=Custom.70x25mm -P EPSON_TM-T20II ~/Pictures/print.jpg
 sleep 30
 lprm

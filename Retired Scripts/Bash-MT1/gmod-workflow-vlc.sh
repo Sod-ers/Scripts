@@ -3,8 +3,6 @@
 source ~/Configs/Redshift/.env
 source ~/.env
 
-# rfkill unblock bluetooth
-
 ~/Scripts/launch-mpv.sh
 sleep 2
 # Move up
@@ -12,23 +10,6 @@ xdotool key ctrl+shift+Up
 
 ssh $MT3 DISPLAY=:0 ~/Scripts/launch-mpv.sh & ssh $PM2 DISPLAY=:0 ~/Scripts/launch-mpv.sh &
 sleep 1
-
-nohup ~/Programs/Virtual-Machine-Manager/Foobar2000/open-foobar2000.sh > /dev/null 2>&1&
-
-sleep 1
-# unmaximize
-window_ids=$(wmctrl -l | cut -f1 -d " ")
-for window_id in $window_ids
-do
-    wmctrl -i -r "$window_id" -b remove,maximized_vert,maximized_horz
-done
-
-sleep 1
-
-# Move left
-# wmctrl -r ":ACTIVE:" -e 0,0,0,1920,1080
-# xdotool key ctrl+shift+Left
-mvwin --disable-mouse left
 
 time=$(date +%k%M)
 if [[ "$time" -ge $NIGHTSHIFT_ENABLED_TIME || "$time" -le $NIGHTSHIFT_DISABLED_TIME ]];then
@@ -69,6 +50,7 @@ do
     wmctrl -i -r "$window_id" -b remove,maximized_vert,maximized_horz
 done
 
+
 sleep 1
 # Move right
 wmctrl -r ":ACTIVE:" -e 0,3840,0,1920,1080
@@ -83,6 +65,8 @@ do
 done
 
 sleep 1
+
+/usr/bin/vlc --started-from-file --playlist-enqueue ~/Videos/Music/ > /dev/null 2>&1&
 
 ~/Scripts/join-easy-server.sh
 

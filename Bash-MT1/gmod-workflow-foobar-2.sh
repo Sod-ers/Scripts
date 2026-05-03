@@ -84,6 +84,6 @@ done
 
 sleep 1
 
-~/Scripts/join-easy-server.sh
+~/Scripts/join-hard-server.sh
 
 exit

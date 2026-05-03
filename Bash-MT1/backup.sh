@@ -98,6 +98,45 @@ mkdir /mnt/Backups/Misc/Bitwarden/
 mkdir /mnt/Backups/Misc/Google-Takeout/
 mkdir /mnt/Backups/Linux/MT1/Foobar2000/
 
+# Archive Call of Duty configs
+cd "/home/soders/Backups/Misc/Call of Duty/Archive/"
+zip -r "configs-$(date +"%Y-%m-%d-%s").tar.gz" "/home/soders/Backups/Misc/Call of Duty/"
+
+# Call of Duty: Black Ops 1  T5
+mkdir "/home/soders/Backups/Misc/Call of Duty/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Archive/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Black Ops 1"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t5/players/config.cfg" "/home/soders/Backups/Misc/Call of Duty/Black Ops 1/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t5/players/zmleaderboards" "/home/soders/Backups/Misc/Call of Duty/Black Ops 1/"
+
+# Call of Duty: Black Ops 2 - Zombies  T6
+mkdir "/home/soders/Backups/Misc/Call of Duty/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Archive/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/steam/"
+rsync -r --progress "/home/soders/.steam/debian-installation/steamapps/common/Call of Duty Black Ops II/players" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/steam"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/bindings_zm.bdg" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/hardware_zm.chp" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/plutonium_zm.cfg" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/user_common.cgp" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/user_zm.cgp" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/AppData/Local/Plutonium/storage/t6/players/zmleaderboards" "/home/soders/Backups/Misc/Call of Duty/Black Ops 2 Zombies/"
+
+# Call of Duty: World at War  T4
+mkdir "/home/soders/Backups/Misc/Call of Duty/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/Archive/"
+mkdir "/home/soders/Backups/Misc/Call of Duty/World at War"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/Favorites/t4-cfg-proxy/config.cfg" "/home/soders/Backups/Misc/Call of Duty/World at War/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/Favorites/t4-cfg-proxy/zmleaderboards" "/home/soders/Backups/Misc/Call of Duty/World at War/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/Favorites/t4-cfg-proxy/mpdata" "/home/soders/Backups/Misc/Call of Duty/World at War/"
+rsync --progress "/home/soders/.local/share/wineprefixes/cod/drive_c/users/soders/Favorites/t4-cfg-proxy/mpdatabk0000" "/home/soders/Backups/Misc/Call of Duty/World at War/"
+
+# .xsessionrc
+rsync --progress ~/.xsessionrc /mnt/Backups/Linux/MT1/
+
+# .profile
+rsync --progress ~/.profile /mnt/Backups/Linux/MT1/
+
 # traymd
 mkdir /mnt/Backups/Linux/MT1/traymd/
 rsync -r --progress ~/.local/share/traymd/notes /mnt/Backups/Linux/MT1/traymd/
@@ -248,8 +287,11 @@ rsync -r --progress ~/.steam/debian-installation/steamapps/sourcemods/open_fortr
 rsync -r --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/sourcemods/open_fortress/cfg" /mnt/Backups/Windows/Open-Fortress/
 
 # HL2DM
-mkdir /mnt/Backups/Windows/HL2DM/
-rsync -r --progress "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg" /mnt/Backups/Windows/HL2DM/
+# mkdir /mnt/Backups/Windows/HL2DM/
+mkdir /mnt/Backups/Linux/MT1/HL2DM/
+# rsync -r --progress "/media/soders/2TBNTFS/Games/SteamLibrary/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg" /mnt/Backups/Windows/HL2DM/
+rsync -r --progress "/home/soders/.steam/debian-installation/steamapps/common/Half-Life 2 Deathmatch/hl2mp/cfg" /mnt/Backups/Linux/MT1/HL2DM/
+rsync -r --progress "/home/soders/.steam/debian-installation/steamapps/common/Half-Life 2 Deathmatch/hl2mp/custom" /mnt/Backups/Linux/MT1/HL2DM/
 
 # Factorio
 rsync -r --progress ~/.factorio /mnt/Backups/Linux/MT1/
@@ -997,27 +1039,27 @@ mkdir /mnt/Backups/Projects/surf_brainstorm/materials/
 rsync -r --progress --delete "/mnt/WIN1/Program Files (x86)/Steam/steamapps/common/GarrysMod/garrysmod/materials/models" /mnt/Backups/Projects/surf_brainstorm/
 
 # gone-fishing-collection
-mkdir /mnt/Backups/Projects/gone-fishing-collection/
-rsync -a --progress ~/Projects/Cosmetics/gone-fishing-collection/ /mnt/Backups/Projects/gone-fishing-collection/
-mkdir /mnt/Backups/Projects/gone-fishing-collection/modelsrc/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/gone-fishing-collection/
-mkdir /mnt/Backups/Projects/gone-fishing-collection/models/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/gone-fishing-collection/
-mkdir /mnt/Backups/Projects/gone-fishing-collection/materials/
-rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials/models /mnt/Backups/Projects/gone-fishing-collection/
+# mkdir /mnt/Backups/Projects/gone-fishing-collection/
+# rsync -a --progress ~/Projects/Cosmetics/gone-fishing-collection/ /mnt/Backups/Projects/gone-fishing-collection/
+# mkdir /mnt/Backups/Projects/gone-fishing-collection/modelsrc/
+# rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/modelsrc /mnt/Backups/Projects/gone-fishing-collection/
+# mkdir /mnt/Backups/Projects/gone-fishing-collection/models/
+# rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/models /mnt/Backups/Projects/gone-fishing-collection/
+# mkdir /mnt/Backups/Projects/gone-fishing-collection/materials/
+# rsync -r --progress --delete ~/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/materials/models /mnt/Backups/Projects/gone-fishing-collection/
 
 # Version Control (Location 2)
 mkdir ~/Projects/Archive/
 cd ~/Projects/Archive/
-zip -r "gone-fishing-$(date +"%Y-%m-%d-%s").tar.gz" /mnt/Backups/Projects/gone-fishing-collection/
+# zip -r "gone-fishing-$(date +"%Y-%m-%d-%s").tar.gz" /mnt/Backups/Projects/gone-fishing-collection/
 zip -r "surf_brainstorm-$(date +"%Y-%m-%d-%s").tar.gz" /mnt/Backups/Projects/surf_brainstorm/
 
 # Sync Offline Backup (Location 3)
 mkdir /mnt/Portable-Backup/Projects/
 mkdir /mnt/Portable-Backup/Projects/surf_brainstorm/
-mkdir /mnt/Portable-Backup/Projects/gone-fishing-collection/
+# mkdir /mnt/Portable-Backup/Projects/gone-fishing-collection/
 rsync -r --progress --delete /mnt/Backups/Projects/surf_brainstorm/ /mnt/Portable-Backup/Projects/surf_brainstorm/
-rsync -r --progress --delete /mnt/Backups/Projects/gone-fishing-collection/ /mnt/Portable-Backup/Projects/gone-fishing-collection/
+# rsync -r --progress --delete /mnt/Backups/Projects/gone-fishing-collection/ /mnt/Portable-Backup/Projects/gone-fishing-collection/
 break
 fi
 done
