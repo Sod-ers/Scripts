@@ -144,10 +144,32 @@ rsync --progress ~/.config/traymd/config.ini /mnt/Backups/Linux/MT1/traymd/
 
 # mpv
 mkdir /mnt/Backups/Linux/MT1/mpv/
+mkdir /mnt/Backups/Linux/MT1/mpv/shaders/
+rsync --progress ~/.config/mpv/shaders/NVScaler.glsl /mnt/Backups/Linux/MT1/mpv/shaders/
 rsync --progress ~/.config/mpv/mpv.conf /mnt/Backups/Linux/MT1/mpv/
 rsync --progress ~/.config/mpv/input.conf /mnt/Backups/Linux/MT1/mpv/
 rsync -r --progress ~/.config/mpv/script-opts /mnt/Backups/Linux/MT1/mpv/
 rsync -r --progress ~/.config/mpv/scripts /mnt/Backups/Linux/MT1/mpv/
+rsync -r --progress ~/.config/mpv/fonts /mnt/Backups/Linux/MT1/mpv/
+
+# mpv shim
+mkdir /mnt/Backups/Linux/MT1/mpv/shim/
+mkdir /mnt/Backups/Linux/MT1/mpv/shim/shaders/
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/shaders/NVScaler.glsl /mnt/Backups/Linux/MT1/mpv/shim/shaders/
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/mpv.conf /mnt/Backups/Linux/MT1/mpv/shim/
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/input.conf /mnt/Backups/Linux/MT1/mpv/shim/
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/conf.json /mnt/Backups/Linux/MT1/mpv/shim/
+rsync -r --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/script-opts /mnt/Backups/Linux/MT1/mpv/shim/
+rsync -r --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/scripts /mnt/Backups/Linux/MT1/mpv/shim/
+rsync -r --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/fonts /mnt/Backups/Linux/MT1/mpv/shim/
+
+# mpv rtsp
+mkdir /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync --progress ~/.config/mpv-rtsp/mpv.conf /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync --progress ~/.config/mpv-rtsp/input.conf /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/scripts /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/script-opts /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/fonts /mnt/Backups/Linux/MT1/mpv/rtsp/
 
 # TF2 Tools
 mkdir /mnt/Backups/Linux/MT1/TF2/
@@ -561,10 +583,11 @@ rsync --progress ~/.local/share/jellyfinmediaplayer/jellyfinmediaplayer.conf /mn
 rsync --progress /mnt/WIN1/Users/Soders/AppData/Local/JellyfinMediaPlayer/jellyfinmediaplayer.conf /mnt/Backups/Linux/MT1/jellyfinmediaplayer/
 rsync --progress "/home/soders/.var/app/com.github.iwalton3.jellyfin-media-player/config/jellyfin.org/Jellyfin Media Player.conf" /mnt/Backups/Linux/MT1/jellyfinmediaplayer/flatpak/
 
-# Jellyseerr
+# Seerr
 mkdir /mnt/Backups/Linux/MT1/jellyseerr/
 rsync --progress /etc/jellyseerr/jellyseerr.conf /mnt/Backups/Linux/MT1/jellyseerr/
 rsync --progress /opt/jellyseerr/config/settings.json /mnt/Backups/Linux/MT1/jellyseerr/
+rsync --progress /opt/jellyseerr/config/db/db.sqlite3 /mnt/Backups/Linux/MT1/jellyseerr/
 
 # Digikam
 mkdir /mnt/Backups/Linux/MT1/digiKam/
@@ -678,6 +701,7 @@ rsync --progress ~/.config/slimbookbattery/slimbookbattery.conf /mnt/Backups/Lin
 
 # Usermode FTP Server
 rsync -r --progress ~/.var/app/eu.ithz.umftpd/config/umftpd /mnt/Backups/Linux/MT1/
+rsync -r --progress ~/Configs/umftp /mnt/Backups/Linux/MT1/umftpd/
 
 # Music
 mkdir /mnt/Backups/Music/
@@ -814,6 +838,26 @@ else
 rsync -r --progress --delete /mnt/Portable-Backup/Linux/ /mnt/Backups/Linux/
 rsync -r --progress --delete /mnt/Portable-Backup/Windows/ /mnt/Backups/Windows/
 rsync -r --progress --delete /mnt/Portable-Backup/Misc/ /mnt/Backups/Misc/
+
+# mpv
+rsync --progress ~/.config/mpv/mpv.conf /home/soders/Nextcloud/GitHub/Configs/Configs/mpv/MT1/
+rsync --progress ~/.config/mpv/input.conf /home/soders/Nextcloud/GitHub/Configs/Configs/mpv/MT1/
+rsync --progress ~/.config/mpv/script-opts/blacklist_extensions.conf /home/soders/Nextcloud/GitHub/Configs/Configs/mpv/script-opts/
+rsync --progress ~/.config/mpv/scripts/restart-mpv.lua /home/soders/Nextcloud/GitHub/Configs/Configs/mpv/scripts/
+rsync --progress ~/.config/mpv/scripts/blacklist-extensions.lua /home/soders/Nextcloud/GitHub/Configs/Configs/mpv/scripts/
+
+# mpv shim
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/mpv.conf "/home/soders/Nextcloud/GitHub/Configs/Configs/mpv shim/"
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/input.conf "/home/soders/Nextcloud/GitHub/Configs/Configs/mpv shim/"
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/scripts/modernz.lua "/home/soders/Nextcloud/GitHub/Configs/Configs/mpv shim/scripts/"
+rsync --progress ~/.var/app/com.github.iwalton3.jellyfin-mpv-shim/config/jellyfin-mpv-shim/script-opts/modernz.conf "/home/soders/Nextcloud/GitHub/Configs/Configs/mpv shim/script-opts/"
+
+# mpv rtsp
+mkdir /mnt/Backups/Linux/MT1/mpv/rtsp/
+rsync --progress ~/.config/mpv-rtsp/mpv.conf /home/soders/Nextcloud/GitHub/Configs/Configs/mpv-rtsp/
+rsync --progress ~/.config/mpv-rtsp/input.conf /home/soders/Nextcloud/GitHub/Configs/Configs/mpv-rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/scripts /home/soders/Nextcloud/GitHub/Configs/Configs/mpv-rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/script-opts /home/soders/Nextcloud/GitHub/Configs/Configs/mpv-rtsp/
 
 # Redshift
 rsync --progress /mnt/Backups/Linux/MT1/Documents/Configs/Redshift/Summer.conf /home/soders/Nextcloud/GitHub/Configs/Configs/Redshift/

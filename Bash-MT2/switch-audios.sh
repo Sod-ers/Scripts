@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 60
+
 # Collect all sinks
 sinkList=$(pactl list sinks | tr '\n' '\r' | perl -pe 's/Sink #([0-9]+).+?device\.description = "([^\r]+)"\r.+?(?=Sink #|$)/\1:"\2",/g' | tr '\r' '\n')
 IFS="," read -a sinksArray <<< "$sinkList"
@@ -33,3 +35,5 @@ if [[ $simultaneous ]]; then
 else
   echo "simultaneous sink was not found"
 fi
+
+chmod -x ~/Scripts/switch-audios.sh

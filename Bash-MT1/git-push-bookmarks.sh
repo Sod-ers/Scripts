@@ -12,6 +12,7 @@ rm ~/Nextcloud/GitHub/Bookmarks/Bookmarks/nohup.out
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/Bookmarks/Bookmarks/
 echo -e "${RED}git checkout main${NC}"

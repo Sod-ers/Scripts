@@ -50,6 +50,7 @@ rsync /home/soders/Configs/CS2/autoexec.cfg /home/soders/Nextcloud/GitHub/Config
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/Configs/Configs/
 echo -e "${RED}git checkout main${NC}"

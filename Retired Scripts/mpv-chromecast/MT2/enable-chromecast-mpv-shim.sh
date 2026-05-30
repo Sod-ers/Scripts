@@ -1,35 +1,11 @@
 #!/bin/bash
 
-# Fuck Google
-# for putting popup ads in Google Assistant
-# interrupting automations & forcing users to interact with ads
-# to use hardware paid for years ago
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-mpv-shim com.github.iwalton3.jellyfin-mpv-shim > /dev/null 2>&1&
 
-# Ambient sound URLs used by Home hardware:
-# https://www.gstatic.com/voice_delight/sounds/long/brook.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/oscillating_fan.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/fireplace.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/forest.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/country_night.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/ocean.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/rain.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/river.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/thunder.mp3
-# https://www.gstatic.com/voice_delight/sounds/long/pink_noise.mp3
-
-printf "\033]0;%s\a" "White Noise"
-
-chmod -x ~/Scripts/hourly-chime.sh
-chmod -x ~/Scripts/completion-chime.sh
-chmod -x ~/Scripts/ytdlp-auto.sh
 chmod +x ~/Scripts/switch-audios.sh
-
 ~/Scripts/switch-audios.sh > /dev/null 2>&1&
 
-# Built-in Audio Analog Stereo for CVLC
-cvlc -q --loop ~/Audio/river.mp3 > /dev/null 2>&1&
-# Mkchromecast for mpv
-mpv ~/Audio/river.mp3 --no-video --loop --no-terminal &
+printf "\033]0;%s\a" "Chromecast"
 
 echo ⠀⠀⠀⣠⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣦⣄⠀⠀⠀
 echo ⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀

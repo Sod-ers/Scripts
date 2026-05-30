@@ -248,7 +248,7 @@ do
     case $opt in
         "Videos")
             read -p "$(echo -e ${RED}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/ytdlp $URLS --sponsorblock-remove sponsor,selfpromo --sleep-interval 60 --max-sleep-interval 120 --js-runtimes deno:/home/soders/.deno/bin/deno --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf
+            ~/.local/bin/ytdlp $URLS --sponsorblock-remove sponsor,selfpromo --write-auto-subs --sub-format srt --sleep-interval 60 --max-sleep-interval 120 --js-runtimes deno:/home/soders/.deno/bin/deno --config-locations ~/Configs/YTDLP/youtube-video-1080p.conf
             ~/Scripts/delete-empty-media-directories.sh && ~/Scripts/delete-empty-media-directories-2.sh
             ~/Scripts/completion-chime.sh && sleep 1
             break

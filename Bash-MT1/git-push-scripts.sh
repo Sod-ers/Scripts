@@ -26,6 +26,7 @@ rsync -r --delete /home/soders/Scripts/* /home/soders/Nextcloud/GitHub/Scripts/S
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/Scripts/Scripts/
 echo -e "${RED}git checkout main${NC}"

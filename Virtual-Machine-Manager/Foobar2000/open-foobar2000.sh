@@ -1,2 +1,2 @@
-virsh --connect qemu:///system start Foobar2000 &&
-  virt-viewer --connect qemu:///system Foobar2000 & ~/Scripts/spotdl-auto-1.sh
+DISPLAY=:0 virsh --connect qemu:///system start Foobar2000 &&
+  DISPLAY=:0 virt-viewer --connect qemu:///system Foobar2000

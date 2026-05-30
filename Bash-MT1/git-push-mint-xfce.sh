@@ -12,6 +12,7 @@ rm ~/Nextcloud/GitHub/mint-xfce/mint-xfce/nohup.out
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/mint-xfce/mint-xfce/
 echo -e "${RED}git checkout main${NC}"

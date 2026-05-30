@@ -29,13 +29,14 @@ echo ⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 echo ⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠁⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠛⠛⠛⠋⠉⠉⠁⠀⠀⠀⠀⠀
 
-echo -e "${RED}Authenticate to enable Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Jellyseerr${NC}"
+echo -e "${RED}Authenticate to enable Radarr, Sonarr, Seerr${NC}"
+# echo -e "${RED}Authenticate to enable Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Seerr${NC}"
 
 # nohup ~/Programs/Flaresolverr/flaresolverr > /dev/null 2>&1&
 
-sudo systemctl start lidarr
+# sudo systemctl start lidarr
 sudo systemctl start radarr
 sudo systemctl start sonarr
-sudo systemctl start readarr
-sudo systemctl start prowlarr
+# sudo systemctl start readarr
+# sudo systemctl start prowlarr
 sudo systemctl start jellyseerr

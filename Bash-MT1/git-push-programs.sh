@@ -12,6 +12,7 @@ rm ~/Nextcloud/GitHub/Programs/Programs/nohup.out
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/Programs/Programs/
 echo -e "${RED}git checkout main${NC}"

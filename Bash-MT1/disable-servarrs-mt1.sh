@@ -29,13 +29,14 @@ echo ⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 echo ⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠁⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠛⠛⠛⠋⠉⠉⠁⠀⠀⠀⠀⠀
 
-echo -e "${RED}Shutting down Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Jellyseerr${NC}"
+# echo -e "${RED}Shutting down Radarr, Sonarr, Lidarr, Readarr, Prowlarr, Seerr${NC}"
+echo -e "${RED}Shutting down Radarr, Sonarr, Seerr${NC}"
 
-sudo systemctl stop lidarr
+# sudo systemctl stop lidarr
 sudo systemctl stop radarr
 sudo systemctl stop sonarr
-sudo systemctl stop readarr
-sudo systemctl stop prowlarr
+# sudo systemctl stop readarr
+# sudo systemctl stop prowlarr
 sudo systemctl stop jellyseerr
 # nohup pkill flaresolverr
 exit

@@ -47,7 +47,7 @@ date "+%-d`DaySuffix`" > /tmp/thermal-print/time.txt
 todays_date=$(cat /tmp/thermal-print/time.txt)
 
 date "+%A, %B $todays_date, %Y" > /tmp/thermal-print/print-groceries.txt
-echo "------------------------------------------------" >> /tmp/thermal-print/print-groceries.txt
+echo " " >> /tmp/thermal-print/print-groceries.txt
 cat /tmp/thermal-print/groceries.md >> /tmp/thermal-print/print-groceries.txt
 
 cat /tmp/thermal-print/print-groceries.txt >> /dev/usb/lp0

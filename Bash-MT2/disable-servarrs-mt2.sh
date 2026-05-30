@@ -29,7 +29,7 @@ echo ⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 echo ⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠁⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠛⠛⠛⠋⠉⠉⠁⠀⠀⠀⠀⠀
 
-echo -e "${RED}Shutting down Radarr, Sonarr, & Jellyseerr...${NC}"
+echo -e "${RED}Shutting down Radarr, Sonarr, & Seerr...${NC}"
 
 sudo systemctl stop radarr
 sudo systemctl stop sonarr

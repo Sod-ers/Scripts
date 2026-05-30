@@ -98,6 +98,15 @@ rsync --progress ~/.config/mpv/mpv.conf /mnt/SD-64/Linux/MT3/mpv/
 rsync --progress ~/.config/mpv/input.conf /mnt/SD-64/Linux/MT3/mpv/
 rsync -r --progress ~/.config/mpv/script-opts /mnt/SD-64/Linux/MT3/mpv/
 rsync -r --progress ~/.config/mpv/scripts /mnt/SD-64/Linux/MT3/mpv/
+rsync -r --progress ~/.config/mpv/fonts /mnt/SD-64/Linux/MT3/mpv/
+
+# mpv-rtsp
+mkdir /mnt/SD-64/Linux/MT3/mpv-rtsp/
+rsync --progress ~/.config/mpv-rtsp/mpv.conf /mnt/SD-64/Linux/MT3/mpv-rtsp/
+rsync --progress ~/.config/mpv-rtsp/input.conf /mnt/SD-64/Linux/MT3/mpv-rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/script-opts /mnt/SD-64/Linux/MT3/mpv-rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/scripts /mnt/SD-64/Linux/MT3/mpv-rtsp/
+rsync -r --progress ~/.config/mpv-rtsp/fonts /mnt/SD-64/Linux/MT3/mpv-rtsp/
 
 # feh
 rsync -r --progress ~/.config/feh /mnt/SD-64/Linux/MT3/
@@ -318,6 +327,7 @@ rsync --progress ~/.config/slimbookbattery/slimbookbattery.conf /mnt/SD-64/Linux
 
 # Usermode FTP Server
 rsync -r --progress ~/.var/app/eu.ithz.umftpd/config/umftpd /mnt/SD-64/Linux/MT3/
+rsync -r --progress ~/Configs/umftp /mnt/SD-64/Linux/MT3/umftpd/
 
 # Obsidian
 mkdir /mnt/SD-64/Linux/MT3/Obsidian/

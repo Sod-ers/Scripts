@@ -29,10 +29,11 @@ echo ⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 echo ⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠁⠀⠀⠀
 echo ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠛⠛⠛⠋⠉⠉⠁⠀⠀⠀⠀⠀
 
-echo -e "${GREEN}Starting Radarr, Sonarr, & Jellyseerr...${NC}"
+echo -e "${GREEN}Starting Radarr, Sonarr, & Seerr...${NC}"
 
 sudo systemctl start radarr
 sudo systemctl start sonarr
 sudo systemctl start jellyseerr
-
+# cd /opt/jellyseerr/
+# nohup pnpm start > /dev/null 2>&1&
 exit

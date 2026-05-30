@@ -46,6 +46,7 @@ rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysm
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh
+clear
 
 cd ~/Nextcloud/GitHub/GMod-Resources/GMod-Resources/
 echo -e "${RED}git checkout main${NC}"
