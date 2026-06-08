@@ -114,9 +114,9 @@ cd /opt/jellyseerr/
 
 git pull
 
-rm -rf /opt/jellyseerr/dist
-rm -rf /opt/jellyseerr/.next
-rm -rf /opt/jellyseerr/node_modules
+sudo rm -rf /opt/jellyseerr/dist
+sudo rm -rf /opt/jellyseerr/.next
+sudo rm -rf /opt/jellyseerr/node_modules
 
 # Windows only
 # npm install -g win-node-env

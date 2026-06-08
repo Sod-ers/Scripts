@@ -131,7 +131,7 @@ rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 # Enable programs
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
 nohup ~/Scripts/enable-jellyfin-mt1.sh
-nohup sleep 15 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-mpv-shim com.github.iwalton3.jellyfin-mpv-shim > /dev/null 2>&1&
+# nohup sleep 15 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-mpv-shim com.github.iwalton3.jellyfin-mpv-shim > /dev/null 2>&1&
 echo -e "${GREEN}Updates finished!${NC}" && sleep 3
             break
             ;;
@@ -174,9 +174,9 @@ cd /opt/jellyseerr/
 
 git pull
 
-rm -rf /opt/jellyseerr/dist
-rm -rf /opt/jellyseerr/.next
-rm -rf /opt/jellyseerr/node_modules
+sudo rm -rf /opt/jellyseerr/dist
+sudo rm -rf /opt/jellyseerr/.next
+sudo rm -rf /opt/jellyseerr/node_modules
 
 # Windows only
 # npm install -g win-node-env

@@ -67,13 +67,13 @@ do
         "Songs")
             cp ~/Configs/spotDL/song.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl --bitrate 192k download $URLS
+            ~/.local/bin/spotdl --bitrate 192k --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno" download $URLS
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Liked Songs")
             cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --cookie-file ~/Configs/spotDL/cookies.txt --bitrate 192k download saved --user-auth --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --cookie-file ~/Configs/spotDL/cookies.txt --bitrate 192k download saved --user-auth --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -95,13 +95,13 @@ do
         "Album")
             cp ~/Configs/spotDL/album.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl --bitrate 192k download $URLS --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Saved Albums")
             cp ~/Configs/spotDL/saved-albums.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download all-user-saved-albums --user-auth --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-saved-albums --user-auth --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -130,21 +130,21 @@ do
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Foobar" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Foobar" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Favorite Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Foobar" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Foobar" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "My Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Foobar" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Foobar" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -167,21 +167,21 @@ do
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Linux" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Linux" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Favorite Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Linux" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Linux" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "My Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/linux-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Linux" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Linux" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -204,21 +204,21 @@ do
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Windows" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --m3u "{list} - Windows" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Favorite Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Windows" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $favorite_playlists --m3u "{list} - Windows" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "My Playlists")
             cd ~/Music/Playlists/
             cp ~/Configs/spotDL/windows-playlist.json ~/.spotdl/config.json
-            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Windows" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download all-user-playlists --user-auth --m3u "{list} - Windows" --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -242,14 +242,14 @@ done
         "First Listen")
             cp ~/Configs/spotDL/first-listen.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter URLs: "${NC})" URLS
-            ~/.local/bin/spotdl --bitrate 192k download $URLS --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URLS --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
         "Artist")
             cp ~/Configs/spotDL/artist.json ~/.spotdl/config.json
             read -p "$(echo -e ${GREEN}"Enter artist URL: "${NC})" URL
-            ~/.local/bin/spotdl --bitrate 192k download $URL --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k download $URL --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno --sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -263,7 +263,7 @@ do
             cp ~/Configs/spotDL/song.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_url
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_url
-            ~/.local/bin/spotdl --bitrate 192k download "$cloudtube_url|$spotify_url"
+            ~/.local/bin/spotdl --bitrate 192k --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno" download "$cloudtube_url|$spotify_url"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;
@@ -271,7 +271,7 @@ do
             cp ~/Configs/spotDL/album.json ~/.spotdl/config.json
             read -p "$(echo -e ${RED}"Enter YouTube or Soundcloud URL: "${NC})" cloudtube_url
             read -p "$(echo -e ${GREEN}"Enter Spotify URL: "${NC})" spotify_url
-            ~/.local/bin/spotdl --bitrate 192k download "$cloudtube_url|$spotify_url" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
+            ~/.local/bin/spotdl --bitrate 192k --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno" download "$cloudtube_url|$spotify_url" --yt-dlp-args "--sleep-interval 30 --max-sleep-interval 60"
             ~/Scripts/completion-chime.sh && sleep 1
             break
             ;;

@@ -35,8 +35,5 @@ xfconf-query  \
   --property /backdrop/screen0/$TV/workspace0/last-image \
   --set /home/soders/Pictures/Wallpapers/Dracula.png
 
-# Laptop:
-ssh $MT3 ~/Scripts/default-workflow.sh & ssh $PM2 ~/Scripts/default-workflow.sh
-
 # Screensavers:
 cp ~/Configs/XScreenSaver/.default ~/.xscreensaver

@@ -12,10 +12,10 @@ source ~/Configs/spotDL/.env
 
 # cd ~/Music/Playlists/
 # cp ~/Configs/spotDL/foobar-playlist.json ~/.spotdl/config.json
-# ~/.local/bin/spotdl --bitrate 192k download $spotify_playlists --m3u "{list} - Foobar" --sleep-interval 30 --max-sleep-interval 60
+# ~/.local/bin/spotdl --bitrate 192k --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno" download $spotify_playlists --m3u "{list} - Foobar" --sleep-interval 30 --max-sleep-interval 60
 
 cp ~/Configs/spotDL/liked-songs.json ~/.spotdl/config.json
-~/.local/bin/spotdl --bitrate 192k download saved --user-auth --sleep-interval 30 --max-sleep-interval 60
+~/.local/bin/spotdl --bitrate 192k --yt-dlp-args "--js-runtimes deno:/home/soders/.deno/bin/deno" download saved --user-auth --sleep-interval 30 --max-sleep-interval 60
 else
 echo " "
 fi

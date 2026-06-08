@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Kanban fix
-# /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Shed-e-matrix & sleep 2 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Later-e-matrix
-
 # Use blank template to load faster
-/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Templates/Tasks-e-matrix & sleep 1.75 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Later-e-matrix
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Templates/Blank & sleep 1.75 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@ obsidian://vault/Weekly-Planner/Later.ematrix
 
 # System package
-# /opt/Obsidian/obsidian %U obsidian://vault/Weekly-Planner/Later-e-matrix
+# /opt/Obsidian/obsidian %U obsidian://vault/Weekly-Planner/Later.ematrix
 
 # App image
-# ~/Programs/Obisidan/Obsidian.AppImage obsidian://vault/Weekly-Planner/Later-e-matrix
+# ~/Programs/Obisidan/Obsidian.AppImage obsidian://vault/Weekly-Planner/Later.ematrix
