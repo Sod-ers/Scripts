@@ -131,7 +131,7 @@ rm ~/.var/app/org.openrgb.OpenRGB/config/OpenRGB/logs/*
 # Enable programs
 nohup "/usr/bin/nextcloud" --background > /dev/null 2>&1&
 nohup ~/Scripts/enable-jellyfin-mt1.sh
-# nohup sleep 15 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-mpv-shim com.github.iwalton3.jellyfin-mpv-shim > /dev/null 2>&1&
+nohup sleep 30 && /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-mpv-shim com.github.iwalton3.jellyfin-mpv-shim > /dev/null 2>&1&
 echo -e "${GREEN}Updates finished!${NC}" && sleep 3
             break
             ;;

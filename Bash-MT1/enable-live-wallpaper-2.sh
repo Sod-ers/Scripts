@@ -9,8 +9,8 @@
 # prerequisites
 source ~/.env
 mkdir /tmp/live-wallpaper/ > /dev/null 2>&1&
-touch /tmp/live-wallpaper/frames.txt > /dev/null 2>&1&
-touch /tmp/live-wallpaper/live-wallpaper-2.lock > /dev/null 2>&1&
+touch /tmp/live-wallpaper/frames.txt
+bash -c "touch /tmp/live-wallpaper/live-wallpaper-2.lock"
 echo " " > /tmp/live-wallpaper/frames.txt
 
 # begin loop

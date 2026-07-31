@@ -36,6 +36,7 @@ rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysm
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/chat.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/chat.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/server.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/server.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-autoexec.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-autoexec.cfg
+rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test.cfg
 rsync /home/soders/Configs/GMod/BB/mvp.cfg /media/soders/2TBNTFS/Documents/Configs/GMod/BB/mvp.cfg
 mkdir /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
 rsync -r --delete /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/data/bb_servers/outfits /media/soders/2TBNTFS/Documents/Configs/GMod/BB/
@@ -43,6 +44,12 @@ rsync /home/soders/.steam/debian-installation/steamapps/sourcemods/open_fortress
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-cosmetic.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-cosmetic.cfg
 rsync /home/soders/.steam/debian-installation/steamapps/common/GarrysMod/garrysmod/cfg/test-map.cfg /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/CFG/test-map.cfg
 
+rsync /home/soders/Projects/Cosmetics/templates/qc/comments.qc /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Templates/qc/comments.qc
+rsync /home/soders/Projects/Cosmetics/templates/qc/clean.qc /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Templates/qc/clean.qc
+rsync /home/soders/Projects/Cosmetics/templates/qc/jigglebones.qc /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Templates/qc/jigglebones.qc
+
+rsync /home/soders/Projects/Cosmetics/templates/vmt/clean.vmt /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Templates/vmt/clean.vmt
+rsync /home/soders/Projects/Cosmetics/templates/vmt/comments.vmt /home/soders/Nextcloud/GitHub/GMod-Resources/GMod-Resources/Templates/vmt/comments.vmt
 
 echo -e "${RED}git-remove-private.sh${NC}"
 ~/Scripts/git-remove-private.sh

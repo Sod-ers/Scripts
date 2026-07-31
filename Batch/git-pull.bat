@@ -5,6 +5,13 @@ git pull https://github.com/Sod-ers/GMod-Resources.git
 cd E:\GitHub\Configs
 git pull https://github.com/Sod-ers/Configs.git
 
+XCOPY /y /q "E:\GitHub\GMod-Resources\Templates\qc\clean.qc" "E:\Projects\templates\qc\clean.qc*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\Templates\qc\comments.qc" "E:\Projects\templates\qc\comments.qc*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\Templates\qc\jigglebones.qc" "E:\Projects\templates\qc\jigglebones.qc*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\Templates\vmt\clean.vmt" "E:\Projects\templates\vmt\clean.vmt*"
+XCOPY /y /q "E:\GitHub\GMod-Resources\Templates\vmt\comments.vmt" "E:\Projects\templates\vmt\comments.vmt*"
+
+XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-cosmetic.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-cosmetic.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-map.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-map.cfg*"
 XCOPY /y /q "E:\GitHub\GMod-Resources\CFG\test-autoexec.cfg" "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\cfg\test-autoexec.cfg*"

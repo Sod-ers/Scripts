@@ -76,7 +76,7 @@ sudo apt autoclean
 echo -e "${GREEN}Updates finished!${NC}" && sleep 3
 
 # Enable programs
-nohup ~/Scripts/enable-jellyfin-mt2.sh
+# nohup ~/Scripts/enable-jellyfin-mt2.sh
             break
             ;;
         "Seerr")
