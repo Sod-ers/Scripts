@@ -1,11 +1,11 @@
 #!/bin/bash
 
 source ~/.env
-LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Foobar2000 > /dev/null 2>&1&
-# LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Debian > /dev/null 2>&1&
+LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Foobar2k > /dev/null 2>&1&
+# LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Debian13 > /dev/null 2>&1&
 # LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown MintXFCE > /dev/null 2>&1&
 # LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown SDK > /dev/null 2>&1&
-LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Sideloadly > /dev/null 2>&1&
+# LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Sideloadly > /dev/null 2>&1&
 # LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Windows11-Offline > /dev/null 2>&1&
 # LIBVIRT_DEFAULT_URI=qemu:///system virsh shutdown Windows11-Online > /dev/null 2>&1&
 ~/Scripts/default-workflow.sh > /dev/null 2>&1&

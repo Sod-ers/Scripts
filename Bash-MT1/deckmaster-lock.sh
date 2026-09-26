@@ -2,7 +2,7 @@
 
 source ~/.env
 
-nohup /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=openrgb org.openrgb.OpenRGB --profile Off > /dev/null 2>&1&
+nohup /mnt/ssd120/Programs/OpenRGB/OpenRGB.AppImage --profile Off > /dev/null 2>&1&
 kill $(pidof deckmaster)
 sleep 0.25
 ~/Scripts/deckmaster-unlock-decider.sh

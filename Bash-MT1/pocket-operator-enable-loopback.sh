@@ -15,7 +15,7 @@ sleep 1
 pactl list sink-inputs | grep object.serial | cut -c 20- | sed 's/.$//' > /tmp/pocket-operator/object-serial.txt
 
 object_serial=$(cat /tmp/pocket-operator/object-serial.txt)
-volume=30%
+volume=35%
 
 pactl set-sink-input-volume $object_serial $volume
 
